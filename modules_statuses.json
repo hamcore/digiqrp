@@ -1,0 +1,16 @@
+{
+    "Core": true,
+    "Dashboard": true,
+    "Media": true,
+    "Menu": true,
+    "Page": true,
+    "Setting": true,
+    "Tag": true,
+    "Translation": true,
+    "User": true,
+    "Workshop": true,
+    "Blog": true,
+    "Notification": true,
+    "Block": true,
+    "Contact": true
+}

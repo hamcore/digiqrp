@@ -1,0 +1,44 @@
+url: https://github.com/AsgardCms/Notification
+versions:
+    "3.0.1":
+        changed:
+            - Upgrade Pusher notifications plugin to latest version and using the cluster and encryption settings
+    "3.0.0":
+        added:
+            - AsgardCMS v3 support
+            - <code>pusher/pusher-php-server</code> to the composer suggest array
+            - Testing the <code>NotificationRepository</code>
+        changed:
+            - Register the notification sidebar via event handler
+            - Notification javascript code is pushed to the js-stack in the footer
+            - Fixed spelling of "Unread"
+            - Fixed stray <code>flash()</code> call
+        removed:
+            - Removing grumphp
+    "2.0.0":
+        added:
+            - Laravel 5.2 compatibility
+        changed:
+            - Using new more flexible way of handle permissions via middleware
+            - Removing laracasts/flash dependency
+    "1.4.0":
+        changed:
+            - Use <code>$router</code> variable in routes file
+    "1.3.0":
+        changed:
+            - Setting the View All text as translatable key
+            - Reading the users table from the <code>auth.table</code> file
+    "1.2.0":
+        changed:
+            - Use the new datatables way of marking column not sortable
+            - Use the single removal modal setup
+    "1.1.0":
+        added:
+            - Link in dropdown to mark notification as read
+            - Mark notifications as read from the drop down
+            - An index view with all the notifications for current user
+            - Link to mark all notifications as read for current user
+            - Link to delete all notifications for current user
+    "1.0.0":
+        added:
+            - Initial release

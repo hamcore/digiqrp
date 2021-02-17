@@ -1,0 +1,24 @@
+language: php
+
+php:
+  - 7.3
+  - 7.4
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+env:
+  - LARAVEL_VERSION="~7.0" TESTBENCH_VERSION="~5.7"
+
+before_script:
+  - phpenv config-rm xdebug.ini
+  - travis_retry composer self-update
+  - COMPOSER=composer.travis.json COMPOSER_MEMORY_LIMIT=-1 travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-dist
+  - chmod +x travis.sh
+  - ./travis.sh
+  - php artisan clear-compiled
+
+script: vendor/bin/phpunit
+
+sudo: false

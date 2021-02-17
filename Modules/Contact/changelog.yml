@@ -1,0 +1,14 @@
+url: https://github.com/AsgardCms/Contact
+versions:
+    "3.1.0":
+        added:
+            - AsgardCMS 3.2 support
+            - Register translations for new User module (vuejs)
+            - More translatable fields and content
+    "3.0.0":
+        added:
+            - AsgardCMS v3 support
+            - Read the sidebar position from configuration file, default to 15
+            - New <code>RegisterContactSidebar</code> class
+        changed:
+            - Removed usages of <code>URL::route()</code> in favor of <code>route()</code>

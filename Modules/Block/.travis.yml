@@ -1,0 +1,27 @@
+language: php
+
+php:
+  - 7.3
+  - 7.4
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+env:
+  - LARAVEL_VERSION="^8.0" TESTBENCH_VERSION="^6.2"
+
+before_script:
+  - travis_retry composer update --no-interaction --prefer-dist
+
+script:
+  - vendor/bin/phpunit
+
+branches:
+  only:
+    - master
+
+notifications:
+  slack: asgardcms:oJ1NpQQ7t2vslPIlKzZHVvZE
+  email:
+    - n.widart@gmail.com
