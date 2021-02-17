@@ -13,3 +13,4 @@ yarn.lock
 .php_cs.cache
 .idea
 /code_coverage
+/.env.example
