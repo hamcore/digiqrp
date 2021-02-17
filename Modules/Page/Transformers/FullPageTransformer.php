@@ -10,10 +10,10 @@ class FullPageTransformer extends JsonResource
     public function toArray($request)
     {
         $pageData = [
-            'id' => $this->resource->id,
+            'id'       => $this->resource->id,
             'template' => $this->resource->template,
-            'is_home' => $this->resource->is_home,
-            'urls' => [
+            'is_home'  => $this->resource->is_home,
+            'urls'     => [
                 'public_url' => $this->resource->getCanonicalUrl(),
             ],
         ];

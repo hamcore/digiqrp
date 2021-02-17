@@ -5,8 +5,7 @@ namespace Modules\Blog\Repositories;
 use Modules\Core\Repositories\BaseRepository;
 
 /**
- * Interface CategoryRepository
- * @package Modules\Blog\Repositories
+ * Interface CategoryRepository.
  */
 interface CategoryRepository extends BaseRepository
 {

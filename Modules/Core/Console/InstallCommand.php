@@ -10,7 +10,8 @@ use Symfony\Component\Console\Input\InputOption;
 
 class InstallCommand extends Command
 {
-    use BlockMessage, SectionMessage;
+    use BlockMessage;
+    use SectionMessage;
 
     /**
      * The console command name.
@@ -35,6 +36,7 @@ class InstallCommand extends Command
      * Create a new command instance.
      *
      * @param Installer $installer
+     *
      * @internal param Filesystem $finder
      * @internal param Application $app
      * @internal param Composer $composer
@@ -47,7 +49,7 @@ class InstallCommand extends Command
     }
 
     /**
-     * Execute the actions
+     * Execute the actions.
      *
      * @return mixed
      */

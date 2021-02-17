@@ -26,9 +26,9 @@ class RootMenuItemCreator
     public function handle(MenuWasCreated $event)
     {
         $data = [
-            'menu_id' => $event->menu->id,
+            'menu_id'  => $event->menu->id,
             'position' => 0,
-            'is_root' => true,
+            'is_root'  => true,
         ];
 
         foreach ($this->getEnabledLocales() as $locale) {
@@ -39,7 +39,8 @@ class RootMenuItemCreator
     }
 
     /**
-     * Return an array of enabled locales
+     * Return an array of enabled locales.
+     *
      * @return array
      */
     private function getEnabledLocales()

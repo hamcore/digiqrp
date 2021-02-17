@@ -3,8 +3,7 @@
 namespace Modules\Blog\Entities;
 
 /**
- * Class Status
- * @package Modules\Blog\Entities
+ * Class Status.
  */
 class Status
 {
@@ -21,15 +20,16 @@ class Status
     public function __construct()
     {
         $this->statuses = [
-            self::DRAFT => trans('blog::status.draft'),
-            self::PENDING => trans('blog::status.pending review'),
-            self::PUBLISHED => trans('blog::status.published'),
+            self::DRAFT       => trans('blog::status.draft'),
+            self::PENDING     => trans('blog::status.pending review'),
+            self::PUBLISHED   => trans('blog::status.published'),
             self::UNPUBLISHED => trans('blog::status.unpublished'),
         ];
     }
 
     /**
-     * Get the available statuses
+     * Get the available statuses.
+     *
      * @return array
      */
     public function lists()
@@ -38,8 +38,10 @@ class Status
     }
 
     /**
-     * Get the post status
+     * Get the post status.
+     *
      * @param int $statusId
+     *
      * @return string
      */
     public function get($statusId)

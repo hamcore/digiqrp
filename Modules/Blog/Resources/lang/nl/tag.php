@@ -2,9 +2,9 @@
 
 return [
     'title' => [
-        'tag' => 'Labels',
+        'tag'        => 'Labels',
         'create tag' => 'Creëer een label',
-        'edit tag' => 'Wijzig een label',
+        'edit tag'   => 'Wijzig een label',
     ],
     'button' => [
         'create tag' => 'Creëer een label',

@@ -36,8 +36,8 @@ class ThumbnailsManagerTest extends MediaTestCase
     {
         $expected = [
             'resize' => [
-                'width' => 180,
-                'height' => null,
+                'width'    => 180,
+                'height'   => null,
                 'callback' => function ($constraint) {
                     $constraint->aspectRatio();
                     $constraint->upsize();

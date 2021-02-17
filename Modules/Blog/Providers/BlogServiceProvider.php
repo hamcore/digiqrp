@@ -20,7 +20,8 @@ use Modules\Tag\Repositories\TagManager;
 
 class BlogServiceProvider extends ServiceProvider
 {
-    use CanPublishConfiguration, CanGetSidebarClassForModule;
+    use CanPublishConfiguration;
+    use CanGetSidebarClassForModule;
     /**
      * Indicates if loading of the provider is deferred.
      *
@@ -46,13 +47,13 @@ class BlogServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__ . '/../Resources/views' => base_path('resources/views/asgard/blog'),
+            __DIR__.'/../Resources/views' => base_path('resources/views/asgard/blog'),
         ]);
 
         $this->publishConfig('blog', 'config');
         $this->publishConfig('blog', 'permissions');
         $this->publishConfig('blog', 'settings');
-        $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
+        $this->loadMigrationsFrom(__DIR__.'/../Database/Migrations');
 
         $this->registerThumbnails();
         $this->app[TagManager::class]->registerNamespace(new Post());
@@ -66,7 +67,7 @@ class BlogServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return array();
+        return [];
     }
 
     private function registerBindings()
@@ -96,8 +97,8 @@ class BlogServiceProvider extends ServiceProvider
     {
         $this->app[ThumbnailManager::class]->registerThumbnail('blogThumb', [
             'fit' => [
-                'width' => '150',
-                'height' => '150',
+                'width'    => '150',
+                'height'   => '150',
                 'callback' => function ($constraint) {
                     $constraint->upsize();
                 },

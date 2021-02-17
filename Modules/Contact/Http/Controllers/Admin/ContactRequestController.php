@@ -2,7 +2,6 @@
 
 namespace Modules\Contact\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Modules\Contact\Entities\ContactRequest;
 use Modules\Contact\Repositories\ContactRequestRepository;
@@ -47,7 +46,8 @@ class ContactRequestController extends AdminBaseController
     /**
      * Remove the specified resource from storage.
      *
-     * @param  ContactRequest $contactrequest
+     * @param ContactRequest $contactrequest
+     *
      * @return Response
      */
     public function destroy(ContactRequest $contactrequest)

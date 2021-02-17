@@ -16,5 +16,4 @@ class EloquentContactRequestRepository extends EloquentBaseRepository implements
 
         return $contactRequest;
     }
-
 }

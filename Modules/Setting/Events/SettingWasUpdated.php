@@ -3,7 +3,6 @@
 namespace Modules\Setting\Events;
 
 use Modules\Media\Contracts\StoringMedia;
-
 use Modules\Setting\Entities\Setting;
 
 class SettingWasUpdated implements StoringMedia

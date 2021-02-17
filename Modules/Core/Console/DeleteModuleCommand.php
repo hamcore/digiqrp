@@ -54,7 +54,7 @@ class DeleteModuleCommand extends Command
             return;
         }
 
-        $modulePath = config('modules.paths.modules') . '/' . $module;
+        $modulePath = config('modules.paths.modules').'/'.$module;
 
         if ($this->finder->exists($modulePath) === false) {
             $this->error('This module does not exist');

@@ -11,11 +11,11 @@ return [
     'partials' => [
         'translatable' => [
             'create' => [],
-            'edit' => [],
+            'edit'   => [],
         ],
         'normal' => [
             'create' => [],
-            'edit' => [],
+            'edit'   => [],
         ],
     ],
     /*
@@ -25,14 +25,14 @@ return [
     | Add relations that will be dynamically added to the Page entity
     */
     'relations' => [
- //       'extension' => function (): \Illuminate\Database\Eloquent\Relations\BelongsTo {
- //           return $this->belongsTo(PageExtension::class, 'id', 'page_id')->first();
- //       }
+        //       'extension' => function (): \Illuminate\Database\Eloquent\Relations\BelongsTo {
+        //           return $this->belongsTo(PageExtension::class, 'id', 'page_id')->first();
+        //       }
 
-               'translations' => function (): \Illuminate\Database\Eloquent\Relations\BelongsTo {
-                   return $this->belongsTo(\Modules\Page\Entities\PageTranslation::class, 'id', 'page_id')->first();
-               }
-        
+        'translations' => function (): \Illuminate\Database\Eloquent\Relations\BelongsTo {
+            return $this->belongsTo(\Modules\Page\Entities\PageTranslation::class, 'id', 'page_id')->first();
+        },
+
     ],
     /*
     |--------------------------------------------------------------------------

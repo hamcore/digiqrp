@@ -18,7 +18,8 @@ class ThemeAsset implements AssetType
     }
 
     /**
-     * Get the URL
+     * Get the URL.
+     *
      * @return string
      */
     public function url()

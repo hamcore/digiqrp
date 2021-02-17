@@ -2,7 +2,7 @@
 
 return [
     'title' => [
-        'media' => 'Medya',
+        'media'      => 'Medya',
         'edit media' => 'Medyayı düzenle',
     ],
     'breadcrumb' => [
@@ -10,26 +10,26 @@ return [
     ],
     'table' => [
         'filename' => 'Dosya adı',
-        'width' => 'Genişlik',
-        'height' => 'Yükseklik',
+        'width'    => 'Genişlik',
+        'height'   => 'Yükseklik',
     ],
     'form' => [
         'alt_attribute' => 'Alternatif açıklama',
-        'description' => 'Açıklama',
-        'keywords' => 'Anahtar kelimeler',
+        'description'   => 'Açıklama',
+        'keywords'      => 'Anahtar kelimeler',
     ],
     'validation' => [
         'max_size' => 'Maximum folder size (:size) of the Media folder reached.',
     ],
     'file-sizes' => [
-        'B' => 'Bytes',
+        'B'  => 'Bytes',
         'KB' => 'Kb',
         'MB' => 'Mb',
         'GB' => 'Gb',
         'TB' => 'Tb',
     ],
     'choose file' => 'Bir dosya seç',
-    'insert' => 'Bu dosyayı ekle',
+    'insert'      => 'Bu dosyayı ekle',
     'file picker' => 'Dosya seçici',
-    'Browse' => 'Browse ...',
+    'Browse'      => 'Browse ...',
 ];

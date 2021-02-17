@@ -9,6 +9,7 @@ trait CanFindUserWithBearerToken
 {
     /**
      * @param string $token
+     *
      * @return UserInterface|null
      */
     public function findUserWithBearerToken($token)

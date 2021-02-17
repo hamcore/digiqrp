@@ -7,9 +7,11 @@ use Modules\Media\Image\ImageHandlerInterface;
 class Quality implements ImageHandlerInterface
 {
     /**
-     * Handle the image manipulation request
-     * @param  \Intervention\Image\Image $image
-     * @param  array                     $options
+     * Handle the image manipulation request.
+     *
+     * @param \Intervention\Image\Image $image
+     * @param array                     $options
+     *
      * @return \Intervention\Image\Image
      */
     public function handle($image, $options)

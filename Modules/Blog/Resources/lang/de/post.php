@@ -2,22 +2,22 @@
 
 return [
     'title' => [
-        'posts' => 'Beiträge',
-        'post' => 'Beitrag',
+        'posts'       => 'Beiträge',
+        'post'        => 'Beitrag',
         'create post' => 'Beitrag erstellen',
-        'edit post' => 'Beitrag bearbeiten',
+        'edit post'   => 'Beitrag bearbeiten',
     ],
     'button' => [
         'create post' => 'Beitrag erstellen',
     ],
     'table' => [
-        'title' => 'Titel',
-        'slug' => 'Slug',
+        'title'  => 'Titel',
+        'slug'   => 'Slug',
         'status' => 'Status',
     ],
     'form' => [
         'title' => 'Title',
-        'slug' => 'Slug',
+        'slug'  => 'Slug',
     ],
     'navigation' => [
         'back to index' => 'Zurück zur Übersicht',

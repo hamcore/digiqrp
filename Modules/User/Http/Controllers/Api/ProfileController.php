@@ -37,7 +37,7 @@ class ProfileController extends Controller
         $this->user->update($user, $request->all());
 
         return response()->json([
-            'errors' => false,
+            'errors'  => false,
             'message' => trans('user::messages.profile updated'),
         ]);
     }

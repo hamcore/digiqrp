@@ -11,10 +11,10 @@ class UpdateUserRequest extends FormRequest
         $user = $this->route()->parameter('user');
 
         return [
-            'email' => "required|email|unique:users,email,{$user->id}",
+            'email'      => "required|email|unique:users,email,{$user->id}",
             'first_name' => 'required',
-            'last_name' => 'required',
-            'password' => 'confirmed',
+            'last_name'  => 'required',
+            'password'   => 'confirmed',
         ];
     }
 

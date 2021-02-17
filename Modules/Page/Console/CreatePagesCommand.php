@@ -44,22 +44,22 @@ class CreatePagesCommand extends Command
         $faker = \Faker\Factory::create();
 
         $this->page->create([
-            'is_home' => 0,
+            'is_home'  => 0,
             'template' => 'default',
-            'en' => [
+            'en'       => [
                 'title' => $faker->name,
-                'slug' => $faker->slug,
-                'body' => $faker->paragraph(),
+                'slug'  => $faker->slug,
+                'body'  => $faker->paragraph(),
             ],
             'fr' => [
                 'title' => $faker->name,
-                'slug' => $faker->slug,
-                'body' => $faker->paragraph(),
+                'slug'  => $faker->slug,
+                'body'  => $faker->paragraph(),
             ],
             'nl' => [
                 'title' => $faker->name,
-                'slug' => $faker->slug,
-                'body' => $faker->paragraph(),
+                'slug'  => $faker->slug,
+                'body'  => $faker->paragraph(),
             ],
         ]);
     }

@@ -30,6 +30,7 @@ class PublicController extends BasePublicController
 
     /**
      * @param $slug
+     *
      * @return \Illuminate\View\View
      */
     public function uri($slug)
@@ -40,7 +41,7 @@ class PublicController extends BasePublicController
 
         $currentTranslatedPage = $page->getTranslation(locale());
         if ($slug !== $currentTranslatedPage->slug) {
-            return redirect()->to($currentTranslatedPage->locale . '/' . $currentTranslatedPage->slug, 301);
+            return redirect()->to($currentTranslatedPage->locale.'/'.$currentTranslatedPage->slug, 301);
         }
 
         $template = $this->getTemplateForPage($page);
@@ -68,8 +69,10 @@ class PublicController extends BasePublicController
 
     /**
      * Find a page for the given slug.
-     * The slug can be a 'composed' slug via the Menu
+     * The slug can be a 'composed' slug via the Menu.
+     *
      * @param string $slug
+     *
      * @return Page
      */
     private function findPageForSlug($slug)
@@ -85,8 +88,10 @@ class PublicController extends BasePublicController
 
     /**
      * Return the template for the given page
-     * or the default template if none found
+     * or the default template if none found.
+     *
      * @param $page
+     *
      * @return string
      */
     private function getTemplateForPage($page)
@@ -95,7 +100,8 @@ class PublicController extends BasePublicController
     }
 
     /**
-     * Throw a 404 error page if the given page is not found or draft
+     * Throw a 404 error page if the given page is not found or draft.
+     *
      * @param $page
      */
     private function throw404IfNotFound($page)
@@ -106,7 +112,7 @@ class PublicController extends BasePublicController
     }
 
     /**
-     * Create a key=>value array for alternate links
+     * Create a key=>value array for alternate links.
      *
      * @param $page
      *

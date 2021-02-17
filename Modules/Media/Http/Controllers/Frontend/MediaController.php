@@ -23,7 +23,7 @@ class MediaController extends Controller
         $file = $this->file->findForVirtualPath($path);
         $type = $file->mimetype;
 
-        $path = storage_path('app' . $file->path->getRelativeUrl());
+        $path = storage_path('app'.$file->path->getRelativeUrl());
 
         //return Image::make($path)->response();
 

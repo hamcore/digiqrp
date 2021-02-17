@@ -8,7 +8,7 @@ return [
     | These assets are registered on the asset manager
     */
     'media-partial-assets' => [
-        'jquery-ui.js' => ['module' => 'dashboard:vendor/jquery-ui/jquery-ui.min.js'],
+        'jquery-ui.js'     => ['module' => 'dashboard:vendor/jquery-ui/jquery-ui.min.js'],
         'media-partial.js' => ['module' => 'media:js/media-partial.js'],
     ],
 

@@ -15,12 +15,12 @@ class EloquentPageRepositoryTest extends BasePageTest
     public function it_makes_page_as_homepage()
     {
         $page = $this->page->create([
-            'is_home' => 1,
+            'is_home'  => 1,
             'template' => 'default',
-            'en' => [
+            'en'       => [
                 'title' => 'My Page',
-                'slug' => 'my-page',
-                'body' => 'My Page Body',
+                'slug'  => 'my-page',
+                'body'  => 'My Page Body',
             ],
         ]);
 
@@ -34,12 +34,12 @@ class EloquentPageRepositoryTest extends BasePageTest
     public function it_can_unset_homepage()
     {
         $page = $this->page->create([
-            'is_home' => 1,
+            'is_home'  => 1,
             'template' => 'default',
-            'en' => [
+            'en'       => [
                 'title' => 'My Page',
-                'slug' => 'my-page',
-                'body' => 'My Page Body',
+                'slug'  => 'my-page',
+                'body'  => 'My Page Body',
             ],
         ]);
         $page = $this->page->update($page, [
@@ -52,21 +52,21 @@ class EloquentPageRepositoryTest extends BasePageTest
     public function it_unsets_first_homepage_if_another_is_set_as_homepage()
     {
         $this->page->create([
-            'is_home' => '1',
+            'is_home'  => '1',
             'template' => 'default',
-            'en' => [
+            'en'       => [
                 'title' => 'My Page',
-                'slug' => 'my-page',
-                'body' => 'My Page Body',
+                'slug'  => 'my-page',
+                'body'  => 'My Page Body',
             ],
         ]);
         $pageOther = $this->page->create([
-            'is_home' => '1',
+            'is_home'  => '1',
             'template' => 'default',
-            'en' => [
+            'en'       => [
                 'title' => 'My Other Page',
-                'slug' => 'my-other-page',
-                'body' => 'My Page Body',
+                'slug'  => 'my-other-page',
+                'body'  => 'My Page Body',
             ],
         ]);
 
@@ -81,12 +81,12 @@ class EloquentPageRepositoryTest extends BasePageTest
         Event::fake();
 
         $page = $this->page->create([
-            'is_home' => '1',
+            'is_home'  => '1',
             'template' => 'default',
-            'en' => [
+            'en'       => [
                 'title' => 'My Other Page',
-                'slug' => 'my-other-page',
-                'body' => 'My Page Body',
+                'slug'  => 'my-other-page',
+                'body'  => 'My Page Body',
             ],
         ]);
 
@@ -149,12 +149,12 @@ class EloquentPageRepositoryTest extends BasePageTest
     public function it_triggers_event_when_page_was_updated()
     {
         $page = $this->page->create([
-            'is_home' => '1',
+            'is_home'  => '1',
             'template' => 'default',
-            'en' => [
+            'en'       => [
                 'title' => 'My Other Page',
-                'slug' => 'my-other-page',
-                'body' => 'My Page Body',
+                'slug'  => 'my-other-page',
+                'body'  => 'My Page Body',
             ],
         ]);
         Event::fake();
@@ -170,12 +170,12 @@ class EloquentPageRepositoryTest extends BasePageTest
     public function it_triggers_event_when_page_was_deleted()
     {
         $page = $this->page->create([
-            'is_home' => '1',
+            'is_home'  => '1',
             'template' => 'default',
-            'en' => [
+            'en'       => [
                 'title' => 'My Other Page',
-                'slug' => 'my-other-page',
-                'body' => 'My Page Body',
+                'slug'  => 'my-other-page',
+                'body'  => 'My Page Body',
             ],
         ]);
 
@@ -205,7 +205,7 @@ class EloquentPageRepositoryTest extends BasePageTest
         $pageOne = $this->createRandomOfflinePage();
         $pageTwo = $this->createRandomOfflinePage();
 
-        $this->page->markMultipleAsOnlineInAllLocales([1,2]);
+        $this->page->markMultipleAsOnlineInAllLocales([1, 2]);
 
         $pageOne->refresh();
         $pageTwo->refresh();
@@ -233,7 +233,7 @@ class EloquentPageRepositoryTest extends BasePageTest
         $pageOne = $this->createRandomOnlinePage();
         $pageTwo = $this->createRandomOnlinePage();
 
-        $this->page->markMultipleAsOfflineInAllLocales([1,2]);
+        $this->page->markMultipleAsOfflineInAllLocales([1, 2]);
 
         $pageOne->refresh();
         $pageTwo->refresh();
@@ -247,12 +247,12 @@ class EloquentPageRepositoryTest extends BasePageTest
     private function createPage()
     {
         return $this->page->create([
-            'is_home' => '1',
+            'is_home'  => '1',
             'template' => 'default',
-            'en' => [
+            'en'       => [
                 'title' => 'My Other Page',
-                'slug' => 'my-other-page',
-                'body' => 'My Page Body',
+                'slug'  => 'my-other-page',
+                'body'  => 'My Page Body',
             ],
         ]);
     }
@@ -262,19 +262,19 @@ class EloquentPageRepositoryTest extends BasePageTest
         $faker = \Faker\Factory::create();
 
         $data = [
-            'is_home' => 0,
+            'is_home'  => 0,
             'template' => 'default',
-            'en' => [
+            'en'       => [
                 'status' => 0,
-                'title' => $faker->name,
-                'slug' => $faker->slug,
-                'body' => $faker->paragraph(),
+                'title'  => $faker->name,
+                'slug'   => $faker->slug,
+                'body'   => $faker->paragraph(),
             ],
             'fr' => [
                 'status' => 0,
-                'title' => $faker->name,
-                'slug' => $faker->slug,
-                'body' => $faker->paragraph(),
+                'title'  => $faker->name,
+                'slug'   => $faker->slug,
+                'body'   => $faker->paragraph(),
             ],
         ];
 
@@ -286,19 +286,19 @@ class EloquentPageRepositoryTest extends BasePageTest
         $faker = \Faker\Factory::create();
 
         $data = [
-            'is_home' => 0,
+            'is_home'  => 0,
             'template' => 'default',
-            'en' => [
+            'en'       => [
                 'status' => 1,
-                'title' => $faker->name,
-                'slug' => $faker->slug,
-                'body' => $faker->paragraph(),
+                'title'  => $faker->name,
+                'slug'   => $faker->slug,
+                'body'   => $faker->paragraph(),
             ],
             'fr' => [
                 'status' => 1,
-                'title' => $faker->name,
-                'slug' => $faker->slug,
-                'body' => $faker->paragraph(),
+                'title'  => $faker->name,
+                'slug'   => $faker->slug,
+                'body'   => $faker->paragraph(),
             ],
         ];
 

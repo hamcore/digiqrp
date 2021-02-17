@@ -12,10 +12,10 @@ class UpdateProfileRequest extends FormRequest
         $userId = app(Authentication::class)->id();
 
         return [
-            'email' => "required|email|unique:users,email,{$userId}",
+            'email'      => "required|email|unique:users,email,{$userId}",
             'first_name' => 'required',
-            'last_name' => 'required',
-            'password' => 'confirmed',
+            'last_name'  => 'required',
+            'password'   => 'confirmed',
         ];
     }
 

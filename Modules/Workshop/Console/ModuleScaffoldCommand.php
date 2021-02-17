@@ -32,9 +32,6 @@ class ModuleScaffoldCommand extends Command
         $this->moduleScaffold = $moduleScaffold;
     }
 
-    /**
-     *
-     */
     public function handle()
     {
         $moduleName = $this->ask('Please enter the module name in the following format: vendor/name');
@@ -56,9 +53,6 @@ class ModuleScaffoldCommand extends Command
         $this->info('Module generated and is ready to be used.');
     }
 
-    /**
-     *
-     */
     private function askForEntities()
     {
         $this->entityType = 'Eloquent';
@@ -71,9 +65,6 @@ class ModuleScaffoldCommand extends Command
         } while ($entity !== '<none>');
     }
 
-    /**
-     *
-     */
     private function askForValueObjects()
     {
         do {
@@ -85,8 +76,10 @@ class ModuleScaffoldCommand extends Command
     }
 
     /**
-     * Extract the vendor and module name as two separate values
-     * @param  string $fullName
+     * Extract the vendor and module name as two separate values.
+     *
+     * @param string $fullName
+     *
      * @return array
      */
     private function separateVendorAndName($fullName)
@@ -100,7 +93,7 @@ class ModuleScaffoldCommand extends Command
     }
 
     /**
-     * Check if the given module name does not already exists
+     * Check if the given module name does not already exists.
      *
      * @param string $name
      */
@@ -110,7 +103,7 @@ class ModuleScaffoldCommand extends Command
         $files = app('Illuminate\Filesystem\Filesystem');
         /** @var \Illuminate\Contracts\Config\Repository $config */
         $config = app('Illuminate\Contracts\Config\Repository');
-        if ($files->isDirectory($config->get('modules.paths.modules') . "/{$name}")) {
+        if ($files->isDirectory($config->get('modules.paths.modules')."/{$name}")) {
             return $this->error("The module [$name] already exists");
         }
     }

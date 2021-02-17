@@ -52,9 +52,9 @@ abstract class BaseBlockTest extends TestCase
         $app['path.base'] = __DIR__.'/..';
         $app['config']->set('database.default', 'sqlite');
         $app['config']->set('database.connections.sqlite', [
-            'driver' => 'sqlite',
+            'driver'   => 'sqlite',
             'database' => ':memory:',
-            'prefix' => '',
+            'prefix'   => '',
         ]);
         $app['config']->set('translatable.locales', ['en', 'fr']);
     }

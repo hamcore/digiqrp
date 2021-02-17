@@ -9,8 +9,10 @@ use Ramsey\Uuid\Uuid;
 class EloquentUserTokenRepository extends EloquentBaseRepository implements UserTokenRepository
 {
     /**
-     * Get all tokens for the given user
+     * Get all tokens for the given user.
+     *
      * @param int $userId
+     *
      * @return \Illuminate\Database\Eloquent\Collection
      */
     public function allForUser($userId)
@@ -20,6 +22,7 @@ class EloquentUserTokenRepository extends EloquentBaseRepository implements User
 
     /**
      * @param int $userId
+     *
      * @return \Modules\User\Entities\UserToken
      */
     public function generateFor($userId)

@@ -21,7 +21,7 @@ class Mover
         $this->folderMover = $folderMover;
     }
 
-    public function move(File $file, File $destination) : int
+    public function move(File $file, File $destination): int
     {
         $failedMoves = 0;
 

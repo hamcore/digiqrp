@@ -49,7 +49,7 @@ class RenameFolderOnDisk
     private function getDestinationPath($path)
     {
         if ($this->getConfiguredFilesystem() === 'local') {
-            return basename(public_path()) . $path;
+            return basename(public_path()).$path;
         }
 
         return $path;

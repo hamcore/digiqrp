@@ -36,7 +36,7 @@ class SentinelUserRepositoryTest extends BaseUserTestCase
     public function it_creates_a_new_user()
     {
         $this->user->create([
-            'email' => 'n.widart@gmail.com',
+            'email'    => 'n.widart@gmail.com',
             'password' => 'demo1234',
         ]);
 
@@ -52,7 +52,7 @@ class SentinelUserRepositoryTest extends BaseUserTestCase
         Event::fake();
 
         $user = $this->user->create([
-            'email' => 'n.widart@gmail.com',
+            'email'    => 'n.widart@gmail.com',
             'password' => 'demo1234',
         ]);
 
@@ -69,7 +69,7 @@ class SentinelUserRepositoryTest extends BaseUserTestCase
         });
 
         $user = $this->user->create([
-            'email' => 'n.widart@gmail.com',
+            'email'    => 'n.widart@gmail.com',
             'password' => 'demo1234',
         ]);
 
@@ -87,7 +87,7 @@ class SentinelUserRepositoryTest extends BaseUserTestCase
         });
 
         $user = $this->user->create([
-            'email' => 'n.widart@gmail.com',
+            'email'    => 'n.widart@gmail.com',
             'password' => 'demo1234',
         ]);
 
@@ -100,12 +100,12 @@ class SentinelUserRepositoryTest extends BaseUserTestCase
         Event::fake();
 
         $this->user->create([
-            'email' => 'n.widart@gmail.com',
+            'email'    => 'n.widart@gmail.com',
             'password' => 'demo1234',
         ]);
 
         Event::assertDispatched(UserIsCreating::class, function ($e) {
-            return $e->getOriginal('email')=== 'n.widart@gmail.com';
+            return $e->getOriginal('email') === 'n.widart@gmail.com';
         });
     }
 
@@ -115,7 +115,7 @@ class SentinelUserRepositoryTest extends BaseUserTestCase
         Event::fake();
 
         $user = $this->user->create([
-            'email' => 'n.widart@gmail.com',
+            'email'    => 'n.widart@gmail.com',
             'password' => 'demo1234',
         ]);
 
@@ -130,7 +130,7 @@ class SentinelUserRepositoryTest extends BaseUserTestCase
         Event::fake();
 
         $user = $this->user->create([
-            'email' => 'n.widart@gmail.com',
+            'email'    => 'n.widart@gmail.com',
             'password' => 'demo1234',
         ], true);
 
@@ -145,15 +145,15 @@ class SentinelUserRepositoryTest extends BaseUserTestCase
         $this->createRole('User');
 
         $userOne = $this->user->create([
-            'email' => 'n.widart@gmail.com',
+            'email'    => 'n.widart@gmail.com',
             'password' => 'demo1234',
         ]);
         $userTwo = $this->user->createWithRoles([
-            'email' => 'jane@doe.com',
+            'email'    => 'jane@doe.com',
             'password' => 'demo1234',
         ], ['User']);
         $userThree = $this->user->createWithRolesFromCli([
-            'email' => 'john@doe.com',
+            'email'    => 'john@doe.com',
             'password' => 'demo1234',
         ], ['User']);
 
@@ -175,7 +175,7 @@ class SentinelUserRepositoryTest extends BaseUserTestCase
         $this->createRole('User');
 
         $user = $this->user->createWithRoles([
-            'email' => 'n.widart@gmail.com',
+            'email'    => 'n.widart@gmail.com',
             'password' => 'demo1234',
         ], ['User']);
 
@@ -189,7 +189,7 @@ class SentinelUserRepositoryTest extends BaseUserTestCase
         $this->createRole('User');
 
         $user = $this->user->createWithRoles([
-            'email' => 'n.widart@gmail.com',
+            'email'    => 'n.widart@gmail.com',
             'password' => 'demo1234',
         ], ['User']);
 
@@ -202,7 +202,7 @@ class SentinelUserRepositoryTest extends BaseUserTestCase
         Event::fake();
 
         $this->user->createWithRolesFromCli([
-            'email' => 'john@doe.com',
+            'email'    => 'john@doe.com',
             'password' => 'demo1234',
         ], ['User']);
 
@@ -214,7 +214,7 @@ class SentinelUserRepositoryTest extends BaseUserTestCase
     public function it_creates_new_user_with_api_keys()
     {
         $user = $this->user->create([
-            'email' => 'n.widart@gmail.com',
+            'email'    => 'n.widart@gmail.com',
             'password' => 'demo1234',
         ]);
 
@@ -225,7 +225,7 @@ class SentinelUserRepositoryTest extends BaseUserTestCase
     public function it_updates_a_user()
     {
         $user = $this->user->create([
-            'email' => 'n.widart@gmail.com',
+            'email'    => 'n.widart@gmail.com',
             'password' => 'demo1234',
         ]);
 
@@ -239,7 +239,7 @@ class SentinelUserRepositoryTest extends BaseUserTestCase
     public function it_triggers_events_on_user_update()
     {
         $user = $this->user->create([
-            'email' => 'n.widart@gmail.com',
+            'email'    => 'n.widart@gmail.com',
             'password' => 'demo1234',
         ]);
 
@@ -259,7 +259,7 @@ class SentinelUserRepositoryTest extends BaseUserTestCase
     public function it_triggers_event_when_user_is_updating()
     {
         $user = $this->user->create([
-            'email' => 'n.widart@gmail.com',
+            'email'    => 'n.widart@gmail.com',
             'password' => 'demo1234',
         ]);
 
@@ -281,7 +281,7 @@ class SentinelUserRepositoryTest extends BaseUserTestCase
         });
 
         $user = $this->user->create([
-            'email' => 'n.widart@gmail.com',
+            'email'    => 'n.widart@gmail.com',
             'password' => 'demo1234',
         ]);
 
@@ -296,7 +296,7 @@ class SentinelUserRepositoryTest extends BaseUserTestCase
         $this->createRole('User');
         $this->createRole('Admin');
         $user = $this->user->createWithRoles([
-            'email' => 'n.widart@gmail.com',
+            'email'    => 'n.widart@gmail.com',
             'password' => 'demo1234',
         ], [1]);
 
@@ -315,7 +315,7 @@ class SentinelUserRepositoryTest extends BaseUserTestCase
         $this->createRole('User');
         $this->createRole('Admin');
         $user = $this->user->createWithRoles([
-            'email' => 'n.widart@gmail.com',
+            'email'    => 'n.widart@gmail.com',
             'password' => 'demo1234',
         ], [1]);
         Event::fake();
@@ -339,7 +339,7 @@ class SentinelUserRepositoryTest extends BaseUserTestCase
 
         $this->createRole('Admin');
         $user = $this->user->createWithRoles([
-            'email' => 'n.widart@gmail.com',
+            'email'    => 'n.widart@gmail.com',
             'password' => 'demo1234',
         ], [1]);
 
@@ -352,7 +352,7 @@ class SentinelUserRepositoryTest extends BaseUserTestCase
     public function it_deletes_a_user()
     {
         $this->user->create([
-            'email' => 'n.widart@gmail.com',
+            'email'    => 'n.widart@gmail.com',
             'password' => 'demo1234',
         ]);
 
@@ -373,12 +373,12 @@ class SentinelUserRepositoryTest extends BaseUserTestCase
     public function it_finds_a_user_by_its_credentials()
     {
         $this->user->create([
-            'email' => 'n.widart@gmail.com',
+            'email'    => 'n.widart@gmail.com',
             'password' => 'demo1234',
         ]);
 
         $user = $this->user->findByCredentials([
-            'email' => 'n.widart@gmail.com',
+            'email'    => 'n.widart@gmail.com',
             'password' => 'demo1234',
         ]);
 

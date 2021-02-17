@@ -32,7 +32,8 @@ class ModulesController extends AdminBaseController
     }
 
     /**
-     * Display a list of all modules
+     * Display a list of all modules.
+     *
      * @return View
      */
     public function index()
@@ -43,8 +44,10 @@ class ModulesController extends AdminBaseController
     }
 
     /**
-     * Display module info
+     * Display module info.
+     *
      * @param Module $module
+     *
      * @return View
      */
     public function show(Module $module)
@@ -55,8 +58,10 @@ class ModulesController extends AdminBaseController
     }
 
     /**
-     * Disable the given module
+     * Disable the given module.
+     *
      * @param Module $module
+     *
      * @return mixed
      */
     public function disable(Module $module)
@@ -73,8 +78,10 @@ class ModulesController extends AdminBaseController
     }
 
     /**
-     * Enable the given module
+     * Enable the given module.
+     *
      * @param Module $module
+     *
      * @return mixed
      */
     public function enable(Module $module)
@@ -88,8 +95,10 @@ class ModulesController extends AdminBaseController
     }
 
     /**
-     * Update a given module
+     * Update a given module.
+     *
      * @param Request $request
+     *
      * @return Response json
      */
     public function update(Request $request)
@@ -101,8 +110,10 @@ class ModulesController extends AdminBaseController
     }
 
     /**
-     * Check if the given module is a core module that should be be disabled
+     * Check if the given module is a core module that should be be disabled.
+     *
      * @param Module $module
+     *
      * @return bool
      */
     private function isCoreModule(Module $module)

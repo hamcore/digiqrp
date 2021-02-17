@@ -34,8 +34,8 @@ class ThemeScaffoldTest extends BaseTestCase
         parent::setUp();
         $this->finder = $this->app['files'];
         $this->scaffold = $this->app['asgard.theme.scaffold'];
-        if (!$this->finder->isDirectory(base_path("Themes"))) {
-            $this->finder->makeDirectory(base_path("Themes"));
+        if (!$this->finder->isDirectory(base_path('Themes'))) {
+            $this->finder->makeDirectory(base_path('Themes'));
         }
         $this->testThemeName = 'TestingTheme';
         $this->testThemePath = base_path("Themes/{$this->testThemeName}");
@@ -49,7 +49,7 @@ class ThemeScaffoldTest extends BaseTestCase
     public function tearDown(): void
     {
         $this->finder->deleteDirectory($this->testThemePath);
-        $this->finder->deleteDirectory(base_path("Themes"));
+        $this->finder->deleteDirectory(base_path('Themes'));
     }
 
     /** @test */
@@ -116,9 +116,9 @@ class ThemeScaffoldTest extends BaseTestCase
 
         $this->generateFrontendTheme();
 
-        $this->assertTrue($this->finder->isFile($this->testThemePath . '/theme.json'));
-        $this->assertTrue(Str::contains($this->finder->get($this->testThemePath . '/theme.json'), '"name": "' . $this->testThemeName . '",'));
-        $this->assertTrue(Str::contains($this->finder->get($this->testThemePath . '/theme.json'), '"type": "frontend"'));
+        $this->assertTrue($this->finder->isFile($this->testThemePath.'/theme.json'));
+        $this->assertTrue(Str::contains($this->finder->get($this->testThemePath.'/theme.json'), '"name": "'.$this->testThemeName.'",'));
+        $this->assertTrue(Str::contains($this->finder->get($this->testThemePath.'/theme.json'), '"type": "frontend"'));
     }
 
     /** @test */
@@ -128,8 +128,8 @@ class ThemeScaffoldTest extends BaseTestCase
 
         $this->generateFrontendTheme();
 
-        $this->assertTrue($this->finder->isFile($this->testThemePath . '/composer.json'));
-        $this->assertTrue(Str::contains($this->finder->get($this->testThemePath . '/composer.json'), '"name": "asgardcms/TestingTheme-theme",'));
+        $this->assertTrue($this->finder->isFile($this->testThemePath.'/composer.json'));
+        $this->assertTrue(Str::contains($this->finder->get($this->testThemePath.'/composer.json'), '"name": "asgardcms/TestingTheme-theme",'));
     }
 
     /** @test */
@@ -139,7 +139,7 @@ class ThemeScaffoldTest extends BaseTestCase
 
         $this->generateFrontendTheme();
 
-        $this->assertTrue($this->finder->isFile($this->testThemePath . '/views/layouts/master.blade.php'));
+        $this->assertTrue($this->finder->isFile($this->testThemePath.'/views/layouts/master.blade.php'));
     }
 
     /** @test */
@@ -149,7 +149,7 @@ class ThemeScaffoldTest extends BaseTestCase
 
         $this->generateFrontendTheme();
 
-        $this->assertTrue($this->finder->isFile($this->testThemePath . '/views/default.blade.php'));
+        $this->assertTrue($this->finder->isFile($this->testThemePath.'/views/default.blade.php'));
     }
 
     /** @test */
@@ -159,14 +159,14 @@ class ThemeScaffoldTest extends BaseTestCase
 
         $this->generateFrontendTheme();
 
-        $this->assertTrue($this->finder->isDirectory($this->testThemePath . '/resources'));
-        $this->assertTrue($this->finder->isDirectory($this->testThemePath . '/resources/css'));
-        $this->assertTrue($this->finder->isDirectory($this->testThemePath . '/resources/js'));
-        $this->assertTrue($this->finder->isDirectory($this->testThemePath . '/resources/images'));
-        $this->assertTrue($this->finder->isFile($this->testThemePath . '/resources/.gitignore'));
-        $this->assertTrue($this->finder->isFile($this->testThemePath . '/resources/css/.gitignore'));
-        $this->assertTrue($this->finder->isFile($this->testThemePath . '/resources/js/.gitignore'));
-        $this->assertTrue($this->finder->isFile($this->testThemePath . '/resources/images/.gitignore'));
+        $this->assertTrue($this->finder->isDirectory($this->testThemePath.'/resources'));
+        $this->assertTrue($this->finder->isDirectory($this->testThemePath.'/resources/css'));
+        $this->assertTrue($this->finder->isDirectory($this->testThemePath.'/resources/js'));
+        $this->assertTrue($this->finder->isDirectory($this->testThemePath.'/resources/images'));
+        $this->assertTrue($this->finder->isFile($this->testThemePath.'/resources/.gitignore'));
+        $this->assertTrue($this->finder->isFile($this->testThemePath.'/resources/css/.gitignore'));
+        $this->assertTrue($this->finder->isFile($this->testThemePath.'/resources/js/.gitignore'));
+        $this->assertTrue($this->finder->isFile($this->testThemePath.'/resources/images/.gitignore'));
     }
 
     /** @test */
@@ -176,14 +176,14 @@ class ThemeScaffoldTest extends BaseTestCase
 
         $this->generateFrontendTheme();
 
-        $this->assertTrue($this->finder->isDirectory($this->testThemePath . '/assets'));
-        $this->assertTrue($this->finder->isDirectory($this->testThemePath . '/assets/css'));
-        $this->assertTrue($this->finder->isDirectory($this->testThemePath . '/assets/js'));
-        $this->assertTrue($this->finder->isDirectory($this->testThemePath . '/assets/images'));
-        $this->assertTrue($this->finder->isFile($this->testThemePath . '/assets/.gitignore'));
-        $this->assertTrue($this->finder->isFile($this->testThemePath . '/assets/css/.gitignore'));
-        $this->assertTrue($this->finder->isFile($this->testThemePath . '/assets/js/.gitignore'));
-        $this->assertTrue($this->finder->isFile($this->testThemePath . '/assets/images/.gitignore'));
+        $this->assertTrue($this->finder->isDirectory($this->testThemePath.'/assets'));
+        $this->assertTrue($this->finder->isDirectory($this->testThemePath.'/assets/css'));
+        $this->assertTrue($this->finder->isDirectory($this->testThemePath.'/assets/js'));
+        $this->assertTrue($this->finder->isDirectory($this->testThemePath.'/assets/images'));
+        $this->assertTrue($this->finder->isFile($this->testThemePath.'/assets/.gitignore'));
+        $this->assertTrue($this->finder->isFile($this->testThemePath.'/assets/css/.gitignore'));
+        $this->assertTrue($this->finder->isFile($this->testThemePath.'/assets/js/.gitignore'));
+        $this->assertTrue($this->finder->isFile($this->testThemePath.'/assets/images/.gitignore'));
     }
 
     /** @test */
@@ -193,7 +193,7 @@ class ThemeScaffoldTest extends BaseTestCase
 
         $this->generateFrontendTheme();
 
-        $this->assertTrue($this->finder->isFile($this->testThemePath . '/theme.json'));
-        $this->assertTrue(Str::contains($this->finder->get($this->testThemePath . '/theme.json'), '"version": "1.0.0"'));
+        $this->assertTrue($this->finder->isFile($this->testThemePath.'/theme.json'));
+        $this->assertTrue(Str::contains($this->finder->get($this->testThemePath.'/theme.json'), '"version": "1.0.0"'));
     }
 }

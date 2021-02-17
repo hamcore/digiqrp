@@ -55,7 +55,8 @@ class TagController extends AdminBaseController
     /**
      * Store a newly created resource in storage.
      *
-     * @param  CreateTagRequest $request
+     * @param CreateTagRequest $request
+     *
      * @return Response
      */
     public function store(CreateTagRequest $request)
@@ -69,7 +70,8 @@ class TagController extends AdminBaseController
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  Tag $tag
+     * @param Tag $tag
+     *
      * @return Response
      */
     public function edit(Tag $tag)
@@ -82,8 +84,9 @@ class TagController extends AdminBaseController
     /**
      * Update the specified resource in storage.
      *
-     * @param  Tag $tag
-     * @param  UpdateTagRequest $request
+     * @param Tag              $tag
+     * @param UpdateTagRequest $request
+     *
      * @return Response
      */
     public function update(Tag $tag, UpdateTagRequest $request)
@@ -97,7 +100,8 @@ class TagController extends AdminBaseController
     /**
      * Remove the specified resource from storage.
      *
-     * @param  Tag $tag
+     * @param Tag $tag
+     *
      * @return Response
      */
     public function destroy(Tag $tag)

@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'content' => 'Tartalom',
+    'content'    => 'Tartalom',
     'show group' => 'Oldalsáv csoport mutatása',
 ];

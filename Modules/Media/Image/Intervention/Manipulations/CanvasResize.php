@@ -7,17 +7,19 @@ use Modules\Media\Image\ImageHandlerInterface;
 class CanvasResize implements ImageHandlerInterface
 {
     private $defaults = [
-        'width' => 100,
-        'height' => 100,
-        'anchor' => 'center',
+        'width'    => 100,
+        'height'   => 100,
+        'anchor'   => 'center',
         'relative' => false,
-        'bgcolor' => 'rgba(255, 255, 255, 0)',
+        'bgcolor'  => 'rgba(255, 255, 255, 0)',
     ];
 
     /**
-     * Handle the image manipulation request
+     * Handle the image manipulation request.
+     *
      * @param \Intervention\Image\Image $image
-     * @param array $options
+     * @param array                     $options
+     *
      * @return \Intervention\Image\Image
      */
     public function handle($image, $options)

@@ -26,7 +26,7 @@ class BlockContentIsRendering
     }
 
     /**
-     * @param  string  $body
+     * @param string $body
      */
     public function setBody($body)
     {

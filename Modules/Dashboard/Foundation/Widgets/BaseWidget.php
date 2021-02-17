@@ -9,7 +9,7 @@ use Modules\Dashboard\Composers\WidgetViewComposer;
 abstract class BaseWidget
 {
     /**
-     * Boot the widget and add the data to the dashboard view composer
+     * Boot the widget and add the data to the dashboard view composer.
      */
     public function boot()
     {
@@ -32,7 +32,8 @@ abstract class BaseWidget
     }
 
     /**
-     * Get the widget name
+     * Get the widget name.
+     *
      * @return string
      */
     abstract protected function name();
@@ -40,19 +41,22 @@ abstract class BaseWidget
     /**
      * Return an array of widget options
      * Possible options:
-     *  x, y, width, height
+     *  x, y, width, height.
+     *
      * @return array
      */
     abstract protected function options();
 
     /**
-     * Get the widget view
+     * Get the widget view.
+     *
      * @return string
      */
     abstract protected function view();
 
     /**
-     * Get the widget data to send to the view
+     * Get the widget data to send to the view.
+     *
      * @return array
      */
     abstract protected function data();

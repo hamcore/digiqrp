@@ -40,9 +40,9 @@ abstract class ProviderInstaller implements SetupScript
     protected $application;
 
     /**
-     * @param Filesystem     $finder
-     * @param Composer       $composer
-     * @param Application    $application
+     * @param Filesystem  $finder
+     * @param Composer    $composer
+     * @param Application $application
      */
     public function __construct(Filesystem $finder, Composer $composer, Application $application)
     {
@@ -53,8 +53,10 @@ abstract class ProviderInstaller implements SetupScript
     }
 
     /**
-     * Fire the install script
-     * @param  Command $command
+     * Fire the install script.
+     *
+     * @param Command $command
+     *
      * @return mixed
      */
     public function fire(Command $command)
@@ -68,7 +70,7 @@ abstract class ProviderInstaller implements SetupScript
             $this->command->callSilent('vendor:publish', ['--provider' => CoreServiceProvider::class]);
         }
 
-        if (! $this->checkIsInstalled()) {
+        if (!$this->checkIsInstalled()) {
             return $this->command->error('No user driver was installed. Please check the presence of a Service Provider');
         }
 
@@ -81,7 +83,7 @@ abstract class ProviderInstaller implements SetupScript
         $this->createFirstUser();
 
         if ($this->command->option('verbose')) {
-            $command->info($this->driver . ' succesfully configured');
+            $command->info($this->driver.' succesfully configured');
         }
     }
 
@@ -92,6 +94,7 @@ abstract class ProviderInstaller implements SetupScript
 
     /**
      * Check if the user driver is correctly registered.
+     *
      * @return bool
      */
     abstract public function checkIsInstalled();
@@ -118,12 +121,14 @@ abstract class ProviderInstaller implements SetupScript
 
     /**
      * @param $password
+     *
      * @return mixed
      */
     abstract public function getHashedPassword($password);
 
     /**
      * @param $command
+     *
      * @return mixed
      */
     private function migrateUserModule($command)
@@ -153,7 +158,7 @@ abstract class ProviderInstaller implements SetupScript
     }
 
     /**
-     * Set the correct repository binding on the fly for the current request
+     * Set the correct repository binding on the fly for the current request.
      *
      * @param $driver
      */
@@ -174,7 +179,7 @@ abstract class ProviderInstaller implements SetupScript
     }
 
     /**
-     * Create a first admin user
+     * Create a first admin user.
      */
     protected function createFirstUser()
     {
@@ -203,7 +208,7 @@ abstract class ProviderInstaller implements SetupScript
             if ($firstname == '') {
                 $this->command->error('First name is required');
             }
-        } while (! $firstname);
+        } while (!$firstname);
 
         return $firstname;
     }
@@ -218,7 +223,7 @@ abstract class ProviderInstaller implements SetupScript
             if ($lastname == '') {
                 $this->command->error('Last name is required');
             }
-        } while (! $lastname);
+        } while (!$lastname);
 
         return $lastname;
     }
@@ -233,7 +238,7 @@ abstract class ProviderInstaller implements SetupScript
             if ($email == '') {
                 $this->command->error('Email is required');
             }
-        } while (! $email);
+        } while (!$email);
 
         return $email;
     }
@@ -264,7 +269,7 @@ abstract class ProviderInstaller implements SetupScript
             if ($password == '') {
                 $this->command->error('Password is required');
             }
-        } while (! $password);
+        } while (!$password);
 
         return $password;
     }
@@ -279,7 +284,7 @@ abstract class ProviderInstaller implements SetupScript
             if ($passwordConfirmation == '') {
                 $this->command->error('Password confirmation is required');
             }
-        } while (! $passwordConfirmation);
+        } while (!$passwordConfirmation);
 
         return $passwordConfirmation;
     }

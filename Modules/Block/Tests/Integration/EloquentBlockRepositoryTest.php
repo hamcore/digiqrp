@@ -226,10 +226,10 @@ class EloquentBlockRepositoryTest extends BaseBlockTest
     }
 
     /**
-     * Create a block with random properties
+     * Create a block with random properties.
      *
-     * @param  bool  $statusEn
-     * @param  bool  $statusFr
+     * @param bool $statusEn
+     * @param bool $statusFr
      *
      * @return mixed
      */
@@ -239,12 +239,12 @@ class EloquentBlockRepositoryTest extends BaseBlockTest
 
         $data = [
             'name' => $factory->word,
-            'en' => [
-                'body' => $factory->text,
+            'en'   => [
+                'body'   => $factory->text,
                 'online' => $statusEn,
             ],
             'fr' => [
-                'body' => $factory->text,
+                'body'   => $factory->text,
                 'online' => $statusFr,
             ],
         ];

@@ -8,6 +8,7 @@ class ThemeServiceProvider extends ServiceProvider
 {
     /**
      * Register the service provider.
+     *
      * @return void
      */
     public function register()
@@ -17,11 +18,11 @@ class ThemeServiceProvider extends ServiceProvider
     }
 
     /**
-     * Set the active theme based on the settings
+     * Set the active theme based on the settings.
      */
     private function setActiveTheme()
     {
-        if ($this->app->runningInConsole() || ! app('asgard.isInstalled')) {
+        if ($this->app->runningInConsole() || !app('asgard.isInstalled')) {
             return;
         }
 
@@ -37,7 +38,8 @@ class ThemeServiceProvider extends ServiceProvider
     }
 
     /**
-     * Check if we are in the administration
+     * Check if we are in the administration.
+     *
      * @return bool
      */
     private function inAdministration()
@@ -48,7 +50,7 @@ class ThemeServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register all themes with activating them
+     * Register all themes with activating them.
      */
     private function registerAllThemes()
     {

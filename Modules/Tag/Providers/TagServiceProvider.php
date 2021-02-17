@@ -19,7 +19,8 @@ use Modules\Tag\Repositories\TagRepository;
 
 class TagServiceProvider extends ServiceProvider
 {
-    use CanPublishConfiguration, CanGetSidebarClassForModule;
+    use CanPublishConfiguration;
+    use CanGetSidebarClassForModule;
     /**
      * Indicates if loading of the provider is deferred.
      *
@@ -58,7 +59,7 @@ class TagServiceProvider extends ServiceProvider
         $this->publishConfig('tag', 'permissions');
         $this->publishConfig('tag', 'config');
         $this->registerBladeTags();
-        $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
+        $this->loadMigrationsFrom(__DIR__.'/../Database/Migrations');
     }
 
     /**
@@ -76,7 +77,7 @@ class TagServiceProvider extends ServiceProvider
         $this->app->bind(TagRepository::class, function () {
             $repository = new EloquentTagRepository(new Tag());
 
-            if (! config('app.cache')) {
+            if (!config('app.cache')) {
                 return $repository;
             }
 

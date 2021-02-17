@@ -146,12 +146,12 @@ final class FolderMoverTest extends MediaTestCase
         $this->assertEquals('/assets/media/child-folder', $folderTwo->path->getRelativeUrl());
     }
 
-    private function makeRootFolder() : File
+    private function makeRootFolder(): File
     {
         return new File([
-            'id' => 0,
+            'id'        => 0,
             'folder_id' => 0,
-            'path' => config('asgard.media.config.files-path'),
+            'path'      => config('asgard.media.config.files-path'),
         ]);
     }
 }

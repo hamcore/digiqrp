@@ -26,9 +26,10 @@ class TokenCan
     }
 
     /**
-     * @param Request $request
+     * @param Request  $request
      * @param \Closure $next
-     * @param string $permission
+     * @param string   $permission
+     *
      * @return Response
      */
     public function handle(Request $request, \Closure $next, $permission)
@@ -48,6 +49,7 @@ class TokenCan
 
     /**
      * @param string $token
+     *
      * @return UserInterface
      */
     private function getUserFromToken($token)
@@ -59,6 +61,7 @@ class TokenCan
 
     /**
      * @param string $token
+     *
      * @return string
      */
     private function parseToken($token)

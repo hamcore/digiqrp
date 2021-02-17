@@ -14,9 +14,11 @@ use Modules\User\Events\UserHasActivatedAccount;
 class SentinelAuthentication implements Authentication
 {
     /**
-     * Authenticate a user
-     * @param  array $credentials
-     * @param  bool  $remember    Remember the user
+     * Authenticate a user.
+     *
+     * @param array $credentials
+     * @param bool  $remember    Remember the user
+     *
      * @return mixed
      */
     public function login(array $credentials, $remember = false)
@@ -38,7 +40,9 @@ class SentinelAuthentication implements Authentication
 
     /**
      * Register a new user.
-     * @param  array $user
+     *
+     * @param array $user
+     *
      * @return bool
      */
     public function register(array $user)
@@ -48,8 +52,10 @@ class SentinelAuthentication implements Authentication
 
     /**
      * Assign a role to the given user.
-     * @param  \Modules\User\Repositories\UserRepository $user
-     * @param  \Modules\User\Repositories\RoleRepository $role
+     *
+     * @param \Modules\User\Repositories\UserRepository $user
+     * @param \Modules\User\Repositories\RoleRepository $role
+     *
      * @return mixed
      */
     public function assignRole($user, $role)
@@ -59,6 +65,7 @@ class SentinelAuthentication implements Authentication
 
     /**
      * Log the user out of the application.
+     *
      * @return bool
      */
     public function logout()
@@ -67,9 +74,11 @@ class SentinelAuthentication implements Authentication
     }
 
     /**
-     * Activate the given used id
-     * @param  int    $userId
-     * @param  string $code
+     * Activate the given used id.
+     *
+     * @param int    $userId
+     * @param string $code
+     *
      * @return mixed
      */
     public function activate($userId, $code)
@@ -85,8 +94,10 @@ class SentinelAuthentication implements Authentication
     }
 
     /**
-     * Create an activation code for the given user
-     * @param  \Modules\User\Repositories\UserRepository $user
+     * Create an activation code for the given user.
+     *
+     * @param \Modules\User\Repositories\UserRepository $user
+     *
      * @return mixed
      */
     public function createActivation($user)
@@ -95,8 +106,10 @@ class SentinelAuthentication implements Authentication
     }
 
     /**
-     * Create a reminders code for the given user
-     * @param  \Modules\User\Repositories\UserRepository $user
+     * Create a reminders code for the given user.
+     *
+     * @param \Modules\User\Repositories\UserRepository $user
+     *
      * @return mixed
      */
     public function createReminderCode($user)
@@ -107,10 +120,12 @@ class SentinelAuthentication implements Authentication
     }
 
     /**
-     * Completes the reset password process
+     * Completes the reset password process.
+     *
      * @param $user
-     * @param  string $code
-     * @param  string $password
+     * @param string $code
+     * @param string $password
+     *
      * @return bool
      */
     public function completeResetPassword($user, $code, $password)
@@ -119,13 +134,15 @@ class SentinelAuthentication implements Authentication
     }
 
     /**
-     * Determines if the current user has access to given permission
+     * Determines if the current user has access to given permission.
+     *
      * @param $permission
+     *
      * @return bool
      */
-    public function hasAccess($permission) : bool
+    public function hasAccess($permission): bool
     {
-        if (! Sentinel::check()) {
+        if (!Sentinel::check()) {
             return false;
         }
 
@@ -133,10 +150,11 @@ class SentinelAuthentication implements Authentication
     }
 
     /**
-     * Check if the user is logged in
+     * Check if the user is logged in.
+     *
      * @return bool
      */
-    public function check() : bool
+    public function check(): bool
     {
         $user = Sentinel::check();
 
@@ -148,7 +166,8 @@ class SentinelAuthentication implements Authentication
     }
 
     /**
-     * Get the currently logged in user
+     * Get the currently logged in user.
+     *
      * @return \Modules\User\Entities\UserInterface
      */
     public function user()
@@ -157,10 +176,11 @@ class SentinelAuthentication implements Authentication
     }
 
     /**
-     * Get the ID for the currently authenticated user
+     * Get the ID for the currently authenticated user.
+     *
      * @return int
      */
-    public function id() : int
+    public function id(): int
     {
         $user = $this->user();
 
@@ -171,7 +191,7 @@ class SentinelAuthentication implements Authentication
         return $user->id;
     }
 
-    public function logUserIn(UserInterface $user) : UserInterface
+    public function logUserIn(UserInterface $user): UserInterface
     {
         return Sentinel::login($user);
     }

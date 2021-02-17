@@ -9,7 +9,7 @@ class UploadDropzoneMediaRequest extends FormRequest
 {
     public function rules()
     {
-        $extensions = 'mimes:' . str_replace('.', '', config('asgard.media.config.allowed-types'));
+        $extensions = 'mimes:'.str_replace('.', '', config('asgard.media.config.allowed-types'));
         $maxFileSize = $this->getMaxFileSizeInKilobytes();
 
         return [

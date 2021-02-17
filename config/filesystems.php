@@ -44,41 +44,41 @@ return [
     'disks' => [
 
         'local' => [
-            'driver' => 'local',
-            'root' => base_path(),
+            'driver'      => 'local',
+            'root'        => base_path(),
             'permissions' => [
                 'file' => [
-                    'public' => 0777,
+                    'public'  => 0777,
                     'private' => 0700,
                 ],
                 'dir' => [
-                    'public' => 0777,
+                    'public'  => 0777,
                     'private' => 0700,
                 ],
             ],
-            'url' => env('APP_URL'),
+            'url'        => env('APP_URL'),
             'visibility' => 'public',
         ],
 
         'public' => [
-            'driver' => 'local',
-            'root' => storage_path('app/public'),
-            'url' => env('APP_URL') . '/storage',
+            'driver'     => 'local',
+            'root'       => storage_path('app/public'),
+            'url'        => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],
 
         'content' => [
             'driver' => 'local',
-            'root' => resource_path('views'),
+            'root'   => resource_path('views'),
         ],
 
         's3' => [
-            'driver' => 's3',
-            'key' => env('AWS_ACCESS_KEY_ID'),
-            'secret' => env('AWS_SECRET_ACCESS_KEY'),
-            'region' => env('AWS_DEFAULT_REGION'),
-            'bucket' => env('AWS_BUCKET'),
-            'url' => env('AWS_URL'),
+            'driver'   => 's3',
+            'key'      => env('AWS_ACCESS_KEY_ID'),
+            'secret'   => env('AWS_SECRET_ACCESS_KEY'),
+            'region'   => env('AWS_DEFAULT_REGION'),
+            'bucket'   => env('AWS_BUCKET'),
+            'url'      => env('AWS_URL'),
             'endpoint' => env('AWS_ENDPOINT'),
         ],
 

@@ -7,7 +7,8 @@ use Laracasts\Presenter\Presenter;
 class BlockPresenter extends Presenter
 {
     /**
-     * Get a bootstrap label of the block is online or offline
+     * Get a bootstrap label of the block is online or offline.
+     *
      * @return string
      */
     public function onlineLabel()

@@ -4,19 +4,20 @@ namespace Modules\Contact\Providers;
 
 use Illuminate\Database\Eloquent\Factory;
 use Illuminate\Support\ServiceProvider;
-use Modules\Core\Events\LoadingBackendTranslations;
 use Modules\Contact\Entities\ContactRequest;
 use Modules\Contact\Events\Handlers\RegisterContactSidebar;
 use Modules\Contact\Repositories\Cache\CacheContactRequestDecorator;
 use Modules\Contact\Repositories\ContactRequestRepository;
 use Modules\Contact\Repositories\Eloquent\EloquentContactRequestRepository;
 use Modules\Core\Events\BuildingSidebar;
+use Modules\Core\Events\LoadingBackendTranslations;
 use Modules\Core\Traits\CanGetSidebarClassForModule;
 use Modules\Core\Traits\CanPublishConfiguration;
 
 class ContactServiceProvider extends ServiceProvider
 {
-    use CanPublishConfiguration, CanGetSidebarClassForModule;
+    use CanPublishConfiguration;
+    use CanGetSidebarClassForModule;
     /**
      * Indicates if loading of the provider is deferred.
      *
@@ -39,7 +40,7 @@ class ContactServiceProvider extends ServiceProvider
             $this->getSidebarClassForModule('contact', RegisterContactSidebar::class)
         );
 
-       // $this->app['events']->listen(LoadingBackendTranslations::class, function (LoadingBackendTranslations $event) {
+        // $this->app['events']->listen(LoadingBackendTranslations::class, function (LoadingBackendTranslations $event) {
        //     $event->load('contactrequests', array_dot(trans('contact::contactrequests')));
        // });
     }
@@ -48,11 +49,11 @@ class ContactServiceProvider extends ServiceProvider
     {
         $this->publishConfig('contact', 'permissions');
         $this->publishConfig('contact', 'settings');
-        $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
+        $this->loadMigrationsFrom(__DIR__.'/../Database/Migrations');
 
         if (app()->environment() === 'testing') {
-            $this->app['view']->addNamespace('contact', __DIR__ . '/../Resources/views');
-            $this->loadTranslationsFrom(__DIR__ .'/../Resources/lang', 'contact');
+            $this->app['view']->addNamespace('contact', __DIR__.'/../Resources/views');
+            $this->loadTranslationsFrom(__DIR__.'/../Resources/lang', 'contact');
         }
     }
 
@@ -63,7 +64,7 @@ class ContactServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return array();
+        return [];
     }
 
     private function registerBindings()
@@ -71,18 +72,18 @@ class ContactServiceProvider extends ServiceProvider
         $this->app->bind(ContactRequestRepository::class, function () {
             $repository = new EloquentContactRequestRepository(new ContactRequest());
 
-            if (! config('app.cache')) {
+            if (!config('app.cache')) {
                 return $repository;
             }
 
             return new CacheContactRequestDecorator($repository);
         });
-// add bindings
-
+        // add bindings
     }
 
     /**
      * Register an additional directory of factories.
+     *
      * @source https://github.com/sebastiaanluca/laravel-resource-flow/blob/develop/src/Modules/ModuleServiceProvider.php#L66
      */
     public function registerFactories()

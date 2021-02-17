@@ -28,20 +28,21 @@ final class AsgardNotification implements Notification
     }
 
     /**
-     * Push a notification on the dashboard
-     * @param string $title
-     * @param string $message
-     * @param string $icon
+     * Push a notification on the dashboard.
+     *
+     * @param string      $title
+     * @param string      $message
+     * @param string      $icon
      * @param string|null $link
      */
     public function push($title, $message, $icon, $link = null)
     {
         $notification = $this->notification->create([
-            'user_id' => $this->userId ?: $this->auth->id(),
+            'user_id'    => $this->userId ?: $this->auth->id(),
             'icon_class' => $icon,
-            'link' => $link,
-            'title' => $title,
-            'message' => $message,
+            'link'       => $link,
+            'title'      => $title,
+            'message'    => $message,
         ]);
 
         if (true === config('asgard.notification.config.real-time', false)) {
@@ -50,7 +51,8 @@ final class AsgardNotification implements Notification
     }
 
     /**
-     * Trigger the broadcast event for the given notification
+     * Trigger the broadcast event for the given notification.
+     *
      * @param \Modules\Notification\Entities\Notification $notification
      */
     private function triggerEventFor(\Modules\Notification\Entities\Notification $notification)
@@ -59,8 +61,10 @@ final class AsgardNotification implements Notification
     }
 
     /**
-     * Set a user id to set the notification to
+     * Set a user id to set the notification to.
+     *
      * @param int $userId
+     *
      * @return $this
      */
     public function to($userId)

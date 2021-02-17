@@ -7,15 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 use Laracasts\Presenter\PresentableTrait;
 
 /**
- * Class Block
+ * Class Block.
+ *
  * @property string $name
- * @property bool $online
+ * @property bool   $online
  * @property string $body
  * @property string $shortcode
  */
 class Block extends Model
 {
-    use Translatable, PresentableTrait;
+    use Translatable;
+    use PresentableTrait;
 
     protected $presenter = 'Modules\Block\Presenters\BlockPresenter';
 
@@ -31,17 +33,17 @@ class Block extends Model
 
     public function __call($method, $parameters)
     {
-        #i: Convert array to dot notation
+        //i: Convert array to dot notation
         $config = implode('.', ['asgard.block.config.relations', $method]);
 
-        #i: Relation method resolver
+        //i: Relation method resolver
         if (config()->has($config)) {
             $function = config()->get($config);
 
             return $function($this);
         }
 
-        #i: No relation found, return the call to parent (Eloquent) to handle it.
+        //i: No relation found, return the call to parent (Eloquent) to handle it.
         return parent::__call($method, $parameters);
     }
 

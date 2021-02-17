@@ -43,17 +43,18 @@ class MoveMediaController extends Controller
         }
 
         return response()->json([
-            'errors' => $failedMoves > 0,
-            'message' => $this->getResponseMessage($failedMoves),
+            'errors'    => $failedMoves > 0,
+            'message'   => $this->getResponseMessage($failedMoves),
             'folder_id' => $destination->id,
         ]);
     }
 
     /**
      * @param int $failedMoves
+     *
      * @return string
      */
-    protected function getResponseMessage(int $failedMoves) : string
+    protected function getResponseMessage(int $failedMoves): string
     {
         if ($failedMoves > 0) {
             return trans('media::media.some files not moved');

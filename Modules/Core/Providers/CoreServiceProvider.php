@@ -26,7 +26,8 @@ use Nwidart\Modules\Module;
 
 class CoreServiceProvider extends ServiceProvider
 {
-    use CanPublishConfiguration, CanGetSidebarClassForModule;
+    use CanPublishConfiguration;
+    use CanGetSidebarClassForModule;
     /**
      * Indicates if loading of the provider is deferred.
      *
@@ -46,7 +47,7 @@ class CoreServiceProvider extends ServiceProvider
             'public.checkLocale'    => 'PublicMiddleware',
             'localizationRedirect'  => 'LocalizationMiddleware',
             'localeSessionRedirect' => 'LocaleSessionRedirectMiddleware',
-            'can' => 'Authorization',
+            'can'                   => 'Authorization',
         ],
     ];
 
@@ -110,7 +111,8 @@ class CoreServiceProvider extends ServiceProvider
     /**
      * Register the filters.
      *
-     * @param  Router $router
+     * @param Router $router
+     *
      * @return void
      */
     public function registerMiddleware(Router $router)
@@ -125,7 +127,7 @@ class CoreServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the console commands
+     * Register the console commands.
      */
     private function registerCommands()
     {
@@ -163,7 +165,7 @@ class CoreServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the modules aliases
+     * Register the modules aliases.
      */
     private function registerModuleResourceNamespaces()
     {
@@ -174,7 +176,7 @@ class CoreServiceProvider extends ServiceProvider
             $themeManager = app(ThemeManager::class);
 
             $themes = [
-                'backend' => $themeManager->find(config('asgard.core.core.admin-theme'))->getPath(),
+                'backend'  => $themeManager->find(config('asgard.core.core.admin-theme'))->getPath(),
                 'frontend' => $themeManager->find(setting('core::template', null, 'Flatly'))->getPath(),
             ];
         }
@@ -186,9 +188,10 @@ class CoreServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the view namespaces for the modules
+     * Register the view namespaces for the modules.
+     *
      * @param Module $module
-     * @param array $themes
+     * @param array  $themes
      */
     protected function registerViewNamespace(Module $module, array $themes)
     {
@@ -197,31 +200,32 @@ class CoreServiceProvider extends ServiceProvider
 
         if (is_core_module($moduleName)) {
             $configFile = 'config';
-            $configKey = 'asgard.' . $moduleName . '.' . $configFile;
+            $configKey = 'asgard.'.$moduleName.'.'.$configFile;
 
-            $this->mergeConfigFrom($module->getExtraPath('Config' . DIRECTORY_SEPARATOR . $configFile . '.php'), $configKey);
-            $moduleConfig = $this->app['config']->get($configKey . '.useViewNamespaces');
+            $this->mergeConfigFrom($module->getExtraPath('Config'.DIRECTORY_SEPARATOR.$configFile.'.php'), $configKey);
+            $moduleConfig = $this->app['config']->get($configKey.'.useViewNamespaces');
 
             if (count($themes) > 0) {
                 if ($themes['backend'] !== null && Arr::get($moduleConfig, 'backend-theme') === true) {
-                    $hints[] = $themes['backend'] . '/views/modules/' . $moduleName;
+                    $hints[] = $themes['backend'].'/views/modules/'.$moduleName;
                 }
                 if ($themes['frontend'] !== null && Arr::get($moduleConfig, 'frontend-theme') === true) {
-                    $hints[] = $themes['frontend'] . '/views/modules/' . $moduleName;
+                    $hints[] = $themes['frontend'].'/views/modules/'.$moduleName;
                 }
             }
             if (Arr::get($moduleConfig, 'resources') === true) {
-                $hints[] = base_path('resources/views/asgard/' . $moduleName);
+                $hints[] = base_path('resources/views/asgard/'.$moduleName);
             }
         }
 
-        $hints[] = $module->getPath() . '/Resources/views';
+        $hints[] = $module->getPath().'/Resources/views';
 
         $this->app['view']->addNamespace($moduleName, $hints);
     }
 
     /**
-     * Register the language namespaces for the modules
+     * Register the language namespaces for the modules.
+     *
      * @param Module $module
      */
     protected function registerLanguageNamespace(Module $module)
@@ -241,12 +245,13 @@ class CoreServiceProvider extends ServiceProvider
             return $this->loadTranslationsFrom($this->getCentralisedTranslationPath($module), $moduleName);
         }
 
-        return $this->loadTranslationsFrom($module->getPath() . '/Resources/lang', $moduleName);
+        return $this->loadTranslationsFrom($module->getPath().'/Resources/lang', $moduleName);
     }
 
     /**
      * @param $file
      * @param $package
+     *
      * @return string
      */
     private function getConfigFilename($file)
@@ -257,7 +262,7 @@ class CoreServiceProvider extends ServiceProvider
     /**
      * Set the locale configuration for
      * - laravel localization
-     * - laravel translatable
+     * - laravel translatable.
      */
     private function setLocalesConfigurations()
     {
@@ -283,7 +288,7 @@ class CoreServiceProvider extends ServiceProvider
 
             $laravelDefaultLocale = $this->app->config->get('app.locale');
 
-            if (! in_array($laravelDefaultLocale, array_keys($availableLocales))) {
+            if (!in_array($laravelDefaultLocale, array_keys($availableLocales))) {
                 $this->app->config->set('app.locale', array_keys($availableLocales)[0]);
             }
             $this->app->config->set('laravellocalization.supportedLocales', $availableLocales);
@@ -293,6 +298,7 @@ class CoreServiceProvider extends ServiceProvider
 
     /**
      * @param string $path
+     *
      * @return bool
      */
     private function hasPublishedTranslations($path)
@@ -302,7 +308,9 @@ class CoreServiceProvider extends ServiceProvider
 
     /**
      * Does a Module have it's Translations centralised in the Translation module?
+     *
      * @param Module $module
+     *
      * @return bool
      */
     private function moduleHasCentralisedTranslations(Module $module)
@@ -311,19 +319,21 @@ class CoreServiceProvider extends ServiceProvider
     }
 
     /**
-     * Get the absolute path to the Centralised Translations for a Module (via the Translations module)
+     * Get the absolute path to the Centralised Translations for a Module (via the Translations module).
+     *
      * @param Module $module
+     *
      * @return string
      */
     private function getCentralisedTranslationPath(Module $module)
     {
-        $path = config('modules.paths.modules') . '/Translation';
+        $path = config('modules.paths.modules').'/Translation';
 
-        return $path . "/Resources/lang/{$module->getLowerName()}";
+        return $path."/Resources/lang/{$module->getLowerName()}";
     }
 
     /**
-     * List of Custom Blade Directives
+     * List of Custom Blade Directives.
      */
     public function bladeDirectives()
     {
@@ -333,7 +343,7 @@ class CoreServiceProvider extends ServiceProvider
 
         /**
          * Set variable.
-         * Usage: @set($variable, value)
+         * Usage: @set($variable, value).
          */
         Blade::directive('set', function ($expression) {
             list($variable, $value) = $this->getArguments($expression);
@@ -347,7 +357,8 @@ class CoreServiceProvider extends ServiceProvider
     }
 
     /**
-     * Checks if the current url matches the configured backend uri
+     * Checks if the current url matches the configured backend uri.
+     *
      * @return bool
      */
     private function onBackend()
@@ -362,7 +373,9 @@ class CoreServiceProvider extends ServiceProvider
 
     /**
      * Get argument array from argument string.
+     *
      * @param $argumentString
+     *
      * @return array
      */
     private function getArguments($argumentString)

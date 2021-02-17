@@ -23,8 +23,10 @@ class SetAppKey implements SetupScript
     }
 
     /**
-     * Fire the install script
-     * @param  Command $command
+     * Fire the install script.
+     *
+     * @param Command $command
+     *
      * @return mixed
      */
     public function fire(Command $command)
@@ -34,7 +36,7 @@ class SetAppKey implements SetupScript
         // Next, we will replace the application key in the environment file so it is
         // automatically setup for this developer. This key gets generated using a
         // secure random byte generator and is later base64 encoded for storage.
-        if (! $this->setKeyInEnvironmentFile($key)) {
+        if (!$this->setKeyInEnvironmentFile($key)) {
             return;
         }
 
@@ -52,7 +54,7 @@ class SetAppKey implements SetupScript
      */
     protected function generateRandomKey()
     {
-        return 'base64:' . base64_encode(
+        return 'base64:'.base64_encode(
             Encrypter::generateKey(config('app.cipher'))
         );
     }
@@ -60,14 +62,15 @@ class SetAppKey implements SetupScript
     /**
      * Set the application key in the environment file.
      *
-     * @param  string  $key
+     * @param string $key
+     *
      * @return bool
      */
     protected function setKeyInEnvironmentFile($key)
     {
         $currentKey = config('app.key');
 
-        if (strlen($currentKey) !== 0 && (! $this->confirmToProceed())) {
+        if (strlen($currentKey) !== 0 && (!$this->confirmToProceed())) {
             return false;
         }
 
@@ -79,14 +82,15 @@ class SetAppKey implements SetupScript
     /**
      * Write a new environment file with the given key.
      *
-     * @param  string  $key
+     * @param string $key
+     *
      * @return void
      */
     protected function writeNewEnvironmentFileWith($key)
     {
         file_put_contents(app()->environmentFilePath(), preg_replace(
             $this->keyReplacementPattern(),
-            'APP_KEY=' . $key,
+            'APP_KEY='.$key,
             file_get_contents(app()->environmentFilePath())
         ));
     }
@@ -98,7 +102,7 @@ class SetAppKey implements SetupScript
      */
     protected function keyReplacementPattern()
     {
-        $escaped = preg_quote('=' . config('app.key'), '/');
+        $escaped = preg_quote('='.config('app.key'), '/');
 
         return "/^APP_KEY{$escaped}/m";
     }

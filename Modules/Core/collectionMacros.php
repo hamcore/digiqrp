@@ -10,7 +10,7 @@ if (Collection::hasMacro('toAssoc') === false) {
             $assoc[$key] = $value;
 
             return $assoc;
-        }, new static);
+        }, new static());
     });
 }
 

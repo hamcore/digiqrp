@@ -36,8 +36,8 @@ class ApiUserControllerTest extends BaseUserTestCase
     public function it_creates_a_new_activated_user()
     {
         $data = [
-            'email' => 'user@domain.tld',
-            'password' => 'Pa$$w0rd',
+            'email'        => 'user@domain.tld',
+            'password'     => 'Pa$$w0rd',
             'is_activated' => true,
         ];
 

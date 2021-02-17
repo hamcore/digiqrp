@@ -74,7 +74,7 @@ class TaggableTraitTest extends BaseTestCase
     /** @test */
     public function it_can_remove_all_tags()
     {
-        $this->createPage(['original tag', 'tag2', 'tag3', ]);
+        $this->createPage(['original tag', 'tag2', 'tag3']);
         $page = $this->page->find(1);
 
         $this->page->update($page, ['tags' => []]);
@@ -86,7 +86,7 @@ class TaggableTraitTest extends BaseTestCase
     /** @test */
     public function it_removes_all_tag_links_when_removing_entity()
     {
-        $this->createPage(['original tag', 'tag2', 'tag3', ]);
+        $this->createPage(['original tag', 'tag2', 'tag3']);
 
         $page = $this->page->find(1);
         $pageId = $page->id;
@@ -124,7 +124,7 @@ class TaggableTraitTest extends BaseTestCase
 
         $this->tag->create([
             'namespace' => 'asgardcms/media',
-            'en' => [
+            'en'        => [
                 'slug' => 'media-tag',
                 'name' => 'media tag',
             ],
@@ -167,12 +167,12 @@ class TaggableTraitTest extends BaseTestCase
     private function createPage(array $tags = [])
     {
         return $this->page->create([
-            'is_home' => 1,
+            'is_home'  => 1,
             'template' => 'default',
-            'en' => [
+            'en'       => [
                 'title' => 'My Page',
-                'slug' => 'my-page',
-                'body' => 'My Page Body',
+                'slug'  => 'my-page',
+                'body'  => 'My Page Body',
             ],
             'tags' => $tags,
         ]);

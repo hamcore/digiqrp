@@ -1,11 +1,11 @@
 <?php
 
 return [
-    'title' => 'Управление темами',
+    'title'      => 'Управление темами',
     'breadcrumb' => [
         'themes' => 'Темы',
     ],
-    'theme' => 'Тема',
+    'theme'         => 'Тема',
     'viewing theme' => 'Просмотр темы :theme',
-    'type' => 'Тип',
+    'type'          => 'Тип',
 ];

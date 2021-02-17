@@ -23,7 +23,7 @@ class CachePageDecorator extends BaseCacheDecorator implements PageRepository
     }
 
     /**
-     * Find the page set as homepage
+     * Find the page set as homepage.
      *
      * @return object
      */
@@ -35,7 +35,8 @@ class CachePageDecorator extends BaseCacheDecorator implements PageRepository
     }
 
     /**
-     * Count all records
+     * Count all records.
+     *
      * @return int
      */
     public function countAll()
@@ -48,6 +49,7 @@ class CachePageDecorator extends BaseCacheDecorator implements PageRepository
     /**
      * @param $slug
      * @param $locale
+     *
      * @return object
      */
     public function findBySlugInLocale($slug, $locale)
@@ -58,8 +60,10 @@ class CachePageDecorator extends BaseCacheDecorator implements PageRepository
     }
 
     /**
-     * Paginating, ordering and searching through pages for server side index table
+     * Paginating, ordering and searching through pages for server side index table.
+     *
      * @param Request $request
+     *
      * @return LengthAwarePaginator
      */
     public function serverPaginationFilteringFor(Request $request): LengthAwarePaginator
@@ -70,7 +74,7 @@ class CachePageDecorator extends BaseCacheDecorator implements PageRepository
         $perPage = $request->get('per_page');
         $search = $request->get('search');
 
-        $key = $this->getBaseKey() . "serverPaginationFilteringFor.{$page}-{$order}-{$orderBy}-{$perPage}-{$search}";
+        $key = $this->getBaseKey()."serverPaginationFilteringFor.{$page}-{$order}-{$orderBy}-{$perPage}-{$search}";
 
         return $this->remember(function () use ($request) {
             return $this->repository->serverPaginationFilteringFor($request);
@@ -79,6 +83,7 @@ class CachePageDecorator extends BaseCacheDecorator implements PageRepository
 
     /**
      * @param Page $page
+     *
      * @return mixed
      */
     public function markAsOnlineInAllLocales(Page $page)
@@ -90,6 +95,7 @@ class CachePageDecorator extends BaseCacheDecorator implements PageRepository
 
     /**
      * @param Page $page
+     *
      * @return mixed
      */
     public function markAsOfflineInAllLocales(Page $page)
@@ -101,6 +107,7 @@ class CachePageDecorator extends BaseCacheDecorator implements PageRepository
 
     /**
      * @param array $pageIds [int]
+     *
      * @return mixed
      */
     public function markMultipleAsOnlineInAllLocales(array $pageIds)
@@ -112,6 +119,7 @@ class CachePageDecorator extends BaseCacheDecorator implements PageRepository
 
     /**
      * @param array $pageIds [int]
+     *
      * @return mixed
      */
     public function markMultipleAsOfflineInAllLocales(array $pageIds)

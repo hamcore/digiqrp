@@ -15,8 +15,8 @@ class EloquentLocaleRepository implements LocaleRepository
     {
         $this->mapper = function (array $item, string $key) {
             return [
-                'code' => $key,
-                'name'   => trans('translation::locales.' . $key),
+                'code'   => $key,
+                'name'   => trans('translation::locales.'.$key),
                 'script' => $item['script'],
                 'native' => $item['native'],
             ];
@@ -42,7 +42,7 @@ class EloquentLocaleRepository implements LocaleRepository
             });
         }
 
-        $order    = $request->get('order');
+        $order = $request->get('order');
         $order_by = $request->get('order_by');
         switch ($order_by) {
             case 'code':

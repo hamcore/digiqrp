@@ -2,11 +2,11 @@
 
 return [
     'form' => [
-        'page' => 'Página',
-        'module' => 'Módulo',
-        'target' => 'Objeto',
+        'page'     => 'Página',
+        'module'   => 'Módulo',
+        'target'   => 'Objeto',
         'same tab' => 'Mesma aba',
-        'new tab' => 'Nova aba',
-        'icon' => 'Icon',
+        'new tab'  => 'Nova aba',
+        'icon'     => 'Icon',
     ],
 ];

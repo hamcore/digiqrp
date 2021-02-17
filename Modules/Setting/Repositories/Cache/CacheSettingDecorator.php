@@ -15,8 +15,10 @@ class CacheSettingDecorator extends BaseCacheDecorator implements SettingReposit
     }
 
     /**
-     * Create or update the settings
+     * Create or update the settings.
+     *
      * @param $settings
+     *
      * @return mixed
      */
     public function createOrUpdate($settings)
@@ -27,8 +29,10 @@ class CacheSettingDecorator extends BaseCacheDecorator implements SettingReposit
     }
 
     /**
-     * Find a setting by its name
+     * Find a setting by its name.
+     *
      * @param $settingName
+     *
      * @return mixed
      */
     public function findByName($settingName)
@@ -40,8 +44,10 @@ class CacheSettingDecorator extends BaseCacheDecorator implements SettingReposit
 
     /**
      * Return all modules that have settings
-     * with its settings
-     * @param  array|string $modules
+     * with its settings.
+     *
+     * @param array|string $modules
+     *
      * @return array
      */
     public function moduleSettings($modules)
@@ -52,8 +58,10 @@ class CacheSettingDecorator extends BaseCacheDecorator implements SettingReposit
     }
 
     /**
-     * Return the saved module settings
+     * Return the saved module settings.
+     *
      * @param $module
+     *
      * @return mixed
      */
     public function savedModuleSettings($module)
@@ -64,8 +72,10 @@ class CacheSettingDecorator extends BaseCacheDecorator implements SettingReposit
     }
 
     /**
-     * Find settings by module name
-     * @param  string $module
+     * Find settings by module name.
+     *
+     * @param string $module
+     *
      * @return mixed
      */
     public function findByModule($module)
@@ -76,8 +86,10 @@ class CacheSettingDecorator extends BaseCacheDecorator implements SettingReposit
     }
 
     /**
-     * Find the given setting name for the given module
-     * @param  string $settingName
+     * Find the given setting name for the given module.
+     *
+     * @param string $settingName
+     *
      * @return mixed
      */
     public function get($settingName)
@@ -88,8 +100,10 @@ class CacheSettingDecorator extends BaseCacheDecorator implements SettingReposit
     }
 
     /**
-     * Return the translatable module settings
+     * Return the translatable module settings.
+     *
      * @param $module
+     *
      * @return array
      */
     public function translatableModuleSettings($module)
@@ -100,8 +114,10 @@ class CacheSettingDecorator extends BaseCacheDecorator implements SettingReposit
     }
 
     /**
-     * Return the non translatable module settings
+     * Return the non translatable module settings.
+     *
      * @param $module
+     *
      * @return array
      */
     public function plainModuleSettings($module)

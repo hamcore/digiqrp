@@ -29,6 +29,7 @@ class UserRegistration
 
     /**
      * @param array $input
+     *
      * @return mixed
      */
     public function register(array $input)
@@ -61,7 +62,8 @@ class UserRegistration
     }
 
     /**
-     * Check if the request input has a profile key
+     * Check if the request input has a profile key.
+     *
      * @return bool
      */
     private function hasProfileData()
@@ -70,7 +72,8 @@ class UserRegistration
     }
 
     /**
-     * Create a profile for the given user
+     * Create a profile for the given user.
+     *
      * @param $user
      */
     private function createProfileForUser($user)

@@ -21,10 +21,10 @@ class SentinelUserSeedTableSeeder extends Seeder
         // Create an admin user
         $user = Sentinel::create(
             [
-                'email' => 'n.widart@gmail.com',
-                'password' => 'test',
+                'email'      => 'n.widart@gmail.com',
+                'password'   => 'test',
                 'first_name' => 'Nicolas',
-                'last_name' => 'Widart',
+                'last_name'  => 'Widart',
             ]
         );
         // Activate the admin directly

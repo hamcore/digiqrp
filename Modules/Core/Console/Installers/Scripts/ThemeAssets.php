@@ -8,8 +8,10 @@ use Modules\Core\Console\Installers\SetupScript;
 class ThemeAssets implements SetupScript
 {
     /**
-     * Fire the install script
-     * @param  Command $command
+     * Fire the install script.
+     *
+     * @param Command $command
+     *
      * @return mixed
      */
     public function fire(Command $command)

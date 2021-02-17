@@ -2,21 +2,21 @@
 
 return [
     'title' => [
-        'post' => 'İçerikler',
+        'post'        => 'İçerikler',
         'create post' => 'İçerik oluştur',
-        'edit post' => 'İçeriği düzenle',
+        'edit post'   => 'İçeriği düzenle',
     ],
     'button' => [
         'create post' => 'İçerik oluştur',
     ],
     'table' => [
-        'title' => 'Başlık',
-        'slug' => 'Slug',
+        'title'  => 'Başlık',
+        'slug'   => 'Slug',
         'status' => 'Durum',
     ],
     'form' => [
         'title' => 'Başlık',
-        'slug' => 'Slug',
+        'slug'  => 'Slug',
     ],
     'navigation' => [
         'back to index' => 'İçeriklere geri dön',

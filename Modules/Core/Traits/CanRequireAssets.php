@@ -7,7 +7,8 @@ use Modules\Core\Foundation\Asset\Pipeline\AssetPipeline;
 trait CanRequireAssets
 {
     /**
-     * Require a css asset from the asset pipeline
+     * Require a css asset from the asset pipeline.
+     *
      * @param string $name
      */
     public function requireCss($name)
@@ -16,7 +17,8 @@ trait CanRequireAssets
     }
 
     /**
-     * Require a js asset from the asset pipeline
+     * Require a js asset from the asset pipeline.
+     *
      * @param string $name
      */
     public function requireJs($name)

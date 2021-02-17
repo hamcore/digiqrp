@@ -26,7 +26,8 @@ class MediaGridController extends AdminBaseController
     }
 
     /**
-     * A grid view for the upload button
+     * A grid view for the upload button.
+     *
      * @return \Illuminate\View\View
      */
     public function index()
@@ -38,7 +39,8 @@ class MediaGridController extends AdminBaseController
     }
 
     /**
-     * A grid view of uploaded files used for the wysiwyg editor
+     * A grid view of uploaded files used for the wysiwyg editor.
+     *
      * @return \Illuminate\View\View
      */
     public function ckIndex()

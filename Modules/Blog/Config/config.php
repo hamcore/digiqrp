@@ -22,11 +22,11 @@ return [
         'partials' => [
             'translatable' => [
                 'create' => [],
-                'edit' => [],
+                'edit'   => [],
             ],
             'normal' => [
                 'create' => [],
-                'edit' => [],
+                'edit'   => [],
             ],
         ],
         /*
@@ -36,9 +36,9 @@ return [
         | Add relations that will be dynamically added to the Post entity
         */
         'relations' => [
-    //        'extension' => function ($self) {
-    //            return $self->belongsTo(PostExtension::class, 'id', 'post_id')->first();
-    //        }
+            //        'extension' => function ($self) {
+            //            return $self->belongsTo(PostExtension::class, 'id', 'post_id')->first();
+            //        }
         ],
     ],
     /*

@@ -80,6 +80,7 @@ class MenuItemController extends AdminBaseController
 
     /**
      * @param Menu, $menuItemId
+     *
      * @return array
      */
     private function getMenuSelect($menu)
@@ -88,8 +89,9 @@ class MenuItemController extends AdminBaseController
     }
 
     /**
-     * @param  Menu $menu
-     * @param  \Illuminate\Foundation\Http\FormRequest $request
+     * @param Menu                                    $menu
+     * @param \Illuminate\Foundation\Http\FormRequest $request
+     *
      * @return array
      */
     private function addMenuId(Menu $menu, FormRequest $request)
@@ -97,7 +99,7 @@ class MenuItemController extends AdminBaseController
         $data = $request->all();
 
         foreach (LaravelLocalization::getSupportedLanguagesKeys() as $lang) {
-            if ($data['link_type'] === 'page' && ! empty($data['page_id'])) {
+            if ($data['link_type'] === 'page' && !empty($data['page_id'])) {
                 $data[$lang]['uri'] = $this->menuItemUriGenerator->generateUri($data['page_id'], $data['parent_id'], $lang);
             }
         }

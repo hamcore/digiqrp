@@ -19,12 +19,12 @@ class BlockFacadeTest extends BaseBlockTest
     {
         $this->block->create([
             'name' => 'test-block',
-            'en' => [
-                'body' => 'lorem en',
+            'en'   => [
+                'body'   => 'lorem en',
                 'online' => true,
             ],
             'fr' => [
-                'body' => 'lorem fr',
+                'body'   => 'lorem fr',
                 'online' => true,
             ],
         ]);

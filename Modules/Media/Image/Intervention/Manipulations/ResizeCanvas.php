@@ -7,14 +7,16 @@ use Modules\Media\Image\ImageHandlerInterface;
 class ResizeCanvas implements ImageHandlerInterface
 {
     private $defaults = [
-        'width' => 200,
+        'width'  => 200,
         'height' => 200,
     ];
 
     /**
-     * Handle the image manipulation request
-     * @param  \Intervention\Image\Image $image
-     * @param  array                     $options
+     * Handle the image manipulation request.
+     *
+     * @param \Intervention\Image\Image $image
+     * @param array                     $options
+     *
      * @return \Intervention\Image\Image
      */
     public function handle($image, $options)

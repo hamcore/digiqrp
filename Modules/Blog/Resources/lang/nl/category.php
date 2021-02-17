@@ -2,17 +2,17 @@
 
 return [
     'title' => [
-        'category' => 'Categorieën',
+        'category'        => 'Categorieën',
         'create category' => 'Creëer categorie',
-        'edit category' => 'Wijzig categorie',
+        'edit category'   => 'Wijzig categorie',
     ],
     'button' => [
         'create category' => 'Creëer categorie',
     ],
     'table' => [
         'created at' => 'Aangemaakt op',
-        'name' => 'Naam',
-        'slug' => 'Pad',
+        'name'       => 'Naam',
+        'slug'       => 'Pad',
     ],
     'form' => [
         'name' => 'Naam',

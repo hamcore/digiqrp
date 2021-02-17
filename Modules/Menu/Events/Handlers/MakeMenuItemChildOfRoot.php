@@ -21,14 +21,16 @@ class MakeMenuItemChildOfRoot
     {
         $root = $this->menuItem->getRootForMenu($event->menuItem->menu_id);
 
-        if (! $this->isRoot($event->menuItem)) {
+        if (!$this->isRoot($event->menuItem)) {
             $event->menuItem->makeChildOf($root);
         }
     }
 
     /**
-     * Check if the given menu item is not already a root menu item
-     * @param  object $menuItem
+     * Check if the given menu item is not already a root menu item.
+     *
+     * @param object $menuItem
+     *
      * @return bool
      */
     private function isRoot($menuItem)

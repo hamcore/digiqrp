@@ -41,7 +41,7 @@ class AdminSidebar implements Sidebar, ShouldCache
     }
 
     /**
-     * Build your sidebar implementation here
+     * Build your sidebar implementation here.
      */
     public function build()
     {
@@ -56,13 +56,14 @@ class AdminSidebar implements Sidebar, ShouldCache
             }
 
             $name = $module->get('name');
-            $class = 'Modules\\' . $name . '\\Sidebar\\SidebarExtender';
+            $class = 'Modules\\'.$name.'\\Sidebar\\SidebarExtender';
             $this->addToSidebar($class);
         }
     }
 
     /**
-     * Add the given class to the sidebar collection
+     * Add the given class to the sidebar collection.
+     *
      * @param string $class
      */
     private function addToSidebar($class)
@@ -86,8 +87,10 @@ class AdminSidebar implements Sidebar, ShouldCache
     }
 
     /**
-     * Check if the module has a custom sidebar class configured
+     * Check if the module has a custom sidebar class configured.
+     *
      * @param string $module
+     *
      * @return bool
      */
     private function hasCustomSidebar($module)

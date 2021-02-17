@@ -21,7 +21,8 @@ use Modules\Tag\Repositories\TagManager;
 
 class PageServiceProvider extends ServiceProvider
 {
-    use CanPublishConfiguration, CanGetSidebarClassForModule;
+    use CanPublishConfiguration;
+    use CanGetSidebarClassForModule;
     /**
      * Indicates if loading of the provider is deferred.
      *
@@ -58,7 +59,7 @@ class PageServiceProvider extends ServiceProvider
         $this->publishConfig('page', 'permissions');
 
         $this->app[TagManager::class]->registerNamespace(new Page());
-        $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
+        $this->loadMigrationsFrom(__DIR__.'/../Database/Migrations');
 
         $this->handleAssets();
 
@@ -84,7 +85,7 @@ class PageServiceProvider extends ServiceProvider
         $this->app->bind(PageRepository::class, function () {
             $repository = new EloquentPageRepository(new Page());
 
-            if (! Config::get('app.cache')) {
+            if (!Config::get('app.cache')) {
                 return $repository;
             }
 
@@ -93,7 +94,7 @@ class PageServiceProvider extends ServiceProvider
     }
 
     /**
-     * Require iCheck on edit and create pages
+     * Require iCheck on edit and create pages.
      */
     private function handleAssets()
     {

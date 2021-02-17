@@ -27,12 +27,12 @@ class MenuItemUriGeneratorTest extends BaseMenuTest
     public function it_generates_basic_uri_without_parent()
     {
         $this->page->create([
-            'is_home' => 1,
+            'is_home'  => 1,
             'template' => 'default',
-            'en' => [
+            'en'       => [
                 'title' => 'Awesome Page',
-                'slug' => 'awesome-page',
-                'body' => 'My Page Body',
+                'slug'  => 'awesome-page',
+                'body'  => 'My Page Body',
             ],
         ]);
 
@@ -43,33 +43,33 @@ class MenuItemUriGeneratorTest extends BaseMenuTest
     public function it_generates_uri_with_the_parents_slug()
     {
         $this->page->create([
-            'is_home' => 1,
+            'is_home'  => 1,
             'template' => 'default',
-            'en' => [
+            'en'       => [
                 'title' => 'Awesome Page',
-                'slug' => 'awesome-page',
-                'body' => 'My Page Body',
+                'slug'  => 'awesome-page',
+                'body'  => 'My Page Body',
             ],
         ]);
         $this->page->create([
-            'is_home' => 0,
+            'is_home'  => 0,
             'template' => 'default',
-            'en' => [
+            'en'       => [
                 'title' => 'About',
-                'slug' => 'about',
-                'body' => 'My Page Body',
+                'slug'  => 'about',
+                'body'  => 'My Page Body',
             ],
         ]);
         $menu = $this->createMenu('main', 'Main');
         $data = [
-            'menu_id' => $menu->id,
+            'menu_id'  => $menu->id,
             'position' => 0,
-            'target' => '_self',
-            'page_id' => 1,
-            'en' => [
+            'target'   => '_self',
+            'page_id'  => 1,
+            'en'       => [
                 'status' => 1,
-                'title' => 'First Menu Item',
-                'uri' => 'awesome-page',
+                'title'  => 'First Menu Item',
+                'uri'    => 'awesome-page',
             ],
         ];
         $menuitem = $this->menuItem->create($data);
@@ -81,55 +81,55 @@ class MenuItemUriGeneratorTest extends BaseMenuTest
     public function it_generates_uri_with_multiple_parents()
     {
         $this->page->create([
-            'is_home' => 1,
+            'is_home'  => 1,
             'template' => 'default',
-            'en' => [
+            'en'       => [
                 'title' => 'Awesome Page',
-                'slug' => 'awesome-page',
-                'body' => 'My Page Body',
+                'slug'  => 'awesome-page',
+                'body'  => 'My Page Body',
             ],
         ]);
         $this->page->create([
-            'is_home' => 0,
+            'is_home'  => 0,
             'template' => 'default',
-            'en' => [
+            'en'       => [
                 'title' => 'Mid Page',
-                'slug' => 'mid-page',
-                'body' => 'My Page Body',
+                'slug'  => 'mid-page',
+                'body'  => 'My Page Body',
             ],
         ]);
         $this->page->create([
-            'is_home' => 0,
+            'is_home'  => 0,
             'template' => 'default',
-            'en' => [
+            'en'       => [
                 'title' => 'About',
-                'slug' => 'about',
-                'body' => 'My Page Body',
+                'slug'  => 'about',
+                'body'  => 'My Page Body',
             ],
         ]);
         $menu = $this->createMenu('main', 'Main');
         $data = [
-            'menu_id' => $menu->id,
+            'menu_id'  => $menu->id,
             'position' => 0,
-            'target' => '_self',
-            'page_id' => 1,
-            'en' => [
+            'target'   => '_self',
+            'page_id'  => 1,
+            'en'       => [
                 'status' => 1,
-                'title' => 'First Menu Item',
-                'uri' => 'awesome-page',
+                'title'  => 'First Menu Item',
+                'uri'    => 'awesome-page',
             ],
         ];
         $menuitem1 = $this->menuItem->create($data);
         $data = [
-            'menu_id' => $menu->id,
-            'position' => 0,
-            'target' => '_self',
-            'page_id' => 2,
+            'menu_id'   => $menu->id,
+            'position'  => 0,
+            'target'    => '_self',
+            'page_id'   => 2,
             'parent_id' => $menuitem1->id,
-            'en' => [
+            'en'        => [
                 'status' => 1,
-                'title' => 'Second Menu Item',
-                'uri' => 'awesome-page/mid-page',
+                'title'  => 'Second Menu Item',
+                'uri'    => 'awesome-page/mid-page',
             ],
         ];
         $menuitem2 = $this->menuItem->create($data);
@@ -141,25 +141,25 @@ class MenuItemUriGeneratorTest extends BaseMenuTest
     public function it_generates_a_uri_if_parent_isnt_a_page()
     {
         $this->page->create([
-            'is_home' => 0,
+            'is_home'  => 0,
             'template' => 'default',
-            'en' => [
+            'en'       => [
                 'title' => 'About',
-                'slug' => 'about',
-                'body' => 'My Page Body',
+                'slug'  => 'about',
+                'body'  => 'My Page Body',
             ],
         ]);
 
         $menu = $this->createMenu('main', 'Main');
         $data = [
-            'menu_id' => $menu->id,
+            'menu_id'  => $menu->id,
             'position' => 0,
-            'target' => '_self',
-            'page_id' => null,
-            'en' => [
+            'target'   => '_self',
+            'page_id'  => null,
+            'en'       => [
                 'status' => 1,
-                'title' => 'First Menu Item',
-                'uri' => 'awesome-page',
+                'title'  => 'First Menu Item',
+                'uri'    => 'awesome-page',
             ],
         ];
         $menuitem = $this->menuItem->create($data);

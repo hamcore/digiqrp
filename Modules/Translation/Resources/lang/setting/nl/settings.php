@@ -2,13 +2,13 @@
 
 return [
     'title' => [
-        'settings' => 'Instellingen',
-        'general settings' => 'Algemene instellingen',
-        'module settings' => 'Module instellingen',
+        'settings'             => 'Instellingen',
+        'general settings'     => 'Algemene instellingen',
+        'module settings'      => 'Module instellingen',
         'module name settings' => ':module module instellingen',
     ],
     'breadcrumb' => [
-        'settings' => 'Instellingen',
+        'settings'        => 'Instellingen',
         'module settings' => ':module module instellingen',
     ],
     'list resource' => 'Instellingen overzicht',

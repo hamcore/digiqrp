@@ -24,8 +24,10 @@ class EloquentFolderRepository extends EloquentBaseRepository implements FolderR
     }
 
     /**
-     * Find a folder by its ID
+     * Find a folder by its ID.
+     *
      * @param int $folderId
+     *
      * @return File|null
      */
     public function findFolder(int $folderId)
@@ -36,8 +38,8 @@ class EloquentFolderRepository extends EloquentBaseRepository implements FolderR
     public function create($data)
     {
         $data = [
-            'filename' => Arr::get($data, 'name'),
-            'path' => $this->getPath($data),
+            'filename'  => Arr::get($data, 'name'),
+            'path'      => $this->getPath($data),
             'is_folder' => true,
             'folder_id' => Arr::get($data, 'parent_id'),
         ];
@@ -53,11 +55,11 @@ class EloquentFolderRepository extends EloquentBaseRepository implements FolderR
     {
         $previousData = [
             'filename' => $model->filename,
-            'path' => $model->path,
+            'path'     => $model->path,
         ];
         $formattedData = [
-            'filename' => Arr::get($data, 'name'),
-            'path' => $this->getPath($data),
+            'filename'  => Arr::get($data, 'name'),
+            'path'      => $this->getPath($data),
             'parent_id' => Arr::get($data, 'parent_id'),
         ];
 
@@ -78,6 +80,7 @@ class EloquentFolderRepository extends EloquentBaseRepository implements FolderR
 
     /**
      * @param File $folder
+     *
      * @return Collection
      */
     public function allChildrenOf(File $folder)
@@ -96,11 +99,11 @@ class EloquentFolderRepository extends EloquentBaseRepository implements FolderR
     {
         $previousData = [
             'filename' => $folder->filename,
-            'path' => $folder->path,
+            'path'     => $folder->path,
         ];
 
         $folder->update([
-            'path' => $this->getNewPathFor($folder->filename, $destination),
+            'path'      => $this->getNewPathFor($folder->filename, $destination),
             'folder_id' => $destination->id,
         ]);
 
@@ -111,8 +114,10 @@ class EloquentFolderRepository extends EloquentBaseRepository implements FolderR
 
     /**
      * Find the folder by ID or return a root folder
-     * which is an instantiated File class
+     * which is an instantiated File class.
+     *
      * @param int $folderId
+     *
      * @return File
      */
     public function findFolderOrRoot($folderId): File
@@ -128,16 +133,17 @@ class EloquentFolderRepository extends EloquentBaseRepository implements FolderR
 
     private function getNewPathFor(string $filename, File $folder)
     {
-        return $this->removeDoubleSlashes($folder->path->getRelativeUrl() . '/' . Str::slug($filename));
+        return $this->removeDoubleSlashes($folder->path->getRelativeUrl().'/'.Str::slug($filename));
     }
 
-    private function removeDoubleSlashes(string $string) : string
+    private function removeDoubleSlashes(string $string): string
     {
         return str_replace('//', '/', $string);
     }
 
     /**
      * @param array $data
+     *
      * @return string
      */
     private function getPath(array $data): string
@@ -145,23 +151,24 @@ class EloquentFolderRepository extends EloquentBaseRepository implements FolderR
         if (array_key_exists('parent_id', $data)) {
             $parent = $this->findFolder($data['parent_id']);
             if ($parent !== null) {
-                return $parent->path->getRelativeUrl() . '/' . Str::slug(Arr::get($data, 'name'));
+                return $parent->path->getRelativeUrl().'/'.Str::slug(Arr::get($data, 'name'));
             }
         }
 
-        return config('asgard.media.config.files-path') . Str::slug(Arr::get($data, 'name'));
+        return config('asgard.media.config.files-path').Str::slug(Arr::get($data, 'name'));
     }
 
     /**
-     * Create an instantiated File entity, appointed as root
+     * Create an instantiated File entity, appointed as root.
+     *
      * @return File
      */
-    private function makeRootFolder() : File
+    private function makeRootFolder(): File
     {
         return new File([
-            'id' => 0,
+            'id'        => 0,
             'folder_id' => 0,
-            'path' => config('asgard.media.config.files-path'),
+            'path'      => config('asgard.media.config.files-path'),
         ]);
     }
 }

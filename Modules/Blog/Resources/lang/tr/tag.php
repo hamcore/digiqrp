@@ -2,9 +2,9 @@
 
 return [
     'title' => [
-        'tag' => 'Etiketler',
+        'tag'        => 'Etiketler',
         'create tag' => 'Etiket oluştur',
-        'edit tag' => 'Etiketi düzenle',
+        'edit tag'   => 'Etiketi düzenle',
     ],
     'button' => [
         'create tag' => 'Etiket oluştur',
