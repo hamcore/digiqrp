@@ -34,26 +34,26 @@ abstract class BaseSettingTest extends TestCase
 
     protected function getEnvironmentSetUp($app)
     {
-        $app['path.base'] = __DIR__ . '/..';
+        $app['path.base'] = __DIR__.'/..';
         $app['config']->set('database.default', 'sqlite');
         $app['config']->set('database.connections.sqlite', [
-            'driver' => 'sqlite',
+            'driver'   => 'sqlite',
             'database' => ':memory:',
-            'prefix' => '',
+            'prefix'   => '',
         ]);
         $app['config']->set('asgard.core.settings', [
             'site-name' => [
-                'description' => 'core::settings.site-name',
-                'view' => 'text',
+                'description'  => 'core::settings.site-name',
+                'view'         => 'text',
                 'translatable' => true,
             ],
             'template' => [
                 'description' => 'core::settings.template',
-                'view' => 'core::fields.select-theme',
+                'view'        => 'core::fields.select-theme',
             ],
             'locales' => [
-                'description' => 'core::settings.locales',
-                'view' => 'core::fields.select-locales',
+                'description'  => 'core::settings.locales',
+                'view'         => 'core::fields.select-locales',
                 'translatable' => false,
             ],
         ]);

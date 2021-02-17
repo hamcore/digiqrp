@@ -39,25 +39,25 @@ abstract class MediaTestCase extends TestCase
     {
         return [
             'LaravelLocalization' => LaravelLocalization::class,
-            'Validator' => Validator::class,
-            'Form' => FormFacade::class,
-            'Html' => HtmlFacade::class,
+            'Validator'           => Validator::class,
+            'Form'                => FormFacade::class,
+            'Html'                => HtmlFacade::class,
         ];
     }
 
     protected function getEnvironmentSetUp($app)
     {
-        $app['path.base'] = __DIR__ . '/..';
+        $app['path.base'] = __DIR__.'/..';
         $app['config']->set('asgard.media.config', ['filesystem' => 'local']);
         $app['config']->set('modules', [
             'namespace' => 'Modules',
         ]);
-        $app['config']->set('modules.paths.modules', realpath(__DIR__ . '/../Modules'));
+        $app['config']->set('modules.paths.modules', realpath(__DIR__.'/../Modules'));
         $app['config']->set('database.default', 'sqlite');
         $app['config']->set('database.connections.sqlite', [
-            'driver' => 'sqlite',
+            'driver'   => 'sqlite',
             'database' => ':memory:',
-            'prefix' => '',
+            'prefix'   => '',
         ]);
         $app['config']->set('translatable.locales', ['en', 'fr']);
         $app['config']->set('app.url', 'http://localhost');
@@ -83,7 +83,7 @@ abstract class MediaTestCase extends TestCase
 
         $this->artisan('migrate', [
             '--database' => 'sqlite',
-            '--path' => 'Modules/Tag/Database/Migrations',
+            '--path'     => 'Modules/Tag/Database/Migrations',
         ]);
     }
 }

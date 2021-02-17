@@ -25,20 +25,20 @@ final class PermissionsAdderTest extends BaseUserTestCase
         $this->user = app(UserRepository::class);
 
         $this->role->create([
-            'name' => 'Admin',
-            'slug' => 'admin',
+            'name'        => 'Admin',
+            'slug'        => 'admin',
             'permissions' => [
                 'dashboard.index' => true,
             ],
         ]);
         $this->user->create([
-            'email' => 'n.widart@gmail.com',
-            'password' => 'demo1234',
-            'permissions' => ['dashboard.index' => true,],
+            'email'       => 'n.widart@gmail.com',
+            'password'    => 'demo1234',
+            'permissions' => ['dashboard.index' => true],
         ]);
         $this->app->config->set('asgard.user.permissions', [
             'user.users' => [
-                'index' => 'user::users.list user',
+                'index'  => 'user::users.list user',
                 'create' => 'user::users.create user',
             ],
         ]);

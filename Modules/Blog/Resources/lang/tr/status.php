@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'draft' => 'Taslak',
+    'draft'          => 'Taslak',
     'pending review' => 'İnceleme bekliyor',
-    'published' => 'Yayınlandı',
-    'unpublished' => 'Yayınlanmadı',
+    'published'      => 'Yayınlandı',
+    'unpublished'    => 'Yayınlanmadı',
 ];

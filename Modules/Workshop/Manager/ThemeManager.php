@@ -5,7 +5,8 @@ namespace Modules\Workshop\Manager;
 interface ThemeManager
 {
     /**
-     * Get all themes
+     * Get all themes.
+     *
      * @return array
      */
     public function all();

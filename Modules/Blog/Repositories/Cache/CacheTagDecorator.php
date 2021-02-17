@@ -21,6 +21,7 @@ class CacheTagDecorator extends BaseCacheDecorator implements TagRepository
 
     /**
      * @param $name
+     *
      * @return mixed
      */
     public function findByName($name)
@@ -37,10 +38,11 @@ class CacheTagDecorator extends BaseCacheDecorator implements TagRepository
     }
 
     /**
-     * Create the tag for the specified language
+     * Create the tag for the specified language.
      *
-     * @param  string $lang
-     * @param  array  $name
+     * @param string $lang
+     * @param array  $name
+     *
      * @return mixed
      */
     public function createForLanguage($lang, $name)

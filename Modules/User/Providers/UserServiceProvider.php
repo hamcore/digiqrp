@@ -29,7 +29,8 @@ use Modules\User\Repositories\UserTokenRepository;
 
 class UserServiceProvider extends ServiceProvider
 {
-    use CanPublishConfiguration, CanGetSidebarClassForModule;
+    use CanPublishConfiguration;
+    use CanGetSidebarClassForModule;
     /**
      * Indicates if loading of the provider is deferred.
      *
@@ -48,11 +49,11 @@ class UserServiceProvider extends ServiceProvider
      * @var array
      */
     protected $middleware = [
-        'auth.guest' => GuestMiddleware::class,
-        'logged.in' => LoggedInMiddleware::class,
-        'api.token' => AuthorisedApiToken::class,
+        'auth.guest'      => GuestMiddleware::class,
+        'logged.in'       => LoggedInMiddleware::class,
+        'api.token'       => AuthorisedApiToken::class,
         'api.token.admin' => AuthorisedApiTokenAdmin::class,
-        'token-can' => TokenCan::class,
+        'token-can'       => TokenCan::class,
     ];
 
     /**
@@ -90,20 +91,18 @@ class UserServiceProvider extends ServiceProvider
         });
     }
 
-    /**
-     */
     public function boot()
     {
         $this->registerMiddleware();
 
         $this->publishes([
-            __DIR__ . '/../Resources/views' => base_path('resources/views/asgard/user'),
+            __DIR__.'/../Resources/views' => base_path('resources/views/asgard/user'),
         ]);
 
         $this->publishConfig('user', 'permissions');
         $this->publishConfig('user', 'config');
 
-        $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
+        $this->loadMigrationsFrom(__DIR__.'/../Database/Migrations');
 
         Auth::extend('sentinel-guard', function () {
             return new Sentinel();
@@ -139,7 +138,7 @@ class UserServiceProvider extends ServiceProvider
         $this->app->bind(UserTokenRepository::class, function () {
             $repository = new EloquentUserTokenRepository(new UserToken());
 
-            if (! config('app.cache')) {
+            if (!config('app.cache')) {
                 return $repository;
             }
 

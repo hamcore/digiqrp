@@ -31,7 +31,7 @@ class AuthController extends BasePublicController
     public function postLogin(LoginRequest $request)
     {
         $credentials = [
-            'email' => $request->email,
+            'email'    => $request->email,
             'password' => $request->password,
         ];
 

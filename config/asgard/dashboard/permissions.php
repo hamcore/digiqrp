@@ -2,8 +2,8 @@
 
 return [
     'dashboard' => [
-        'index' => 'dashboard::dashboard.list resource',
+        'index'  => 'dashboard::dashboard.list resource',
         'update' => 'dashboard::dashboard.edit resource',
-        'reset' => 'dashboard::dashboard.reset resource',
+        'reset'  => 'dashboard::dashboard.reset resource',
     ],
 ];

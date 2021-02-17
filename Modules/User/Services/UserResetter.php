@@ -27,8 +27,10 @@ class UserResetter
     }
 
     /**
-     * Start the reset password process for given credentials (email)
+     * Start the reset password process for given credentials (email).
+     *
      * @param array $credentials
+     *
      * @throws UserNotFoundException
      */
     public function startReset(array $credentials)
@@ -41,11 +43,14 @@ class UserResetter
     }
 
     /**
-     * Finish the reset process
+     * Finish the reset process.
+     *
      * @param array $data
-     * @return mixed
+     *
      * @throws InvalidOrExpiredResetCode
      * @throws UserNotFoundException
+     *
+     * @return mixed
      */
     public function finishReset(array $data)
     {
@@ -57,7 +62,7 @@ class UserResetter
 
         $code = Arr::get($data, 'code');
         $password = Arr::get($data, 'password');
-        if (! $this->auth->completeResetPassword($user, $code, $password)) {
+        if (!$this->auth->completeResetPassword($user, $code, $password)) {
             throw new InvalidOrExpiredResetCode();
         }
 
@@ -66,8 +71,10 @@ class UserResetter
 
     /**
      * @param array $credentials
-     * @return mixed
+     *
      * @throws UserNotFoundException
+     *
+     * @return mixed
      */
     private function findUser(array $credentials)
     {

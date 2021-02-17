@@ -12,19 +12,19 @@ class EnvFileWriter
     private $finder;
 
     /**
-     * Whitelist of variables in .env.example that can be written by the installer when it creates the .env file
+     * Whitelist of variables in .env.example that can be written by the installer when it creates the .env file.
      *
      * @var array
      */
     protected $setable_variables = [
-        'db_driver' => 'DB_CONNECTION=mysql',
-        'db_host' => 'DB_HOST=127.0.0.1',
-        'db_port' => 'DB_PORT=3306',
+        'db_driver'   => 'DB_CONNECTION=mysql',
+        'db_host'     => 'DB_HOST=127.0.0.1',
+        'db_port'     => 'DB_PORT=3306',
         'db_database' => 'DB_DATABASE=homestead',
         'db_username' => 'DB_USERNAME=homestead',
         'db_password' => 'DB_PASSWORD=secret',
-        'app_url' => 'APP_URL=http://localhost',
-        'installed' => 'INSTALLED=false',
+        'app_url'     => 'APP_URL=http://localhost',
+        'installed'   => 'INSTALLED=false',
     ];
 
     /**
@@ -46,9 +46,10 @@ class EnvFileWriter
     }
 
     /**
-     * Create a new .env file using the contents of .env.example
+     * Create a new .env file using the contents of .env.example.
      *
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
+     *
      * @return void
      */
     public function create()
@@ -59,10 +60,12 @@ class EnvFileWriter
     }
 
     /**
-     * Update the .env file
+     * Update the .env file.
      *
      * @param array $vars
+     *
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
+     *
      * @return void
      */
     public function write($vars)
@@ -74,7 +77,7 @@ class EnvFileWriter
                 if (isset($this->setable_variables[$key])) {
                     $env_var_name = explode('=', $this->setable_variables[$key])[0];
 
-                    $value = $env_var_name . '=' . $value;
+                    $value = $env_var_name.'='.$value;
 
                     $environmentFile = str_replace($this->setable_variables[$key], $value, $environmentFile);
                 }

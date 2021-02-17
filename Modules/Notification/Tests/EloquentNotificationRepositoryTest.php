@@ -22,19 +22,19 @@ class EloquentNotificationRepositoryTest extends BaseTestCase
     public function it_can_create_a_notification()
     {
         $notification = $this->notification->create([
-            'user_id' => 1,
+            'user_id'    => 1,
             'icon_class' => 'fa fa-link',
-            'link' => 'http://localhost/users',
-            'title' => 'My notification',
-            'message' => 'Is awesome!',
+            'link'       => 'http://localhost/users',
+            'title'      => 'My notification',
+            'message'    => 'Is awesome!',
         ]);
 
         $this->assertCount(1, $this->notification->all());
-        $this->assertEquals('1' , $notification->user_id);
-        $this->assertEquals('fa fa-link' , $notification->icon_class);
-        $this->assertEquals('http://localhost/users' , $notification->link);
-        $this->assertEquals('My notification' , $notification->title);
-        $this->assertEquals('Is awesome!' , $notification->message);
+        $this->assertEquals('1', $notification->user_id);
+        $this->assertEquals('fa fa-link', $notification->icon_class);
+        $this->assertEquals('http://localhost/users', $notification->link);
+        $this->assertEquals('My notification', $notification->title);
+        $this->assertEquals('Is awesome!', $notification->message);
     }
 
     /** @test */
@@ -147,14 +147,14 @@ class EloquentNotificationRepositoryTest extends BaseTestCase
         $this->assertCount(3, $this->notification->allReadForUser(1));
     }
 
-    private function createNotification(array $properties = []) : Notification
+    private function createNotification(array $properties = []): Notification
     {
         $data = [
-            'user_id' => 1,
+            'user_id'    => 1,
             'icon_class' => 'fa fa-link',
-            'link' => 'http://localhost/users',
-            'title' => 'My notification',
-            'message' => 'Is awesome!',
+            'link'       => 'http://localhost/users',
+            'title'      => 'My notification',
+            'message'    => 'Is awesome!',
         ];
 
         return $this->notification->create(array_merge($data, $properties));

@@ -17,7 +17,8 @@ use Modules\User\Contracts\Authentication;
 
 class NotificationServiceProvider extends ServiceProvider
 {
-    use CanPublishConfiguration, CanGetSidebarClassForModule;
+    use CanPublishConfiguration;
+    use CanGetSidebarClassForModule;
     /**
      * Indicates if loading of the provider is deferred.
      *
@@ -45,7 +46,7 @@ class NotificationServiceProvider extends ServiceProvider
     {
         $this->publishConfig('notification', 'config');
         $this->publishConfig('notification', 'permissions');
-        $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
+        $this->loadMigrationsFrom(__DIR__.'/../Database/Migrations');
     }
 
     /**
@@ -55,7 +56,7 @@ class NotificationServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return array();
+        return [];
     }
 
     private function registerBindings()
@@ -65,7 +66,7 @@ class NotificationServiceProvider extends ServiceProvider
             function () {
                 $repository = new EloquentNotificationRepository(new Notification());
 
-                if (! config('app.cache')) {
+                if (!config('app.cache')) {
                     return $repository;
                 }
 

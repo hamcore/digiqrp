@@ -31,7 +31,7 @@ class UserRegistrationTest extends BaseUserTestCase
         $this->createRole('User');
 
         app(UserRegistration::class)->register([
-            'email' => 'n.widart@gmail.com',
+            'email'    => 'n.widart@gmail.com',
             'password' => 'demo1234',
         ]);
 

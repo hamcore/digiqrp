@@ -25,7 +25,7 @@ class MenuOrdenerTest extends BaseMenuTest
         $menuItem2 = $this->createMenuItemForMenu($menu->id, 2);
         $request = [
             1 => [
-                'id' => $menuItem1->id,
+                'id'       => $menuItem1->id,
                 'children' => [
                     0 => [
                         'id' => $menuItem2->id,
@@ -53,10 +53,10 @@ class MenuOrdenerTest extends BaseMenuTest
         $menuItem3 = $this->createMenuItemForMenu($menu->id, 1, $menuItem1->id);
         $request = [
             1 => [
-                'id' => $menuItem1->id,
+                'id'       => $menuItem1->id,
                 'children' => [
                     0 => [
-                        'id' => $menuItem2->id,
+                        'id'       => $menuItem2->id,
                         'children' => [
                             0 => [
                                 'id' => $menuItem3->id,

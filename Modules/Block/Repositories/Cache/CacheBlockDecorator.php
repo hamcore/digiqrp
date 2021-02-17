@@ -15,9 +15,9 @@ class CacheBlockDecorator extends BaseCacheDecorator implements BlockRepository
     }
 
     /**
-     * Get all online blocks in the given language
+     * Get all online blocks in the given language.
      *
-     * @param  string  $lang
+     * @param string $lang
      *
      * @return object
      */
@@ -35,9 +35,9 @@ class CacheBlockDecorator extends BaseCacheDecorator implements BlockRepository
     }
 
     /**
-     * Get a block body by its name if it's online
+     * Get a block body by its name if it's online.
      *
-     * @param  string  $name
+     * @param string $name
      *
      * @return string
      */

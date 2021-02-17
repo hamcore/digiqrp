@@ -30,7 +30,7 @@ class ProfileController extends AdminBaseController
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param int $id
      *
      * @return Response
      */
@@ -42,8 +42,8 @@ class ProfileController extends AdminBaseController
     /**
      * Update the specified resource in storage.
      *
-     * @param  int $id
-     * @param  UpdateProfileRequest $request
+     * @param int                  $id
+     * @param UpdateProfileRequest $request
      *
      * @return Response
      */

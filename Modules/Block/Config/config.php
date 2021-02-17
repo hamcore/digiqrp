@@ -11,11 +11,11 @@ return [
     'partials' => [
         'translatable' => [
             'create' => [],
-            'edit' => [],
+            'edit'   => [],
         ],
         'normal' => [
             'create' => [],
-            'edit' => [],
+            'edit'   => [],
         ],
     ],
 
@@ -26,9 +26,9 @@ return [
     | Add relations that will be dynamically added to the Block entity
     */
     'relations' => [
-//        'extension' => function ($self) {
-//            return $self->belongsTo(BlockExtension::class, 'id', 'block_id')->first();
-//        }
+        //        'extension' => function ($self) {
+        //            return $self->belongsTo(BlockExtension::class, 'id', 'block_id')->first();
+        //        }
     ],
 
     /*

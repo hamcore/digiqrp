@@ -15,6 +15,7 @@ abstract class BaseUserModuleController extends AdminBaseController
 
     /**
      * @param Request $request
+     *
      * @return array
      */
     protected function mergeRequestWithPermissions(Request $request)

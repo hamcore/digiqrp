@@ -29,11 +29,11 @@ class ThumbnailTest extends \PHPUnit\Framework\TestCase
 
         $expected = [
             'resize' => [
-                'width' => 150,
+                'width'  => 150,
                 'height' => 250,
             ],
             'fit' => [
-                'width' => 550,
+                'width'  => 550,
                 'height' => 650,
             ],
         ];
@@ -79,11 +79,11 @@ class ThumbnailTest extends \PHPUnit\Framework\TestCase
         return [
             'blogThumb' => [
                 'resize' => [
-                    'width' => 150,
+                    'width'  => 150,
                     'height' => 250,
                 ],
                 'fit' => [
-                    'width' => 550,
+                    'width'  => 550,
                     'height' => 650,
                 ],
             ],
@@ -95,8 +95,8 @@ class ThumbnailTest extends \PHPUnit\Framework\TestCase
         return [
             'smallThumb' => [
                 'resize' => [
-                    'width' => 50,
-                    'height' => null,
+                    'width'    => 50,
+                    'height'   => null,
                     'callback' => function ($constraint) {
                         $constraint->aspectRatio();
                         $constraint->upsize();
@@ -105,8 +105,8 @@ class ThumbnailTest extends \PHPUnit\Framework\TestCase
             ],
             'mediumThumb' => [
                 'resize' => [
-                    'width' => 180,
-                    'height' => null,
+                    'width'    => 180,
+                    'height'   => null,
                     'callback' => function ($constraint) {
                         $constraint->aspectRatio();
                         $constraint->upsize();

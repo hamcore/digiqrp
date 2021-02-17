@@ -36,14 +36,14 @@ class PageTemplatesController extends Controller
 
         $templates = [];
 
-        foreach ($this->finder->excluding(config('asgard.page.config.template-ignored-directories', []))->allFiles($path . '/views') as $template) {
+        foreach ($this->finder->excluding(config('asgard.page.config.template-ignored-directories', []))->allFiles($path.'/views') as $template) {
             $relativePath = $template->getRelativePath();
 
             $templateName = $this->getTemplateName($template);
             $file = $this->removeExtensionsFromFilename($template);
 
             if ($this->hasSubdirectory($relativePath)) {
-                $templates[str_replace('/', '.', $relativePath) . '.' . $file] = $templateName;
+                $templates[str_replace('/', '.', $relativePath).'.'.$file] = $templateName;
             } else {
                 $templates[$file] = $templateName;
             }
@@ -71,7 +71,7 @@ class PageTemplatesController extends Controller
      */
     private function getTemplateName($template)
     {
-        preg_match("/{{-- Template: (.*) --}}/", $template->getContents(), $templateName);
+        preg_match('/{{-- Template: (.*) --}}/', $template->getContents(), $templateName);
 
         if (count($templateName) > 1) {
             return $templateName[1];
@@ -92,7 +92,7 @@ class PageTemplatesController extends Controller
         $relativePath = $template->getRelativePath();
         $fileName = $this->removeExtensionsFromFilename($template);
 
-        return $this->hasSubdirectory($relativePath) ? $relativePath . '/' . $fileName : $fileName;
+        return $this->hasSubdirectory($relativePath) ? $relativePath.'/'.$fileName : $fileName;
     }
 
     /**
@@ -116,6 +116,6 @@ class PageTemplatesController extends Controller
      */
     private function hasSubdirectory($relativePath)
     {
-        return ! empty($relativePath);
+        return !empty($relativePath);
     }
 }

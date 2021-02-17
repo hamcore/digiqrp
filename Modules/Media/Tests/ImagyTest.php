@@ -31,9 +31,6 @@ class ImagyTest extends MediaTestCase
     protected $mediaPath;
     private $testbenchPublicPath;
 
-    /**
-     *
-     */
     public function setUp(): void
     {
         parent::setUp();
@@ -42,8 +39,8 @@ class ImagyTest extends MediaTestCase
         $this->finder = App::make(Filesystem::class);
         $this->imagy = new Imagy(new InterventionFactory(), app(ThumbnailManager::class), $this->config);
 
-        $this->testbenchPublicPath = __DIR__ . '/../../../vendor/orchestra/testbench-core/laravel/public/';
-        $this->mediaPath = __DIR__ . '/Fixtures/';
+        $this->testbenchPublicPath = __DIR__.'/../../../vendor/orchestra/testbench-core/laravel/public/';
+        $this->mediaPath = __DIR__.'/Fixtures/';
         $this->finder->copy("{$this->mediaPath}google-map.png", "{$this->testbenchPublicPath}google-map.png");
     }
 
@@ -63,11 +60,11 @@ class ImagyTest extends MediaTestCase
         $file = \Illuminate\Http\UploadedFile::fake()->image('my-file.jpg');
         $file = app(FileService::class)->store($file);
 
-        $this->finder->delete(public_path(config('asgard.media.config.files-path') . 'my-file_smallThumb.jpg'));
+        $this->finder->delete(public_path(config('asgard.media.config.files-path').'my-file_smallThumb.jpg'));
 
         $this->imagy->get($file->path, 'smallThumb', true);
 
-        $this->assertTrue($this->finder->isFile(public_path(config('asgard.media.config.files-path') . 'my-file_smallThumb.jpg')));
+        $this->assertTrue($this->finder->isFile(public_path(config('asgard.media.config.files-path').'my-file_smallThumb.jpg')));
     }
 
     /** @test */
@@ -75,7 +72,7 @@ class ImagyTest extends MediaTestCase
     {
         $this->imagy->get("{$this->mediaPath}test-pdf.pdf", 'smallThumb', true);
 
-        $this->assertFalse($this->finder->isFile(public_path() . "{$this->mediaPath}test-pdf_smallThumb.png"));
+        $this->assertFalse($this->finder->isFile(public_path()."{$this->mediaPath}test-pdf_smallThumb.png"));
     }
 
     /** @test */
@@ -87,7 +84,7 @@ class ImagyTest extends MediaTestCase
 
         $file = app(FileService::class)->store($file);
 
-        $expected = config('app.url') . config('asgard.media.config.files-path') . 'my-file_smallThumb.jpg';
+        $expected = config('app.url').config('asgard.media.config.files-path').'my-file_smallThumb.jpg';
         $path = $this->imagy->getThumbnail($file->path, 'smallThumb');
 
         $this->assertTrue($this->app['files']->exists(public_path('assets/media/my-file.jpg')));
@@ -108,7 +105,7 @@ class ImagyTest extends MediaTestCase
 
         $smallThumbPath = $this->imagy->getThumbnail($file->path, 'smallThumb');
 
-        $expected = config('app.url') . config('asgard.media.config.files-path') . 'my-folder/my-file_smallThumb.jpg';
+        $expected = config('app.url').config('asgard.media.config.files-path').'my-folder/my-file_smallThumb.jpg';
 
         $this->assertEquals($expected, $smallThumbPath);
     }
@@ -136,7 +133,7 @@ class ImagyTest extends MediaTestCase
         $file = \Illuminate\Http\UploadedFile::fake()->image('my-file.jpg');
         $file = app(FileService::class)->store($file, 1);
 
-        $path = public_path(config('asgard.media.config.files-path') . 'my-folder/');
+        $path = public_path(config('asgard.media.config.files-path').'my-folder/');
 
         $this->assertCount(3, $this->app['files']->allFiles($path));
         $this->imagy->deleteAllFor($file);
@@ -166,7 +163,7 @@ class ImagyTest extends MediaTestCase
         $file = \Illuminate\Http\UploadedFile::fake()->create('my-file.pdf');
         $file = app(FileService::class)->store($file, 1);
 
-        $path = public_path(config('asgard.media.config.files-path') . 'my-folder/');
+        $path = public_path(config('asgard.media.config.files-path').'my-folder/');
         $this->assertCount(1, $this->app['files']->allFiles($path));
         $this->imagy->deleteAllFor($file);
         $this->assertCount(0, $this->app['files']->allFiles($path));

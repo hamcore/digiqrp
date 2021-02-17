@@ -19,13 +19,13 @@ class EloquentPostRepositoryTest extends BaseBlogTestCase
         $this->createBlogPost();
         $data = [
             'en' => [
-                'title' => 'One language title',
-                'slug' => 'slug',
+                'title'   => 'One language title',
+                'slug'    => 'slug',
                 'content' => 'lorem ipsum',
             ],
             'category_id' => 1,
-            'status' => Status::PUBLISHED,
-            'tags' => [],
+            'status'      => Status::PUBLISHED,
+            'tags'        => [],
         ];
         $this->post->create($data);
 
@@ -108,10 +108,9 @@ class EloquentPostRepositoryTest extends BaseBlogTestCase
         $post = $this->createBlogPost();
         $this->post->update($post, [
             'tags' => [],
-            'en' => [
-                'title' =>
-                    'not awesome title',
-                ],
+            'en'   => [
+                'title' => 'not awesome title',
+            ],
         ]);
 
         $this->assertEquals('awesome title', $post->translate('en')->title);

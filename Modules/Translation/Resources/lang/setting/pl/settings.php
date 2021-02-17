@@ -2,13 +2,13 @@
 
 return [
     'title' => [
-        'settings' => 'Ustawienia',
-        'general settings' => 'Ustawienia ogólne',
-        'module settings' => 'Ustawienia modułów',
+        'settings'             => 'Ustawienia',
+        'general settings'     => 'Ustawienia ogólne',
+        'module settings'      => 'Ustawienia modułów',
         'module name settings' => 'Ustawienia modułu :module',
     ],
     'breadcrumb' => [
-        'settings' => 'Ustawienia',
+        'settings'        => 'Ustawienia',
         'module settings' => 'Ustawienia modułu :module',
     ],
     'list resource' => 'Wyświetlanie',

@@ -19,7 +19,7 @@ class CreatePageRequest extends BaseFormRequest
     {
         return [
             'title' => 'required',
-            'slug' => 'required',
+            'slug'  => 'required',
         ];
     }
 
@@ -32,7 +32,7 @@ class CreatePageRequest extends BaseFormRequest
     {
         return [
             'template.required' => trans('page::messages.template is required'),
-            'is_home.unique' => trans('page::messages.only one homepage allowed'),
+            'is_home.unique'    => trans('page::messages.only one homepage allowed'),
         ];
     }
 
@@ -40,8 +40,8 @@ class CreatePageRequest extends BaseFormRequest
     {
         return [
             'title.required' => trans('page::messages.title is required'),
-            'slug.required' => trans('page::messages.slug is required'),
-            'body.required' => trans('page::messages.body is required'),
+            'slug.required'  => trans('page::messages.slug is required'),
+            'body.required'  => trans('page::messages.body is required'),
         ];
     }
 }

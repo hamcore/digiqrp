@@ -16,7 +16,7 @@ use Modules\Core\Repositories\Eloquent\EloquentBaseRepository;
 class EloquentBlockRepository extends EloquentBaseRepository implements BlockRepository
 {
     /**
-     * @param  mixed  $data
+     * @param mixed $data
      *
      * @return mixed
      */
@@ -35,7 +35,7 @@ class EloquentBlockRepository extends EloquentBaseRepository implements BlockRep
 
     /**
      * @param $model
-     * @param  array  $data
+     * @param array $data
      *
      * @return object
      */
@@ -55,9 +55,9 @@ class EloquentBlockRepository extends EloquentBaseRepository implements BlockRep
     }
 
     /**
-     * Get all online blocks in the given language
+     * Get all online blocks in the given language.
      *
-     * @param  string  $lang
+     * @param string $lang
      *
      * @return object
      */
@@ -70,9 +70,9 @@ class EloquentBlockRepository extends EloquentBaseRepository implements BlockRep
     }
 
     /**
-     * Get a block body by its name if it's online
+     * Get a block body by its name if it's online.
      *
-     * @param  string  $name
+     * @param string $name
      *
      * @return string
      */
@@ -89,7 +89,8 @@ class EloquentBlockRepository extends EloquentBaseRepository implements BlockRep
     }
 
     /**
-     * Get the current application locale
+     * Get the current application locale.
+     *
      * @return string
      */
     private function getCurrentLocale()
@@ -98,9 +99,9 @@ class EloquentBlockRepository extends EloquentBaseRepository implements BlockRep
     }
 
     /**
-     * Normalize the request data
+     * Normalize the request data.
      *
-     * @param  array  $data
+     * @param array $data
      */
     private function sluggify(array &$data)
     {
@@ -108,9 +109,9 @@ class EloquentBlockRepository extends EloquentBaseRepository implements BlockRep
     }
 
     /**
-     * Make the name unique by appending a counter
+     * Make the name unique by appending a counter.
      *
-     * @param  string  $slug
+     * @param string $slug
      *
      * @return string
      */
@@ -122,7 +123,7 @@ class EloquentBlockRepository extends EloquentBaseRepository implements BlockRep
 
         if (
             $this->isEmptyArray($list) ||
-            ! $this->isSlugInList($slug, $list) ||
+            !$this->isSlugInList($slug, $list) ||
             ($this->isForModel($list) && $this->slugIsInList($slug, $list))
         ) {
             return $slug;
@@ -139,9 +140,9 @@ class EloquentBlockRepository extends EloquentBaseRepository implements BlockRep
     }
 
     /**
-     * Get the existing models matching the given slug
+     * Get the existing models matching the given slug.
      *
-     * @param  string  $slug
+     * @param string $slug
      *
      * @return array
      */
@@ -155,9 +156,9 @@ class EloquentBlockRepository extends EloquentBaseRepository implements BlockRep
     }
 
     /**
-     * Check if given array is empty
+     * Check if given array is empty.
      *
-     * @param  array  $list
+     * @param array $list
      *
      * @return bool
      */
@@ -167,10 +168,10 @@ class EloquentBlockRepository extends EloquentBaseRepository implements BlockRep
     }
 
     /**
-     * Check if the given slug is present in the given array
+     * Check if the given slug is present in the given array.
      *
-     * @param  string  $slug
-     * @param  array  $list
+     * @param string $slug
+     * @param array  $list
      *
      * @return bool
      */
@@ -180,7 +181,7 @@ class EloquentBlockRepository extends EloquentBaseRepository implements BlockRep
     }
 
     /**
-     * Check if we have our model
+     * Check if we have our model.
      *
      * @param $list
      *
@@ -192,10 +193,10 @@ class EloquentBlockRepository extends EloquentBaseRepository implements BlockRep
     }
 
     /**
-     * Check if the given slug is in the given list
+     * Check if the given slug is in the given list.
      *
-     * @param  string  $slug
-     * @param  array  $list
+     * @param string $slug
+     * @param array  $list
      *
      * @return bool
      */
@@ -216,10 +217,10 @@ class EloquentBlockRepository extends EloquentBaseRepository implements BlockRep
     }
 
     /**
-     * Check if the given model needs to be slugged
+     * Check if the given model needs to be slugged.
      *
-     * @param  object  $model
-     * @param  array  $data
+     * @param object $model
+     * @param array  $data
      *
      * @return bool
      */

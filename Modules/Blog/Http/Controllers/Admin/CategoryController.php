@@ -47,7 +47,8 @@ class CategoryController extends AdminBaseController
     /**
      * Store a newly created resource in storage.
      *
-     * @param  StoreCategoryRequest $request
+     * @param StoreCategoryRequest $request
+     *
      * @return Response
      */
     public function store(StoreCategoryRequest $request)
@@ -61,7 +62,8 @@ class CategoryController extends AdminBaseController
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  Category $category
+     * @param Category $category
+     *
      * @return Response
      */
     public function edit(Category $category)
@@ -72,8 +74,9 @@ class CategoryController extends AdminBaseController
     /**
      * Update the specified resource in storage.
      *
-     * @param  Category              $category
-     * @param  UpdateCategoryRequest $request
+     * @param Category              $category
+     * @param UpdateCategoryRequest $request
+     *
      * @return Response
      */
     public function update(Category $category, UpdateCategoryRequest $request)
@@ -87,7 +90,8 @@ class CategoryController extends AdminBaseController
     /**
      * Remove the specified resource from storage.
      *
-     * @param  Category $category
+     * @param Category $category
+     *
      * @return Response
      */
     public function destroy(Category $category)

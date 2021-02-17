@@ -15,7 +15,7 @@ class CreatePostRequest extends BaseFormRequest
     {
         return [
             'title' => 'required',
-            'slug' => "required|unique:blog__post_translations,slug,null,post_id,locale,$this->localeKey",
+            'slug'  => "required|unique:blog__post_translations,slug,null,post_id,locale,$this->localeKey",
         ];
     }
 
@@ -28,8 +28,8 @@ class CreatePostRequest extends BaseFormRequest
     {
         return [
             'title.required' => trans('blog::messages.title is required'),
-            'slug.required' => trans('blog::messages.slug is required'),
-            'slug.unique' => trans('blog::messages.slug is unique'),
+            'slug.required'  => trans('blog::messages.slug is required'),
+            'slug.unique'    => trans('blog::messages.slug is unique'),
         ];
     }
 }

@@ -2,17 +2,17 @@
 
 return [
     'title' => [
-        'category' => 'Categorias',
+        'category'        => 'Categorias',
         'create category' => 'Criar categoria',
-        'edit category' => 'Editar categoria',
+        'edit category'   => 'Editar categoria',
     ],
     'button' => [
         'create category' => 'Criar categoria',
     ],
     'table' => [
         'created at' => 'Criado em',
-        'name' => 'Nome',
-        'slug' => 'Slug',
+        'name'       => 'Nome',
+        'slug'       => 'Slug',
     ],
     'form' => [
         'name' => 'Nome',

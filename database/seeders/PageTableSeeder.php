@@ -15,8 +15,7 @@ class PageTableSeeder extends Seeder
      */
     public function run()
     {
-
-        $target =  PageTranslation::where('slug','home-page-testerr')->first();
+        $target = PageTranslation::where('slug', 'home-page-testerr')->first();
 
         $targetPage = Page::with('translations')->find($target->page_id);
 
@@ -32,5 +31,4 @@ class PageTableSeeder extends Seeder
             }
         }
     }
-
 }

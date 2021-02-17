@@ -41,7 +41,7 @@ class Downloader
 
     public function download($package)
     {
-        if (! class_exists('ZipArchive')) {
+        if (!class_exists('ZipArchive')) {
             throw new RuntimeException('The Zip PHP extension is not installed. Please install it and try again.');
         }
 
@@ -50,7 +50,7 @@ class Downloader
 
         $this->output->writeln("<info>Downloading Module [{$this->package} {$this->tagName}{$this->branchName}]</info>");
 
-        $directory = config('modules.paths.modules') . '/' . $this->extractPackageNameFrom($package);
+        $directory = config('modules.paths.modules').'/'.$this->extractPackageNameFrom($package);
 
         if ($this->finder->isDirectory($directory) === true) {
             $this->output->writeln("<error>The folder [Modules/{$this->extractPackageNameFrom($package)}] already exists.</error>");
@@ -69,8 +69,10 @@ class Downloader
 
     /**
      * Extract the zip file into the given directory.
-     * @param  string $zipFile
-     * @param  string $directory
+     *
+     * @param string $zipFile
+     * @param string $directory
+     *
      * @return $this
      */
     protected function extract($zipFile, $directory)
@@ -81,7 +83,7 @@ class Downloader
         $archive->open($zipFile);
         $archive->extractTo($modulesPath);
 
-        $original = $modulesPath . '/' . $archive->getNameIndex(0);
+        $original = $modulesPath.'/'.$archive->getNameIndex(0);
 
         $this->finder->move($original, $directory);
         $archive->close();
@@ -91,8 +93,10 @@ class Downloader
 
     /**
      * Download the temporary Zip to the given file.
-     * @param  string $zipFile
+     *
+     * @param string $zipFile
      * @param string $latestVersionUrl
+     *
      * @return $this
      */
     protected function downloadFile($zipFile, $latestVersionUrl)
@@ -100,7 +104,7 @@ class Downloader
         $progress = new ProgressBar($this->output);
         $progress->setFormat('[%bar%] %elapsed:6s%');
 
-        $response = (new Client)->get($latestVersionUrl, [
+        $response = (new Client())->get($latestVersionUrl, [
             'progress' => function ($downloadTotal, $downloadedBytes, $uploadTotal, $uploadedBytes) use ($progress) {
                 $progress->advance();
             },
@@ -114,7 +118,9 @@ class Downloader
 
     /**
      * Clean-up the Zip file.
-     * @param  string $zipFile
+     *
+     * @param string $zipFile
+     *
      * @return $this
      */
     protected function cleanUp($zipFile)
@@ -127,11 +133,12 @@ class Downloader
 
     /**
      * Generate a random temporary filename.
+     *
      * @return string
      */
     protected function makeFilename()
     {
-        return getcwd() . '/asgardcms_' . md5(time() . uniqid()) . '.zip';
+        return getcwd().'/asgardcms_'.md5(time().uniqid()).'.zip';
     }
 
     private function getLatestVersionUrl()

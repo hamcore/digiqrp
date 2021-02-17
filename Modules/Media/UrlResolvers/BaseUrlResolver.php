@@ -17,15 +17,17 @@ class BaseUrlResolver
     public function __construct()
     {
         $this->resolvers = [
-            Local::class => new LocalUrlResolver(),
+            Local::class        => new LocalUrlResolver(),
             AwsS3Adapter::class => new AwsS3UrlResolver(),
-            Ftp::class => new FtpUrlResolver(),
+            Ftp::class          => new FtpUrlResolver(),
         ];
     }
 
     /**
-     * Resolve the given path based on the set filesystem
+     * Resolve the given path based on the set filesystem.
+     *
      * @param string $path
+     *
      * @return string
      */
     public function resolve($path)

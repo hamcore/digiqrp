@@ -74,6 +74,7 @@ class PostController extends AdminBaseController
      * Store a newly created resource in storage.
      *
      * @param CreatePostRequest $request
+     *
      * @return \Illuminate\Http\RedirectResponse
      */
     public function store(CreatePostRequest $request)
@@ -88,6 +89,7 @@ class PostController extends AdminBaseController
      * Show the form for editing the specified resource.
      *
      * @param Post $post
+     *
      * @return \Illuminate\View\View
      */
     public function edit(Post $post)
@@ -103,8 +105,9 @@ class PostController extends AdminBaseController
     /**
      * Update the specified resource in storage.
      *
-     * @param Post $post
+     * @param Post              $post
      * @param UpdatePostRequest $request
+     *
      * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Post $post, UpdatePostRequest $request)
@@ -118,7 +121,8 @@ class PostController extends AdminBaseController
     /**
      * Remove the specified resource from storage.
      *
-     * @param  Post $post
+     * @param Post $post
+     *
      * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Post $post)

@@ -14,7 +14,7 @@ class EditorIsRendering
     private $editorJsPartial;
     private $editorCssPartial;
     private $editorComponents = [
-        'i18n' => 'core::components.i18n.textarea',
+        'i18n'   => 'core::components.i18n.textarea',
         'normal' => 'core::components.textarea',
     ];
 

@@ -8,7 +8,8 @@ use TypiCMS\NestableTrait;
 
 class Menuitem extends Model
 {
-    use Translatable, NestableTrait;
+    use Translatable;
+    use NestableTrait;
 
     public $translatedAttributes = ['title', 'uri', 'url', 'status', 'locale'];
     protected $fillable = [
@@ -32,7 +33,7 @@ class Menuitem extends Model
     protected $table = 'menu__menuitems';
 
     /**
-     * For nested collection
+     * For nested collection.
      *
      * @var array
      */
@@ -44,7 +45,8 @@ class Menuitem extends Model
     }
 
     /**
-     * Make the current menu item child of the given root item
+     * Make the current menu item child of the given root item.
+     *
      * @param Menuitem $rootItem
      */
     public function makeChildOf(Menuitem $rootItem)
@@ -54,7 +56,8 @@ class Menuitem extends Model
     }
 
     /**
-     * Check if the current menu item is the root
+     * Check if the current menu item is the root.
+     *
      * @return bool
      */
     public function isRoot()
@@ -63,20 +66,22 @@ class Menuitem extends Model
     }
 
     /**
-     * Check if page_id is empty and returning null instead empty string
+     * Check if page_id is empty and returning null instead empty string.
+     *
      * @return number
      */
     public function setPageIdAttribute($value)
     {
-        $this->attributes['page_id'] = ! empty($value) ? $value : null;
+        $this->attributes['page_id'] = !empty($value) ? $value : null;
     }
 
     /**
-     * Check if parent_id is empty and returning null instead empty string
+     * Check if parent_id is empty and returning null instead empty string.
+     *
      * @return number
      */
     public function setParentIdAttribute($value)
     {
-        $this->attributes['parent_id'] = ! empty($value) ? $value : null;
+        $this->attributes['parent_id'] = !empty($value) ? $value : null;
     }
 }

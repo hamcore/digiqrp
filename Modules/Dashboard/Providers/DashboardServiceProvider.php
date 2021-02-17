@@ -17,7 +17,8 @@ use Modules\Workshop\Manager\StylistThemeManager;
 
 class DashboardServiceProvider extends ServiceProvider
 {
-    use CanPublishConfiguration, CanGetSidebarClassForModule;
+    use CanPublishConfiguration;
+    use CanGetSidebarClassForModule;
     /**
      * Indicates if loading of the provider is deferred.
      *
@@ -35,7 +36,7 @@ class DashboardServiceProvider extends ServiceProvider
         $this->app->bind(WidgetRepository::class, function () {
             $repository = new EloquentWidgetRepository(new Widget());
 
-            if (! config('app.cache')) {
+            if (!config('app.cache')) {
                 return $repository;
             }
 
@@ -55,18 +56,18 @@ class DashboardServiceProvider extends ServiceProvider
     public function boot(StylistThemeManager $theme)
     {
         $this->publishes([
-            __DIR__ . '/../Resources/views' => base_path('resources/views/asgard/dashboard'),
+            __DIR__.'/../Resources/views' => base_path('resources/views/asgard/dashboard'),
         ], 'views');
 
         $this->app['view']->prependNamespace(
             'dashboard',
-            $theme->find(config('asgard.core.core.admin-theme'))->getPath() . '/views/modules/dashboard'
+            $theme->find(config('asgard.core.core.admin-theme'))->getPath().'/views/modules/dashboard'
         );
 
         $this->publishConfig('dashboard', 'permissions');
         $this->publishConfig('dashboard', 'config');
         $this->publishConfig('dashboard', 'settings');
-        $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
+        $this->loadMigrationsFrom(__DIR__.'/../Database/Migrations');
     }
 
     /**

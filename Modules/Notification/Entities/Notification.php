@@ -33,7 +33,8 @@ class Notification extends Model
     }
 
     /**
-     * Return the created time in difference for humans (2 min ago)
+     * Return the created time in difference for humans (2 min ago).
+     *
      * @return string
      */
     public function getTimeAgoAttribute()
@@ -41,7 +42,7 @@ class Notification extends Model
         return $this->created_at->diffForHumans();
     }
 
-    public function isRead() : bool
+    public function isRead(): bool
     {
         return $this->is_read === true;
     }

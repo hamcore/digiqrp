@@ -2,9 +2,9 @@
 
 return [
     'title' => [
-        'blocks' => 'Blocos',
+        'blocks'       => 'Blocos',
         'create block' => 'Criar bloco',
-        'edit block' => 'Editar bloco',
+        'edit block'   => 'Editar bloco',
     ],
     'button' => [
         'create block' => 'Criar bloco',
@@ -14,15 +14,15 @@ return [
     'form' => [
     ],
     'messages' => [
-        'block created' => 'Bloco criado com sucesso.',
+        'block created'   => 'Bloco criado com sucesso.',
         'block not found' => 'Bloco não encontrado.',
-        'block updated' => 'Bloco actualizado com successo.',
-        'block deleted' => 'Bloco eliminado com sucesso.',
+        'block updated'   => 'Bloco actualizado com successo.',
+        'block deleted'   => 'Bloco eliminado com sucesso.',
     ],
     'validation' => [
         'body is required' => 'O corpo é obrigatório.',
     ],
     'online' => 'Online',
-    'name' => 'Nome',
-    'body' => 'Corpo',
+    'name'   => 'Nome',
+    'body'   => 'Corpo',
 ];

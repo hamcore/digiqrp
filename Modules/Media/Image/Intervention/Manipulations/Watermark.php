@@ -7,16 +7,18 @@ use Modules\Media\Image\ImageHandlerInterface;
 class Watermark implements ImageHandlerInterface
 {
     private $defaults = [
-        'source' => 'public/assets/watermark.png',
+        'source'   => 'public/assets/watermark.png',
         'position' => 'bottom-right',
-        'x' => null,
-        'y' => null,
+        'x'        => null,
+        'y'        => null,
     ];
 
     /**
-     * Handle the image manipulation request
-     * @param  \Intervention\Image\Image $image
-     * @param  array                     $options
+     * Handle the image manipulation request.
+     *
+     * @param \Intervention\Image\Image $image
+     * @param array                     $options
+     *
      * @return \Intervention\Image\Image
      */
     public function handle($image, $options)

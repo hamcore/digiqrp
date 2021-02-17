@@ -27,8 +27,8 @@ class CategoryController extends Controller
 
         return response()->json([
             'errors' => false,
-            'count' => $categories->count(),
-            'data' => $categories,
+            'count'  => $categories->count(),
+            'data'   => $categories,
         ]);
     }
 
@@ -37,9 +37,9 @@ class CategoryController extends Controller
         $category = $this->category->create($request->all());
 
         return response()->json([
-            'errors' => false,
+            'errors'  => false,
             'message' => trans('blog::messages.category created'),
-            'data' => $category,
+            'data'    => $category,
         ], Response::HTTP_CREATED);
     }
 
@@ -48,9 +48,9 @@ class CategoryController extends Controller
         $category = $this->category->update($category, $request->all());
 
         return response()->json([
-            'errors' => false,
+            'errors'  => false,
             'message' => trans('blog::messages.category updated'),
-            'data' => $category,
+            'data'    => $category,
         ], Response::HTTP_CREATED);
     }
 
@@ -59,7 +59,7 @@ class CategoryController extends Controller
         $this->category->destroy($category);
 
         return response()->json([
-            'errors' => false,
+            'errors'  => false,
             'message' => trans('blog::messages.category deleted'),
         ], Response::HTTP_ACCEPTED);
     }

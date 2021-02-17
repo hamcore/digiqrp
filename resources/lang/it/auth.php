@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'failed' => 'Queste credenziali non corrispondono a nessun utente.',
+    'failed'   => 'Queste credenziali non corrispondono a nessun utente.',
     'throttle' => 'Troppi tentativi di accesso. Per favore riprova tra :seconds secondi.',
 
 ];

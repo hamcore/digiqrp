@@ -13,7 +13,8 @@ use Modules\Media\Repositories\FolderRepository;
 final class FileMover implements MoverInterface
 {
     /**
-     * All the different images types where thumbnails should be created
+     * All the different images types where thumbnails should be created.
+     *
      * @var array
      */
     private $imageExtensions = ['jpg', 'png', 'jpeg', 'gif'];
@@ -66,7 +67,7 @@ final class FileMover implements MoverInterface
         }
     }
 
-    private function moveOriginalOnDisk(File $folder, File $destination) : bool
+    private function moveOriginalOnDisk(File $folder, File $destination): bool
     {
         $this->fromPath = $folder->path->getRelativeUrl();
         $this->toPath = $this->getNewPathFor($folder->filename, $destination->id);
@@ -74,12 +75,12 @@ final class FileMover implements MoverInterface
         return $this->moveFile($this->fromPath, $this->toPath);
     }
 
-    private function moveDatabase(File $file, File $destination) : File
+    private function moveDatabase(File $file, File $destination): File
     {
         return $this->file->move($file, $destination);
     }
 
-    private function moveFile($fromPath, $toPath) : bool
+    private function moveFile($fromPath, $toPath): bool
     {
         try {
             $this->filesystem->disk($this->getConfiguredFilesystem())
@@ -94,16 +95,16 @@ final class FileMover implements MoverInterface
         return true;
     }
 
-    private function getDestinationPath($path) : string
+    private function getDestinationPath($path): string
     {
         if ($this->getConfiguredFilesystem() === 'local') {
-            return basename(public_path()) . $path;
+            return basename(public_path()).$path;
         }
 
         return $path;
     }
 
-    private function getConfiguredFilesystem() : string
+    private function getConfiguredFilesystem(): string
     {
         return config('asgard.media.config.filesystem');
     }
@@ -113,16 +114,18 @@ final class FileMover implements MoverInterface
         if ($folderId !== 0) {
             $parent = app(FolderRepository::class)->findFolder($folderId);
             if ($parent !== null) {
-                return $parent->path->getRelativeUrl() . '/' . $filename;
+                return $parent->path->getRelativeUrl().'/'.$filename;
             }
         }
 
-        return config('asgard.media.config.files-path') . $filename;
+        return config('asgard.media.config.files-path').$filename;
     }
 
     /**
-     * Check if the given path is en image
-     * @param  string $path
+     * Check if the given path is en image.
+     *
+     * @param string $path
+     *
      * @return bool
      */
     private function isImage($path)
@@ -131,8 +134,9 @@ final class FileMover implements MoverInterface
     }
 
     /**
-     * @param string $path
+     * @param string           $path
      * @param Thumbnail|string $thumbnail
+     *
      * @return string
      */
     private function getFilenameFor(string $path, $thumbnail)
@@ -145,17 +149,18 @@ final class FileMover implements MoverInterface
         $folders = str_replace($filename, '', $filenameWithoutPrefix);
 
         if ($filename === false) {
-            return config('asgard.media.config.files-path') . $this->newFilename($path, $thumbnail);
+            return config('asgard.media.config.files-path').$this->newFilename($path, $thumbnail);
         }
 
-        return config('asgard.media.config.files-path') . $folders . $this->newFilename($path, $thumbnail);
+        return config('asgard.media.config.files-path').$folders.$this->newFilename($path, $thumbnail);
     }
 
     /**
      * @param string $path
+     *
      * @return string
      */
-    private function removeConfigPrefix(string $path) : string
+    private function removeConfigPrefix(string $path): string
     {
         $configAssetPath = config('asgard.media.config.files-path');
 
@@ -166,15 +171,17 @@ final class FileMover implements MoverInterface
     }
 
     /**
-     * Prepend the thumbnail name to filename
+     * Prepend the thumbnail name to filename.
+     *
      * @param $path
      * @param $thumbnail
+     *
      * @return mixed|string
      */
     private function newFilename($path, $thumbnail)
     {
         $filename = pathinfo($path, PATHINFO_FILENAME);
 
-        return $filename . '_' . $thumbnail . '.' . pathinfo($path, PATHINFO_EXTENSION);
+        return $filename.'_'.$thumbnail.'.'.pathinfo($path, PATHINFO_EXTENSION);
     }
 }

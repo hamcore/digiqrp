@@ -11,10 +11,12 @@ class AsgardInstalledMiddleware
     /**
      * Handle an incoming request.
      *
-     * @param  Request    $request
-     * @param  Closure    $next
-     * @return mixed
+     * @param Request $request
+     * @param Closure $next
+     *
      * @throws \Exception
+     *
+     * @return mixed
      */
     public function handle($request, Closure $next)
     {

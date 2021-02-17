@@ -41,7 +41,7 @@ class BatchDestroyController extends Controller
         }
 
         return response()->json([
-            'errors' => false,
+            'errors'  => false,
             'message' => trans('media::messages.selected items deleted'),
         ]);
     }

@@ -15,37 +15,38 @@ class MenuPresenter extends Presenter
             return;
         }
         if (LaravelLocalization::hideDefaultLocaleInURL() === false) {
-            $item->url = locale() . '/' . preg_replace('%^/?' . locale() . '/%', '$1', $item->url);
+            $item->url = locale().'/'.preg_replace('%^/?'.locale().'/%', '$1', $item->url);
         }
     }
+
     /**
-     * {@inheritdoc }.
+     * {@inheritdoc}.
      */
     public function getOpenTagWrapper()
     {
-        return PHP_EOL . '<ul class="nav navbar-nav">' . PHP_EOL;
+        return PHP_EOL.'<ul class="nav navbar-nav">'.PHP_EOL;
     }
 
     /**
-     * {@inheritdoc }.
+     * {@inheritdoc}.
      */
     public function getCloseTagWrapper()
     {
-        return PHP_EOL . '</ul>' . PHP_EOL;
+        return PHP_EOL.'</ul>'.PHP_EOL;
     }
 
     /**
-     * {@inheritdoc }.
+     * {@inheritdoc}.
      */
     public function getMenuWithoutDropdownWrapper($item)
     {
         $this->setLocale($item);
 
-        return '<li' . $this->getActiveState($item) . '><a href="' . $item->getUrl() . '" ' . $item->getAttributes() . '>' . $item->getIcon() . ' ' . $item->title . '</a></li>' . PHP_EOL;
+        return '<li'.$this->getActiveState($item).'><a href="'.$item->getUrl().'" '.$item->getAttributes().'>'.$item->getIcon().' '.$item->title.'</a></li>'.PHP_EOL;
     }
 
     /**
-     * {@inheritdoc }.
+     * {@inheritdoc}.
      */
     public function getActiveState($item, $state = ' class="active"')
     {
@@ -66,20 +67,20 @@ class MenuPresenter extends Presenter
     }
 
     /**
-     * {@inheritdoc }.
+     * {@inheritdoc}.
      */
     public function getMenuWithDropDownWrapper($item)
     {
-        return '<li class="dropdown' . $this->getActiveStateOnChild($item, ' active') . '">
+        return '<li class="dropdown'.$this->getActiveStateOnChild($item, ' active').'">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    ' . $item->getIcon() . ' ' . $item->title . '
+                    '.$item->getIcon().' '.$item->title.'
                     <b class="caret"></b>
                   </a>
                   <ul class="dropdown-menu">
-                    ' . $this->getChildMenuItems($item) . '
+                    '.$this->getChildMenuItems($item).'
                   </ul>
                 </li>'
-        . PHP_EOL;
+        .PHP_EOL;
     }
 
     /**
@@ -91,15 +92,15 @@ class MenuPresenter extends Presenter
      */
     public function getMultiLevelDropdownWrapper($item)
     {
-        return '<li class="dropdown' . $this->getActiveStateOnChild($item, ' active') . '">
+        return '<li class="dropdown'.$this->getActiveStateOnChild($item, ' active').'">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    ' . $item->getIcon() . ' ' . $item->title . '
+                    '.$item->getIcon().' '.$item->title.'
                     <b class="caret pull-right caret-right"></b>
                   </a>
                   <ul class="dropdown-menu">
-                    ' . $this->getChildMenuItems($item) . '
+                    '.$this->getChildMenuItems($item).'
                   </ul>
                 </li>'
-        . PHP_EOL;
+        .PHP_EOL;
     }
 }

@@ -17,7 +17,8 @@ class HandleMediaStorage
     }
 
     /**
-     * Handle the request for the multi media partial
+     * Handle the request for the multi media partial.
+     *
      * @param StoringMedia $event
      */
     private function handleMultiMedia(StoringMedia $event)
@@ -39,7 +40,8 @@ class HandleMediaStorage
     }
 
     /**
-     * Handle the request to parse single media partials
+     * Handle the request to parse single media partials.
+     *
      * @param StoringMedia $event
      */
     private function handleSingleMedia(StoringMedia $event)
@@ -57,8 +59,10 @@ class HandleMediaStorage
     }
 
     /**
-     * Parse the orders input and return an array of file ids, in order
+     * Parse the orders input and return an array of file ids, in order.
+     *
      * @param array $attributes
+     *
      * @return array
      */
     private function getOrdersFrom(array $attributes)

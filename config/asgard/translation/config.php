@@ -19,8 +19,6 @@ return [
     */
     'custom-sidebar' => null,
 
-
-
     /*
     |--------------------------------------------------------------------------
     | Dynamic relations
@@ -30,7 +28,7 @@ return [
     'relations' => [
         'page' => function (): \Illuminate\Database\Eloquent\Relations\BelongsTo {
             return $this->belongsTo(\Modules\Page\Entities\Page::class, 'page_id', 'id')->first();
-        }
+        },
 
     ],
 

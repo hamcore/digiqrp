@@ -29,7 +29,7 @@ class SettingDatabaseSeeder extends Seeder
 
         $data = [
             'core::template' => 'Flatly',
-            'core::locales' => ['en'],
+            'core::locales'  => ['en'],
         ];
 
         $this->setting->createOrUpdate($data);

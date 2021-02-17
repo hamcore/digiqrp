@@ -46,9 +46,9 @@ class EloquentFileRepositoryTest extends MediaTestCase
 
         $this->file->update($file, [
             'en' => [
-                'description' => 'My description',
+                'description'   => 'My description',
                 'alt_attribute' => 'My alt attribute',
-                'keywords' => 'keyword1, keyword2',
+                'keywords'      => 'keyword1, keyword2',
             ],
         ]);
 
@@ -184,9 +184,9 @@ class EloquentFileRepositoryTest extends MediaTestCase
         $file = $this->file->createFromFile(\Illuminate\Http\UploadedFile::fake()->image('myfile.jpg'));
         $this->file->update($file, [
             'en' => [
-                'description' => 'My cool file!',
+                'description'   => 'My cool file!',
                 'alt_attribute' => 'My cool file!',
-                'keywords' => 'My cool file!',
+                'keywords'      => 'My cool file!',
             ],
         ]);
 
@@ -202,7 +202,7 @@ class EloquentFileRepositoryTest extends MediaTestCase
         Event::listen(FileIsUpdating::class, function (FileIsUpdating $event) {
             $event->setAttributes([
                 'filename' => 'bettername.jpg',
-                'en' => [
+                'en'       => [
                     'description' => 'Hello World',
                 ],
             ]);
@@ -211,9 +211,9 @@ class EloquentFileRepositoryTest extends MediaTestCase
         $file = $this->file->createFromFile(\Illuminate\Http\UploadedFile::fake()->image('myfile.jpg'));
         $this->file->update($file, [
             'en' => [
-                'description' => 'My cool file!',
+                'description'   => 'My cool file!',
                 'alt_attribute' => 'My cool file!',
-                'keywords' => 'My cool file!',
+                'keywords'      => 'My cool file!',
             ],
         ]);
 
@@ -280,11 +280,11 @@ class EloquentFileRepositoryTest extends MediaTestCase
     private function createFile($fileName = 'random/name.jpg')
     {
         return File::create([
-            'filename' => $fileName,
-            'path' => config('asgard.media.config.files-path') . $fileName,
-            'extension' => substr(strrchr($fileName, "."), 1),
-            'mimetype' => 'image/jpg',
-            'filesize' => '1024',
+            'filename'  => $fileName,
+            'path'      => config('asgard.media.config.files-path').$fileName,
+            'extension' => substr(strrchr($fileName, '.'), 1),
+            'mimetype'  => 'image/jpg',
+            'filesize'  => '1024',
             'folder_id' => 0,
         ]);
     }

@@ -44,8 +44,9 @@ class AdminMiddleware
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  \Closure                 $next
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure                 $next
+     *
      * @return mixed
      */
     public function handle($request, \Closure $next)
@@ -63,7 +64,7 @@ class AdminMiddleware
         }
 
         // Check if the user has access to the dashboard page
-        if (! $this->auth->hasAccess('dashboard.index')) {
+        if (!$this->auth->hasAccess('dashboard.index')) {
             // Show the insufficient permissions page
             return $this->application->abort(Response::HTTP_FORBIDDEN);
         }

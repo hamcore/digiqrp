@@ -1,37 +1,37 @@
 <?php
 
 return [
-    'pages' => 'Strony',
+    'pages'       => 'Strony',
     'create page' => 'Tworzenie strony',
-    'edit page' => 'Edycja strony',
+    'edit page'   => 'Edycja strony',
 
-    'slug' => 'Slug',
+    'slug'  => 'Slug',
     'title' => 'Tytuł',
 
-    'meta_data' => 'Metadane',
-    'meta_title' => 'Tytuł metadanych',
-    'meta_description' => 'Opis metadanych',
-    'facebook_data' => 'Facebook',
-    'og_title' => 'Tytuł OpenGraph',
-    'og_description' => 'Opis OpenGraph',
-    'og_type' => 'Rodzaj OpenGraph',
-    'template' => 'Szablon',
-    'is homepage' => 'Strona główna?',
-    'body' => 'Treść',
-    'status' => 'Status',
+    'meta_data'          => 'Metadane',
+    'meta_title'         => 'Tytuł metadanych',
+    'meta_description'   => 'Opis metadanych',
+    'facebook_data'      => 'Facebook',
+    'og_title'           => 'Tytuł OpenGraph',
+    'og_description'     => 'Opis OpenGraph',
+    'og_type'            => 'Rodzaj OpenGraph',
+    'template'           => 'Szablon',
+    'is homepage'        => 'Strona główna?',
+    'body'               => 'Treść',
+    'status'             => 'Status',
     'pages were updated' => 'Zaktualizowano stronę',
 
-    'list resource' => 'Wyświetlanie',
-    'create resource' => 'Tworzenie',
-    'edit resource' => 'Edycja',
+    'list resource'    => 'Wyświetlanie',
+    'create resource'  => 'Tworzenie',
+    'edit resource'    => 'Edycja',
     'destroy resource' => 'Usuwanie',
 
-    'view-page' => 'Podgląd strony',
-    'edit-page' => 'Edytuj stronę',
+    'view-page'  => 'Podgląd strony',
+    'edit-page'  => 'Edytuj stronę',
     'validation' => [
         'attributes' => [
             'title' => 'tytuł',
-            'body' => 'treść',
+            'body'  => 'treść',
         ],
     ],
     'facebook-types' => [

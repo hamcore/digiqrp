@@ -11,6 +11,7 @@ class RegisterPageSidebar extends AbstractAdminSidebar
 {
     /**
      * @param Menu $menu
+     *
      * @return Menu
      */
     public function extendWith(Menu $menu)

@@ -7,15 +7,17 @@ use Modules\Media\Image\ImageHandlerInterface;
 class Colorize implements ImageHandlerInterface
 {
     private $defaults = [
-        'red' => 100,
+        'red'   => 100,
         'green' => 100,
-        'blue' => 100,
+        'blue'  => 100,
     ];
 
     /**
-     * Handle the image manipulation request
-     * @param  \Intervention\Image\Image $image
-     * @param  array                     $options
+     * Handle the image manipulation request.
+     *
+     * @param \Intervention\Image\Image $image
+     * @param array                     $options
+     *
      * @return \Intervention\Image\Image
      */
     public function handle($image, $options)

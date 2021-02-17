@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'content' => 'Zawartość',
+    'content'    => 'Zawartość',
     'show group' => 'Pokaż grupę paska bocznego',
 ];

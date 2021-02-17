@@ -3,5 +3,5 @@
 return [
     'title'   => 'Atölye',
     'modules' => 'Modüller',
-    'themes' => 'Temalar',
+    'themes'  => 'Temalar',
 ];

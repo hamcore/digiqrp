@@ -13,13 +13,13 @@ class FullRoleTransformer extends JsonResource
         $permissions = $this->buildPermissionList($permissionsManager->all());
 
         $data = [
-            'id' => $this->resource->id,
-            'name' => $this->resource->name,
-            'slug' => $this->resource->slug,
-            'created_at' => $this->resource->created_at,
+            'id'          => $this->resource->id,
+            'name'        => $this->resource->name,
+            'slug'        => $this->resource->slug,
+            'created_at'  => $this->resource->created_at,
             'permissions' => $permissions,
-            'users' => UserTransformer::collection($this->whenLoaded('users')),
-            'urls' => [],
+            'users'       => UserTransformer::collection($this->whenLoaded('users')),
+            'urls'        => [],
         ];
         if ($this->resource->id) {
             $data['urls'] = [
@@ -41,7 +41,7 @@ class FullRoleTransformer extends JsonResource
         foreach ($permissionsConfig as $mainKey => $subPermissions) {
             foreach ($subPermissions as $key => $permissionGroup) {
                 foreach ($permissionGroup as $lastKey => $description) {
-                    $list[strtolower($key) . '.' . $lastKey] = current_permission_value_for_roles($this->resource, $key, $lastKey);
+                    $list[strtolower($key).'.'.$lastKey] = current_permission_value_for_roles($this->resource, $key, $lastKey);
                 }
             }
         }

@@ -9,7 +9,8 @@ use Modules\Contact\Entities\ContactRequest;
 
 class ContactRequestNotification extends Mailable
 {
-    use Queueable, SerializesModels;
+    use Queueable;
+    use SerializesModels;
     /**
      * @var ContactRequest
      */

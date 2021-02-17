@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'content' => 'Contenido',
+    'content'    => 'Contenido',
     'show group' => 'Mostrar Grupo barra lateral',
 ];

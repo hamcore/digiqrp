@@ -4,9 +4,9 @@ namespace Modules\Contact\Tests;
 
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Mail;
+use Modules\Contact\Emails\ContactRequestNotification;
 use Modules\Contact\Entities\ContactRequest;
 use Modules\Contact\Events\ContactRequestWasCreated;
-use Modules\Contact\Emails\ContactRequestNotification;
 
 class EloquentContactRequestRepositoryTest extends BaseContactRequestTest
 {
@@ -17,10 +17,10 @@ class EloquentContactRequestRepositoryTest extends BaseContactRequestTest
         Event::fake();
 
         $this->contactRequest->create([
-            'name' => 'John Doe',
-            'email' => 'john@doe.com',
+            'name'    => 'John Doe',
+            'email'   => 'john@doe.com',
             'company' => 'John Doe LLC',
-            'phone' => '123 456',
+            'phone'   => '123 456',
             'message' => 'Hello there!',
         ]);
 
@@ -73,10 +73,10 @@ class EloquentContactRequestRepositoryTest extends BaseContactRequestTest
         $faker = \Faker\Factory::create();
 
         return $this->contactRequest->create([
-            'name' => $faker->name,
-            'email' => $faker->unique()->safeEmail,
+            'name'    => $faker->name,
+            'email'   => $faker->unique()->safeEmail,
             'company' => $faker->company,
-            'phone' => $faker->phoneNumber,
+            'phone'   => $faker->phoneNumber,
             'message' => $faker->paragraph(10),
         ]);
     }

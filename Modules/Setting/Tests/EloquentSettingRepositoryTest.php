@@ -83,7 +83,7 @@ class EloquentSettingRepositoryTest extends BaseSettingTest
                 'en' => 'AsgardCMS_en',
                 'fr' => 'AsgardCMS_fr',
             ],
-            'core::template' => 'asgard',
+            'core::template'       => 'asgard',
             'blog::posts-per-page' => 10,
         ];
 
@@ -103,9 +103,9 @@ class EloquentSettingRepositoryTest extends BaseSettingTest
         // Prepare
         $data = [
             'core::locales' => [
-                "su",
-                "bi",
-                "bs",
+                'su',
+                'bi',
+                'bs',
             ],
         ];
 
@@ -124,7 +124,7 @@ class EloquentSettingRepositoryTest extends BaseSettingTest
         Event::fake();
 
         $data = [
-            'core::template' => 'asgard',
+            'core::template'  => 'asgard',
             'core::site-name' => [
                 'en' => 'AsgardCMS_en',
                 'fr' => 'AsgardCMS_fr',
@@ -143,7 +143,7 @@ class EloquentSettingRepositoryTest extends BaseSettingTest
         Event::fake();
 
         $data = [
-            'core::template' => 'asgard',
+            'core::template'  => 'asgard',
             'core::site-name' => [
                 'en' => 'AsgardCMS_en',
                 'fr' => 'AsgardCMS_fr',
@@ -171,8 +171,8 @@ class EloquentSettingRepositoryTest extends BaseSettingTest
         });
 
         $data = [
-            'core::template' => 'asgard',
-            'blog::posts' => 10,
+            'core::template'  => 'asgard',
+            'blog::posts'     => 10,
             'core::site-name' => [
                 'en' => 'AsgardCMS_en',
                 'fr' => 'AsgardCMS_fr',
@@ -191,7 +191,7 @@ class EloquentSettingRepositoryTest extends BaseSettingTest
         Event::fake();
 
         $data = [
-            'core::template' => 'asgard',
+            'core::template'  => 'asgard',
             'core::site-name' => [
                 'en' => 'AsgardCMS_en',
                 'fr' => 'AsgardCMS_fr',
@@ -211,7 +211,7 @@ class EloquentSettingRepositoryTest extends BaseSettingTest
         Event::fake();
 
         $data = [
-            'core::template' => 'asgard',
+            'core::template'  => 'asgard',
             'core::site-name' => [
                 'en' => 'AsgardCMS_en',
                 'fr' => 'AsgardCMS_fr',
@@ -240,8 +240,8 @@ class EloquentSettingRepositoryTest extends BaseSettingTest
         });
 
         $data = [
-            'core::template' => 'asgard',
-            'blog::posts' => 10,
+            'core::template'  => 'asgard',
+            'blog::posts'     => 10,
             'core::site-name' => [
                 'en' => 'AsgardCMS_en',
                 'fr' => 'AsgardCMS_fr',
@@ -249,7 +249,7 @@ class EloquentSettingRepositoryTest extends BaseSettingTest
         ];
         $this->settingRepository->createOrUpdate($data);
         $this->settingRepository->createOrUpdate([
-            'core::template' => 'flatly',
+            'core::template'  => 'flatly',
             'core::site-name' => [
                 'en' => 'The AsgardCMS_en',
                 'fr' => 'The AsgardCMS_fr',

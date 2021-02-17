@@ -38,7 +38,7 @@ class PageController extends Controller
         $this->page->create($request->all());
 
         return response()->json([
-            'errors' => false,
+            'errors'  => false,
             'message' => trans('page::messages.page created'),
         ]);
     }
@@ -53,7 +53,7 @@ class PageController extends Controller
         $this->page->update($page, $request->all());
 
         return response()->json([
-            'errors' => false,
+            'errors'  => false,
             'message' => trans('page::messages.page updated'),
         ]);
     }
@@ -63,7 +63,7 @@ class PageController extends Controller
         $this->page->destroy($page);
 
         return response()->json([
-            'errors' => false,
+            'errors'  => false,
             'message' => trans('page::messages.page deleted'),
         ]);
     }

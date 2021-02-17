@@ -31,24 +31,24 @@ abstract class BaseTestCase extends TestCase
     protected function getPackageAliases($app)
     {
         return [
-            'Eloquent' => 'Illuminate\Database\Eloquent\Model',
+            'Eloquent'            => 'Illuminate\Database\Eloquent\Model',
             'LaravelLocalization' => \Mcamara\LaravelLocalization\Facades\LaravelLocalization::class,
-            'Form' => \Collective\Html\FormFacade::class,
-            'Html' => \Collective\Html\HtmlFacade::class,
+            'Form'                => \Collective\Html\FormFacade::class,
+            'Html'                => \Collective\Html\HtmlFacade::class,
         ];
     }
 
     protected function getEnvironmentSetUp($app)
     {
-        $app['path.base'] = __DIR__ . '/..';
+        $app['path.base'] = __DIR__.'/..';
         $app['config']->set('database.default', 'sqlite');
-        $app['config']->set('database.connections.sqlite', array(
-            'driver' => 'sqlite',
+        $app['config']->set('database.connections.sqlite', [
+            'driver'   => 'sqlite',
             'database' => ':memory:',
-            'prefix' => '',
-        ));
+            'prefix'   => '',
+        ]);
         $app['config']->set('translatable.locales', ['en', 'fr']);
-        $app['config']->set('modules.paths.modules', __DIR__ . '/../Modules');
+        $app['config']->set('modules.paths.modules', __DIR__.'/../Modules');
     }
 
     private function resetDatabase()

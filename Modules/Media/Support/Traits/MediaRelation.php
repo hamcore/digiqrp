@@ -7,7 +7,8 @@ use Modules\Media\Entities\File;
 trait MediaRelation
 {
     /**
-     * Make the Many To Many Morph To Relation
+     * Make the Many To Many Morph To Relation.
+     *
      * @return object
      */
     public function files()
@@ -16,8 +17,10 @@ trait MediaRelation
     }
 
     /**
-     * Make the Many to Many Morph to Relation with specific zone
+     * Make the Many to Many Morph to Relation with specific zone.
+     *
      * @param string $zone
+     *
      * @return object
      */
     public function filesByZone($zone)

@@ -23,10 +23,12 @@ final class MenuItemUriGenerator
     }
 
     /**
-     * Generate a URI based of the given page and and the parent id recursively
+     * Generate a URI based of the given page and and the parent id recursively.
+     *
      * @param string $pageId
      * @param string $parentId
      * @param string $lang
+     *
      * @return string
      */
     public function generateUri($pageId, $parentId, $lang)
@@ -59,9 +61,11 @@ final class MenuItemUriGenerator
     }
 
     /**
-     * Get page slug
+     * Get page slug.
+     *
      * @param $id
      * @param $lang
+     *
      * @return string
      */
     private function getPageSlug($id, $lang)
@@ -77,9 +81,10 @@ final class MenuItemUriGenerator
     }
 
     /**
-     * Get parent uri
+     * Get parent uri.
      *
      * @params $pageId, $lang
+     *
      * @return string
      */
     private function getParentUri($item, $linkPathArray)

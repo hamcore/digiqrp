@@ -5,7 +5,8 @@ namespace Modules\Media\Events;
 class FileWasUnlinked
 {
     /**
-     * The imageable id
+     * The imageable id.
+     *
      * @var int
      */
     public $imageableId;

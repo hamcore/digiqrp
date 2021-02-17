@@ -45,19 +45,19 @@ abstract class BasePageTest extends TestCase
     protected function getPackageAliases($app)
     {
         return [
-            'Eloquent' => Model::class,
+            'Eloquent'            => Model::class,
             'LaravelLocalization' => LaravelLocalization::class,
         ];
     }
 
     protected function getEnvironmentSetUp($app)
     {
-        $app['path.base'] = __DIR__ . '/..';
+        $app['path.base'] = __DIR__.'/..';
         $app['config']->set('database.default', 'sqlite');
         $app['config']->set('database.connections.sqlite', [
-            'driver' => 'sqlite',
+            'driver'   => 'sqlite',
             'database' => ':memory:',
-            'prefix' => '',
+            'prefix'   => '',
         ]);
         $app['config']->set('translatable.locales', ['en', 'fr']);
         $app['config']->set('laravellocalization.supportedLocales', [

@@ -11,7 +11,10 @@ use Modules\Tag\Traits\TaggableTrait;
 
 class Page extends Model implements TaggableInterface
 {
-    use Translatable, TaggableTrait, NamespacedEntity, MediaRelation;
+    use Translatable;
+    use TaggableTrait;
+    use NamespacedEntity;
+    use MediaRelation;
 
     protected $table = 'page__pages';
     public $translatedAttributes = [
@@ -48,7 +51,7 @@ class Page extends Model implements TaggableInterface
     ];
     protected static $entityNamespace = 'asgardcms/page';
 
-    public function getCanonicalUrl() : string
+    public function getCanonicalUrl(): string
     {
         if ($this->is_home === true) {
             return url('/');
@@ -57,24 +60,24 @@ class Page extends Model implements TaggableInterface
         return route('page', $this->slug);
     }
 
-    public function getEditUrl() : string
+    public function getEditUrl(): string
     {
         return route('admin.page.page.edit', $this->id);
     }
 
     public function __call($method, $parameters)
     {
-        #i: Convert array to dot notation
+        //i: Convert array to dot notation
         $config = implode('.', ['asgard.page.config.relations', $method]);
 
-        #i: Relation method resolver
+        //i: Relation method resolver
         if (config()->has($config)) {
             $function = config()->get($config);
 
             return $function($this);
         }
 
-        #i: No relation found, return the call to parent (Eloquent) to handle it.
+        //i: No relation found, return the call to parent (Eloquent) to handle it.
         return parent::__call($method, $parameters);
     }
 

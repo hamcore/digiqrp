@@ -8,9 +8,10 @@ use Illuminate\Support\Str;
 class FilesGenerator extends Generator
 {
     /**
-     * Generate the given files
+     * Generate the given files.
      *
-     * @param  array $files
+     * @param array $files
+     *
      * @return void
      */
     public function generate(array $files)
@@ -24,7 +25,8 @@ class FilesGenerator extends Generator
     }
 
     /**
-     * Generate the base module service provider
+     * Generate the base module service provider.
+     *
      * @return $this
      */
     public function generateModuleProvider()
@@ -38,13 +40,14 @@ class FilesGenerator extends Generator
     }
 
     /**
-     * Generate the base module event provider
+     * Generate the base module event provider.
+     *
      * @return $this
      */
     public function generateEventProvider()
     {
         $this->writeFile(
-            $this->getModulesPath("Providers/EventServiceProvider"),
+            $this->getModulesPath('Providers/EventServiceProvider'),
             $this->getContentFor('module-event-provider.stub')
         );
 
@@ -52,11 +55,13 @@ class FilesGenerator extends Generator
     }
 
     /**
-     * Get the content for the given file
+     * Get the content for the given file.
      *
      * @param $stub
-     * @return string
+     *
      * @throws FileNotFoundException
+     *
+     * @return string
      */
     private function getContentFor($stub)
     {

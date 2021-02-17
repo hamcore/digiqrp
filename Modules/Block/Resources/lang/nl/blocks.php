@@ -2,9 +2,9 @@
 
 return [
     'title' => [
-        'blocks' => 'Blokken',
+        'blocks'       => 'Blokken',
         'create block' => 'Creëer een blok',
-        'edit block' => 'Wijzig een blok',
+        'edit block'   => 'Wijzig een blok',
     ],
     'button' => [
         'create block' => 'Creëer een blok',
@@ -14,15 +14,15 @@ return [
     'form' => [
     ],
     'messages' => [
-        'block created' => 'Blok succesvol aangemaakt.',
+        'block created'   => 'Blok succesvol aangemaakt.',
         'block not found' => 'Blok niet gevonden.',
-        'block updated' => 'Blok succesvol gewijzigd.',
-        'block deleted' => 'Blok succesvol verwijderd.',
+        'block updated'   => 'Blok succesvol gewijzigd.',
+        'block deleted'   => 'Blok succesvol verwijderd.',
     ],
     'validation' => [
         'body is required' => 'De inhoud is vereist',
     ],
     'online' => 'Online',
-    'name' => 'Naam',
-    'body' => 'Inhoud',
+    'name'   => 'Naam',
+    'body'   => 'Inhoud',
 ];

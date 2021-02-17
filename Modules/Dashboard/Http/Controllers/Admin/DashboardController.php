@@ -22,8 +22,8 @@ class DashboardController extends AdminBaseController
 
     /**
      * @param RepositoryInterface $modules
-     * @param WidgetRepository $widget
-     * @param Authentication $auth
+     * @param WidgetRepository    $widget
+     * @param Authentication      $auth
      */
     public function __construct(RepositoryInterface $modules, WidgetRepository $widget, Authentication $auth)
     {
@@ -39,7 +39,8 @@ class DashboardController extends AdminBaseController
     }
 
     /**
-     * Display the dashboard with its widgets
+     * Display the dashboard with its widgets.
+     *
      * @return \Illuminate\View\View
      */
     public function index()
@@ -57,8 +58,10 @@ class DashboardController extends AdminBaseController
     }
 
     /**
-     * Save the current state of the widgets
+     * Save the current state of the widgets.
+     *
      * @param Request $request
+     *
      * @return mixed
      */
     public function save(Request $request)
@@ -75,7 +78,7 @@ class DashboardController extends AdminBaseController
     }
 
     /**
-     * Reset the grid for the current user
+     * Reset the grid for the current user.
      */
     public function reset()
     {
@@ -91,13 +94,14 @@ class DashboardController extends AdminBaseController
     }
 
     /**
-     * Boot widgets for all enabled modules
+     * Boot widgets for all enabled modules.
+     *
      * @param RepositoryInterface $modules
      */
     private function bootWidgets(RepositoryInterface $modules)
     {
         foreach ($modules->allEnabled() as $module) {
-            if (! isset($module->widgets)) {
+            if (!isset($module->widgets)) {
                 continue;
             }
             foreach ($module->widgets as $widgetClass) {
@@ -107,7 +111,7 @@ class DashboardController extends AdminBaseController
     }
 
     /**
-     * Require necessary assets
+     * Require necessary assets.
      */
     private function requireAssets()
     {

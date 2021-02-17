@@ -10,8 +10,10 @@ use Modules\Core\Repositories\Eloquent\EloquentBaseRepository;
 class EloquentTagRepository extends EloquentBaseRepository implements TagRepository
 {
     /**
-     * Find a tag by its name
+     * Find a tag by its name.
+     *
      * @param $name
+     *
      * @return mixed
      */
     public function findByName($name)
@@ -30,7 +32,7 @@ class EloquentTagRepository extends EloquentBaseRepository implements TagReposit
             foreach ($tag->translations as $tagTranslation) {
                 if (App::getLocale() == $tagTranslation->locale) {
                     $cleanedTags[] = [
-                        'id' => $tag->id,
+                        'id'   => $tag->id,
                         'name' => $tagTranslation->name,
                     ];
                 }
@@ -41,9 +43,11 @@ class EloquentTagRepository extends EloquentBaseRepository implements TagReposit
     }
 
     /**
-     * Create the tag for the specified language
-     * @param  string $lang
-     * @param  array  $name
+     * Create the tag for the specified language.
+     *
+     * @param string $lang
+     * @param array  $name
+     *
      * @return mixed
      */
     public function createForLanguage($lang = 'en', $name)

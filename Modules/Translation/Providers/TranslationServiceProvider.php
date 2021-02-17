@@ -27,7 +27,8 @@ use Modules\Translation\Services\TranslationLoader;
 
 class TranslationServiceProvider extends ServiceProvider
 {
-    use CanPublishConfiguration, CanGetSidebarClassForModule;
+    use CanPublishConfiguration;
+    use CanGetSidebarClassForModule;
     /**
      * Indicates if loading of the provider is deferred.
      *
@@ -68,7 +69,7 @@ class TranslationServiceProvider extends ServiceProvider
         $this->publishConfig('translation', 'permissions');
 
         $this->registerValidators();
-        $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
+        $this->loadMigrationsFrom(__DIR__.'/../Database/Migrations');
 
         if ($this->app->runningInConsole() === true) {
             return;
@@ -81,6 +82,7 @@ class TranslationServiceProvider extends ServiceProvider
 
     /**
      * Should we register the Custom Translator?
+     *
      * @return bool
      */
     protected function shouldRegisterCustomTranslator()
@@ -93,7 +95,7 @@ class TranslationServiceProvider extends ServiceProvider
             return false;
         }
 
-        if (false === Schema::hasTable((new Translation)->getTable())) {
+        if (false === Schema::hasTable((new Translation())->getTable())) {
             return false;
         }
 

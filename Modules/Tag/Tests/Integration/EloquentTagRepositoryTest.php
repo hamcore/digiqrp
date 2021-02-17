@@ -29,21 +29,21 @@ class EloquentTagRepositoryTest extends BaseTestCase
     {
         $this->tag->create([
             'namespace' => 'asgardcms/media',
-            'en' => [
+            'en'        => [
                 'slug' => 'media-tag',
                 'name' => 'media tag',
             ],
         ]);
         $this->tag->create([
             'namespace' => 'asgardcms/media',
-            'en' => [
+            'en'        => [
                 'slug' => 'media-tag',
                 'name' => 'media tag',
             ],
         ]);
         $this->tag->create([
             'namespace' => 'asgardcms/blog',
-            'en' => [
+            'en'        => [
                 'slug' => 'media-tag',
                 'name' => 'media tag',
             ],
@@ -59,7 +59,7 @@ class EloquentTagRepositoryTest extends BaseTestCase
 
         $tag = $this->tag->create([
             'namespace' => 'asgardcms/media',
-            'en' => [
+            'en'        => [
                 'slug' => 'media-tag',
                 'name' => 'media tag',
             ],
@@ -77,7 +77,7 @@ class EloquentTagRepositoryTest extends BaseTestCase
 
         $tag = $this->tag->create([
             'namespace' => 'asgardcms/media',
-            'en' => [
+            'en'        => [
                 'slug' => 'media-tag',
                 'name' => 'media tag',
             ],
@@ -97,7 +97,7 @@ class EloquentTagRepositoryTest extends BaseTestCase
 
         $tag = $this->tag->create([
             'namespace' => 'asgardcms/media',
-            'en' => [
+            'en'        => [
                 'slug' => 'media-tag',
                 'name' => 'media tag',
             ],
@@ -113,7 +113,7 @@ class EloquentTagRepositoryTest extends BaseTestCase
 
         $tag = $this->tag->create([
             'namespace' => 'asgardcms/media',
-            'en' => [
+            'en'        => [
                 'slug' => 'media-tag',
                 'name' => 'media tag',
             ],
@@ -134,7 +134,7 @@ class EloquentTagRepositoryTest extends BaseTestCase
 
         $tag = $this->tag->create([
             'namespace' => 'asgardcms/media',
-            'en' => [
+            'en'        => [
                 'slug' => 'media-tag',
                 'name' => 'media tag',
             ],

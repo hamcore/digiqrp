@@ -24,9 +24,9 @@ class FolderController extends Controller
         $folder = $this->folder->create($request->all());
 
         return response()->json([
-            'errors' => false,
+            'errors'  => false,
             'message' => trans('media::folders.folder was created'),
-            'data' => $folder,
+            'data'    => $folder,
         ]);
     }
 
@@ -35,9 +35,9 @@ class FolderController extends Controller
         $folder = $this->folder->update($folder, $request->all());
 
         return response()->json([
-            'errors' => false,
+            'errors'  => false,
             'message' => trans('media::folders.folder was updated'),
-            'data' => $folder,
+            'data'    => $folder,
         ]);
     }
 
@@ -46,7 +46,7 @@ class FolderController extends Controller
         $this->folder->destroy($folder);
 
         return response()->json([
-            'errors' => false,
+            'errors'  => false,
             'message' => trans('media::messages.folder deleted'),
         ]);
     }

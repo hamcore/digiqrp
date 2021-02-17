@@ -28,12 +28,12 @@ abstract class BaseTestCase extends TestCase
 
     protected function getEnvironmentSetUp($app)
     {
-        $app['path.base'] = __DIR__ . '/..';
+        $app['path.base'] = __DIR__.'/..';
         $app['config']->set('database.default', 'sqlite');
         $app['config']->set('database.connections.sqlite', [
-            'driver' => 'sqlite',
+            'driver'   => 'sqlite',
             'database' => ':memory:',
-            'prefix' => '',
+            'prefix'   => '',
         ]);
         $app['config']->set('translatable.locales', ['en', 'fr']);
     }
@@ -41,7 +41,7 @@ abstract class BaseTestCase extends TestCase
     protected function getPackageAliases($app)
     {
         return [
-            'Eloquent' => 'Illuminate\Database\Eloquent\Model',
+            'Eloquent'            => 'Illuminate\Database\Eloquent\Model',
             'LaravelLocalization' => 'Mcamara\LaravelLocalization\Facades\LaravelLocalization',
         ];
     }

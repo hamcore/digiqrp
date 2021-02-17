@@ -62,11 +62,11 @@ class EloquentTranslationRepositoryTest extends BaseTranslationTest
 
         $expected = [
             'en' => [
-                'user::index.show' => 'Show user',
+                'user::index.show'   => 'Show user',
                 'user::index.update' => 'Update user',
             ],
             'fr' => [
-                'user::index.show' => 'Voir user',
+                'user::index.show'   => 'Voir user',
                 'user::index.update' => 'Mettre à jour user',
             ],
         ];
@@ -83,7 +83,7 @@ class EloquentTranslationRepositoryTest extends BaseTranslationTest
         $this->translation->saveTranslationForLocaleAndKey('fr', 'user::index.update', 'Mettre à jour user');
 
         $expected = [
-            'show' => 'Show user',
+            'show'   => 'Show user',
             'update' => 'Update user',
         ];
 

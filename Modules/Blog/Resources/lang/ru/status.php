@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'draft' => 'Черновик',
+    'draft'          => 'Черновик',
     'pending review' => 'На утверждении',
-    'published' => 'Опубликовано',
-    'unpublished' => 'Неопубликованно',
+    'published'      => 'Опубликовано',
+    'unpublished'    => 'Неопубликованно',
 ];

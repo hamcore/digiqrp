@@ -18,10 +18,12 @@ use Modules\Core\Traits\CanPublishConfiguration;
 
 class BlockServiceProvider extends ServiceProvider
 {
-    use CanPublishConfiguration, CanGetSidebarClassForModule;
+    use CanPublishConfiguration;
+    use CanGetSidebarClassForModule;
 
     /**
      * Register the service provider.
+     *
      * @return void
      */
     public function register()
@@ -51,6 +53,7 @@ class BlockServiceProvider extends ServiceProvider
 
     /**
      * Get the services provided by the provider.
+     *
      * @return array
      */
     public function provides()
@@ -63,7 +66,7 @@ class BlockServiceProvider extends ServiceProvider
         $this->app->bind(BlockRepository::class, function () {
             $repository = new EloquentBlockRepository(new Block());
 
-            if (! config('app.cache')) {
+            if (!config('app.cache')) {
                 return $repository;
             }
 

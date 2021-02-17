@@ -53,7 +53,7 @@ class UserController extends Controller
         $this->user->createWithRoles($data, $request->get('roles'), $request->get('is_activated'));
 
         return response()->json([
-            'errors' => false,
+            'errors'  => false,
             'message' => trans('user::messages.user created'),
         ]);
     }
@@ -65,7 +65,7 @@ class UserController extends Controller
         $this->user->updateAndSyncRoles($user->id, $data, $request->get('roles'));
 
         return response()->json([
-            'errors' => false,
+            'errors'  => false,
             'message' => trans('user::messages.user updated'),
         ]);
     }
@@ -75,7 +75,7 @@ class UserController extends Controller
         $this->user->delete($user->id);
 
         return response()->json([
-            'errors' => false,
+            'errors'  => false,
             'message' => trans('user::messages.user deleted'),
         ]);
     }
@@ -87,16 +87,17 @@ class UserController extends Controller
         event(new UserHasBegunResetProcess($user, $code));
 
         return response()->json([
-            'errors' => false,
+            'errors'  => false,
             'message' => trans('user::auth.reset password email was sent'),
         ]);
     }
 
     /**
      * @param Request $request
+     *
      * @return array
      */
-    private function mergeRequestWithPermissions(Request $request) : array
+    private function mergeRequestWithPermissions(Request $request): array
     {
         $permissions = $this->permissions->clean($request->get('permissions'));
 

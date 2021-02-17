@@ -14,7 +14,7 @@ class FinderService
     }
 
     /**
-     * @param  array $excludes
+     * @param array $excludes
      *
      * @return $this
      */
@@ -28,13 +28,13 @@ class FinderService
     /**
      * Get all of the files from the given directory (recursive).
      *
-     * @param  string $directory
-     * @param  bool $hidden
+     * @param string $directory
+     * @param bool   $hidden
      *
      * @return array
      */
     public function allFiles($directory, $hidden = false)
     {
-        return iterator_to_array($this->filesystem->ignoreDotFiles(! $hidden)->in($directory), false);
+        return iterator_to_array($this->filesystem->ignoreDotFiles(!$hidden)->in($directory), false);
     }
 }

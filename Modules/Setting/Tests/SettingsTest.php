@@ -24,7 +24,7 @@ class SettingsTest extends BaseSettingTest
                 'en' => 'AsgardCMS_en',
                 'fr' => 'AsgardCMS_fr',
             ],
-            'core::template' => 'asgard',
+            'core::template'       => 'asgard',
             'blog::posts-per-page' => 10,
         ];
 
@@ -45,7 +45,7 @@ class SettingsTest extends BaseSettingTest
                 'en' => 'AsgardCMS_en',
                 'fr' => 'AsgardCMS_fr',
             ],
-            'core::template' => 'asgard',
+            'core::template'       => 'asgard',
             'blog::posts-per-page' => 10,
         ];
 
@@ -79,8 +79,8 @@ class SettingsTest extends BaseSettingTest
         // Prepare
         $this->app['config']->set('asgard.block.settings', [
             'display-some-feature' => [
-                'description' => 'block::settings.display-some-feature',
-                'view' => 'text',
+                'description'  => 'block::settings.display-some-feature',
+                'view'         => 'text',
                 'translatable' => true,
             ],
         ]);

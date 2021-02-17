@@ -60,18 +60,19 @@ abstract class BaseBlogTestCase extends TestCase
 
     protected function getEnvironmentSetUp($app)
     {
-        $app['path.base'] = __DIR__ . '/..';
+        $app['path.base'] = __DIR__.'/..';
         $app['config']->set('database.default', 'sqlite');
-        $app['config']->set('database.connections.sqlite', array(
-            'driver' => 'sqlite',
+        $app['config']->set('database.connections.sqlite', [
+            'driver'   => 'sqlite',
             'database' => ':memory:',
-            'prefix' => '',
-        ));
+            'prefix'   => '',
+        ]);
         $app['config']->set('translatable.locales', ['en', 'fr']);
     }
 
     /**
-     * Helper method to create a blog post
+     * Helper method to create a blog post.
+     *
      * @return object
      */
     public function createBlogPost()
@@ -83,18 +84,18 @@ abstract class BaseBlogTestCase extends TestCase
 
         $data = [
             'en' => [
-                'title' => $title,
-                'slug' => $slug,
+                'title'   => $title,
+                'slug'    => $slug,
                 'content' => $faker->paragraph(),
             ],
             'fr' => [
-                'title' => $title,
-                'slug' => $slug,
+                'title'   => $title,
+                'slug'    => $slug,
                 'content' => $faker->paragraph(),
             ],
             'category_id' => 1,
-            'status' => Status::PUBLISHED,
-            'tags' => [],
+            'status'      => Status::PUBLISHED,
+            'tags'        => [],
         ];
 
         return $this->post->create($data);

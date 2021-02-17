@@ -25,7 +25,8 @@ use Nwidart\Menus\MenuItem as PingpongMenuItem;
 
 class MenuServiceProvider extends ServiceProvider
 {
-    use CanPublishConfiguration, CanGetSidebarClassForModule;
+    use CanPublishConfiguration;
+    use CanGetSidebarClassForModule;
     /**
      * Indicates if loading of the provider is deferred.
      *
@@ -65,7 +66,7 @@ class MenuServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register all online menus on the Pingpong/Menu package
+     * Register all online menus on the Pingpong/Menu package.
      */
     public function boot()
     {
@@ -73,7 +74,7 @@ class MenuServiceProvider extends ServiceProvider
         $this->registerBladeTags();
         $this->publishConfig('menu', 'permissions');
         $this->publishConfig('menu', 'config');
-        $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
+        $this->loadMigrationsFrom(__DIR__.'/../Database/Migrations');
     }
 
     /**
@@ -87,14 +88,14 @@ class MenuServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register class binding
+     * Register class binding.
      */
     private function registerBindings()
     {
         $this->app->bind(MenuRepository::class, function () {
             $repository = new EloquentMenuRepository(new Menu());
 
-            if (! config('app.cache')) {
+            if (!config('app.cache')) {
                 return $repository;
             }
 
@@ -104,7 +105,7 @@ class MenuServiceProvider extends ServiceProvider
         $this->app->bind(MenuItemRepository::class, function () {
             $repository = new EloquentMenuItemRepository(new Menuitem());
 
-            if (! config('app.cache')) {
+            if (!config('app.cache')) {
                 return $repository;
             }
 
@@ -113,9 +114,10 @@ class MenuServiceProvider extends ServiceProvider
     }
 
     /**
-     * Add a menu item to the menu
+     * Add a menu item to the menu.
+     *
      * @param Menuitem $item
-     * @param Builder $menu
+     * @param Builder  $menu
      */
     public function addItemToMenu(Menuitem $item, Builder $menu)
     {
@@ -125,9 +127,9 @@ class MenuServiceProvider extends ServiceProvider
                 $item->items,
                 $menu,
                 [
-                    'icon' => $item->icon,
+                    'icon'   => $item->icon,
                     'target' => $item->target,
-                    'class' => $item->class,
+                    'class'  => $item->class,
                 ]
             );
         } else {
@@ -139,18 +141,18 @@ class MenuServiceProvider extends ServiceProvider
                 $item->title,
                 [
                     'target' => $item->target,
-                    'icon' => $item->icon,
-                    'class' => $item->class,
+                    'icon'   => $item->icon,
+                    'class'  => $item->class,
                 ]
             );
         }
     }
 
     /**
-     * Add children to menu under the give name
+     * Add children to menu under the give name.
      *
-     * @param string $name
-     * @param object $children
+     * @param string           $name
+     * @param object           $children
      * @param Builder|MenuItem $menu
      */
     private function addChildrenToMenu($name, $children, $menu, $attribs = [])
@@ -163,8 +165,9 @@ class MenuServiceProvider extends ServiceProvider
     }
 
     /**
-     * Add children to the given menu recursively
-     * @param Menuitem $child
+     * Add children to the given menu recursively.
+     *
+     * @param Menuitem         $child
      * @param PingpongMenuItem $sub
      */
     private function addSubItemToMenu(Menuitem $child, PingpongMenuItem $sub)
@@ -172,15 +175,16 @@ class MenuServiceProvider extends ServiceProvider
         if ($this->hasChildren($child)) {
             $this->addChildrenToMenu($child->title, $child->items, $sub);
         } else {
-            $target = $child->link_type != 'external' ? $child->locale . '/' . $child->uri : $child->url;
+            $target = $child->link_type != 'external' ? $child->locale.'/'.$child->uri : $child->url;
             $sub->url($target, $child->title, 0, ['icon' => $child->icon, 'target' => $child->target, 'class' => $child->class]);
         }
     }
 
     /**
-     * Check if the given menu item has children
+     * Check if the given menu item has children.
      *
-     * @param  object $item
+     * @param object $item
+     *
      * @return bool
      */
     private function hasChildren($item)
@@ -189,7 +193,7 @@ class MenuServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the active menus
+     * Register the active menus.
      */
     private function registerMenus()
     {
@@ -213,7 +217,7 @@ class MenuServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register menu blade tags
+     * Register menu blade tags.
      */
     protected function registerBladeTags()
     {

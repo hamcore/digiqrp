@@ -10,9 +10,10 @@ class UnignorePackageLock implements SetupScript
     const PACKAGE_LOCK = 'package-lock.json';
 
     /**
-     * Fire the install script
+     * Fire the install script.
      *
-     * @param  Command $command
+     * @param Command $command
+     *
      * @return mixed
      */
     public function fire(Command $command)
@@ -32,6 +33,7 @@ class UnignorePackageLock implements SetupScript
 
     /**
      * @param $gitignorePath
+     *
      * @return bool
      */
     private function gitignoreContainsPackageLock($gitignorePath)
@@ -41,6 +43,7 @@ class UnignorePackageLock implements SetupScript
 
     /**
      * @param $gitignorePath
+     *
      * @return array
      */
     private function getGitignoreLinesButPackageLock($gitignorePath)

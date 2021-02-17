@@ -30,18 +30,18 @@ class MediaTransformer extends JsonResource
     public function toArray($request)
     {
         $data = [
-            'id' => $this->resource->id,
-            'filename' => $this->resource->filename,
-            'path' => $this->getPath(),
-            'is_image' => $this->resource->isImage(),
-            'is_folder' => $this->resource->isFolder(),
-            'media_type' => $this->resource->media_type,
-            'fa_icon' => FileHelper::getFaIcon($this->resource->media_type),
-            'created_at' => $this->resource->created_at,
-            'folder_id' => $this->resource->folder_id,
-            'small_thumb' => $this->imagy->getThumbnail($this->resource->path, 'smallThumb'),
+            'id'           => $this->resource->id,
+            'filename'     => $this->resource->filename,
+            'path'         => $this->getPath(),
+            'is_image'     => $this->resource->isImage(),
+            'is_folder'    => $this->resource->isFolder(),
+            'media_type'   => $this->resource->media_type,
+            'fa_icon'      => FileHelper::getFaIcon($this->resource->media_type),
+            'created_at'   => $this->resource->created_at,
+            'folder_id'    => $this->resource->folder_id,
+            'small_thumb'  => $this->imagy->getThumbnail($this->resource->path, 'smallThumb'),
             'medium_thumb' => $this->imagy->getThumbnail($this->resource->path, 'mediumThumb'),
-            'urls' => [
+            'urls'         => [
                 'delete_url' => $this->getDeleteUrl(),
             ],
         ];

@@ -42,7 +42,7 @@ interface TaggableInterface
     public function scopeWithTag(Builder $query, $tags, string $type = 'slug'): Builder;
 
     /**
-     * Define the eloquent morphMany relationship
+     * Define the eloquent morphMany relationship.
      */
     public function tags(): MorphToMany;
 
@@ -59,7 +59,7 @@ interface TaggableInterface
     /**
      * Syncs the given tags.
      *
-     * @param  string|array $tags
+     * @param string|array $tags
      */
     public function setTags($tags, string $type = 'name'): bool;
 
@@ -67,7 +67,7 @@ interface TaggableInterface
      * Detaches multiple tags from the entity or if no tags are
      * passed, removes all the attached tags from the entity.
      *
-     * @param  string|array|null $tags
+     * @param string|array|null $tags
      */
     public function untag($tags = null): bool;
 
@@ -79,7 +79,7 @@ interface TaggableInterface
     /**
      * Attaches multiple tags to the entity.
      *
-     * @param  string|array $tags
+     * @param string|array $tags
      */
     public function tag($tags): bool;
 

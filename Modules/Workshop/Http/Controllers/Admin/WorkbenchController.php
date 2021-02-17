@@ -21,7 +21,8 @@ class WorkbenchController extends AdminBaseController
     }
 
     /**
-     * Show the index view
+     * Show the index view.
+     *
      * @return mixed
      */
     public function index()
@@ -30,8 +31,10 @@ class WorkbenchController extends AdminBaseController
     }
 
     /**
-     * Generate a module given its name
-     * @param  GenerateModuleRequest $request
+     * Generate a module given its name.
+     *
+     * @param GenerateModuleRequest $request
+     *
      * @return mixed
      */
     public function generate(GenerateModuleRequest $request)
@@ -45,8 +48,10 @@ class WorkbenchController extends AdminBaseController
     }
 
     /**
-     * Run the migration for the given module
-     * @param  MigrateModuleRequest $request
+     * Run the migration for the given module.
+     *
+     * @param MigrateModuleRequest $request
+     *
      * @return mixed
      */
     public function migrate(MigrateModuleRequest $request)
@@ -60,8 +65,10 @@ class WorkbenchController extends AdminBaseController
     }
 
     /**
-     * Run the install command for the given vendor/module
-     * @param  InstallModuleRequest $request
+     * Run the install command for the given vendor/module.
+     *
+     * @param InstallModuleRequest $request
+     *
      * @return mixed
      */
     public function install(InstallModuleRequest $request)
@@ -80,8 +87,10 @@ class WorkbenchController extends AdminBaseController
     }
 
     /**
-     * Run the seed command for the given module
-     * @param  SeedModuleRequest $request
+     * Run the seed command for the given module.
+     *
+     * @param SeedModuleRequest $request
+     *
      * @return mixed
      */
     public function seed(SeedModuleRequest $request)

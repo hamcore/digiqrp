@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'draft' => 'Draft',
+    'draft'          => 'Draft',
     'pending review' => 'Pending review',
-    'published' => 'Published',
-    'unpublished' => 'Unpublished',
+    'published'      => 'Published',
+    'unpublished'    => 'Unpublished',
 ];

@@ -84,11 +84,11 @@ class FileTest extends MediaTestCase
     private function createFile($fileName = 'random/name.jpg')
     {
         return File::create([
-            'filename' => $fileName,
-            'path' => config('asgard.media.config.files-path') . $fileName,
-            'extension' => substr(strrchr($fileName, "."), 1),
-            'mimetype' => 'image/jpg',
-            'filesize' => '1024',
+            'filename'  => $fileName,
+            'path'      => config('asgard.media.config.files-path').$fileName,
+            'extension' => substr(strrchr($fileName, '.'), 1),
+            'mimetype'  => 'image/jpg',
+            'filesize'  => '1024',
             'folder_id' => 0,
         ]);
     }

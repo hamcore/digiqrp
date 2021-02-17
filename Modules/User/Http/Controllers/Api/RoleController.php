@@ -56,7 +56,7 @@ class RoleController extends Controller
         $this->role->create($data);
 
         return response()->json([
-            'errors' => false,
+            'errors'  => false,
             'message' => trans('user::messages.role created'),
         ]);
     }
@@ -68,7 +68,7 @@ class RoleController extends Controller
         $this->role->update($role->id, $data);
 
         return response()->json([
-            'errors' => false,
+            'errors'  => false,
             'message' => trans('user::messages.role updated'),
         ]);
     }
@@ -78,13 +78,14 @@ class RoleController extends Controller
         $this->role->delete($role->id);
 
         return response()->json([
-            'errors' => false,
+            'errors'  => false,
             'message' => trans('user::messages.role deleted'),
         ]);
     }
 
     /**
      * @param Request $request
+     *
      * @return array
      */
     private function mergeRequestWithPermissions(Request $request)

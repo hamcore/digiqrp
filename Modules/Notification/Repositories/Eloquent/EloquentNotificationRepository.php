@@ -9,6 +9,7 @@ final class EloquentNotificationRepository extends EloquentBaseRepository implem
 {
     /**
      * @param int $userId
+     *
      * @return \Illuminate\Database\Eloquent\Collection
      */
     public function latestForUser($userId)
@@ -17,8 +18,10 @@ final class EloquentNotificationRepository extends EloquentBaseRepository implem
     }
 
     /**
-     * Mark the given notification id as "read"
+     * Mark the given notification id as "read".
+     *
      * @param int $notificationId
+     *
      * @return bool
      */
     public function markNotificationAsRead($notificationId)
@@ -40,8 +43,10 @@ final class EloquentNotificationRepository extends EloquentBaseRepository implem
     }
 
     /**
-     * Get all the notifications for the given user id
+     * Get all the notifications for the given user id.
+     *
      * @param int $userId
+     *
      * @return \Illuminate\Database\Eloquent\Collection
      */
     public function allForUser($userId)
@@ -50,8 +55,10 @@ final class EloquentNotificationRepository extends EloquentBaseRepository implem
     }
 
     /**
-     * Get all the read notifications for the given user id
+     * Get all the read notifications for the given user id.
+     *
      * @param int $userId
+     *
      * @return \Illuminate\Database\Eloquent\Collection
      */
     public function allReadForUser($userId)
@@ -60,8 +67,10 @@ final class EloquentNotificationRepository extends EloquentBaseRepository implem
     }
 
     /**
-     * Get all the unread notifications for the given user id
+     * Get all the unread notifications for the given user id.
+     *
      * @param int $userId
+     *
      * @return \Illuminate\Database\Eloquent\Collection
      */
     public function allUnreadForUser($userId)
@@ -70,8 +79,10 @@ final class EloquentNotificationRepository extends EloquentBaseRepository implem
     }
 
     /**
-     * Delete all the notifications for the given user
+     * Delete all the notifications for the given user.
+     *
      * @param int $userId
+     *
      * @return bool
      */
     public function deleteAllForUser($userId)
@@ -80,8 +91,10 @@ final class EloquentNotificationRepository extends EloquentBaseRepository implem
     }
 
     /**
-     * Mark all the notifications for the given user as read
+     * Mark all the notifications for the given user as read.
+     *
      * @param int $userId
+     *
      * @return bool
      */
     public function markAllAsReadForUser($userId)

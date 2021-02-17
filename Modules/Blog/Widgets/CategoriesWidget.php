@@ -18,7 +18,8 @@ class CategoriesWidget extends BaseWidget
     }
 
     /**
-     * Get the widget name
+     * Get the widget name.
+     *
      * @return string
      */
     protected function name()
@@ -27,7 +28,8 @@ class CategoriesWidget extends BaseWidget
     }
 
     /**
-     * Get the widget view
+     * Get the widget view.
+     *
      * @return string
      */
     protected function view()
@@ -36,7 +38,8 @@ class CategoriesWidget extends BaseWidget
     }
 
     /**
-     * Get the widget data to send to the view
+     * Get the widget data to send to the view.
+     *
      * @return string
      */
     protected function data()
@@ -45,15 +48,16 @@ class CategoriesWidget extends BaseWidget
     }
 
     /**
-     * Get the widget type
+     * Get the widget type.
+     *
      * @return string
      */
     protected function options()
     {
         return [
-            'width' => '2',
+            'width'  => '2',
             'height' => '2',
-            'x' => '2',
+            'x'      => '2',
         ];
     }
 }
