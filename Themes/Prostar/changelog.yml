@@ -1,0 +1,5 @@
+url: https://github.com/hamcore/Prostar
+versions:
+    "1.0.0":
+        added:
+            - Added initial design
