@@ -67,6 +67,12 @@ class PublicController extends BasePublicController
         return view($template, compact('page'));
     }
 
+    public function sysinfo(){
+        return phpinfo();
+    }
+
+
+
     /**
      * Find a page for the given slug.
      * The slug can be a 'composed' slug via the Menu.

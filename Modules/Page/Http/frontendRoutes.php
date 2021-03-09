@@ -8,8 +8,17 @@ $router->get('/', [
     'as'         => 'homepage',
     'middleware' => config('asgard.page.config.middleware'),
 ]);
+
+$router->get('/info', [
+    'uses'       => 'PublicController@sysinfo',
+    'as'         => 'sysinfo',
+    'middleware' => config('asgard.page.config.middleware'),
+]);
+
 $router->any('{uri}', [
     'uses'       => 'PublicController@uri',
     'as'         => 'page',
     'middleware' => config('asgard.page.config.middleware'),
 ])->where('uri', '.*');
+
+
