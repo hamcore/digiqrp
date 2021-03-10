@@ -1,0 +1,13 @@
+{
+    "name": "Logs",
+    "alias": "logs",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Logs\\Providers\\LogsServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
