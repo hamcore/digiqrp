@@ -11,6 +11,6 @@
 |
 */
 
-Route::prefix('news')->group(function() {
+Route::prefix('news')->group(function () {
     Route::get('/', 'NewsController@index');
 });
