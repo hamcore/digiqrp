@@ -12,5 +12,7 @@
     "Blog": true,
     "Notification": true,
     "Block": true,
-    "Contact": true
+    "Contact": true,
+    "News": true,
+    "Logs": true
 }
