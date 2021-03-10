@@ -67,11 +67,10 @@ class PublicController extends BasePublicController
         return view($template, compact('page'));
     }
 
-    public function sysinfo(){
+    public function sysinfo()
+    {
         return phpinfo();
     }
-
-
 
     /**
      * Find a page for the given slug.

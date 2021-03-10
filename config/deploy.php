@@ -37,7 +37,7 @@ return [
     | Hooks
     |--------------------------------------------------------------------------
     |
-    | Hooks let you customize your deployments conveniently by pushing tasks 
+    | Hooks let you customize your deployments conveniently by pushing tasks
     | into strategic places of your deployment flow. Each of the official
     | strategies invoke hooks in different ways to implement their logic.
     |
@@ -48,34 +48,34 @@ return [
         'start' => [
             //
         ],
-        
+
         // Code and composer vendors are ready but nothing is built.
         'build' => [
             //
         ],
-        
+
         // Deployment is done but not live yet (before symlink)
         'ready' => [
             'artisan:storage:link',
             'artisan:view:clear',
             'artisan:config:cache',
         ],
-        
+
         // Deployment is done and live
         'done' => [
             //
         ],
-        
+
         // Deployment succeeded.
         'success' => [
             //
         ],
-        
+
         // Deployment failed.
         'fail' => [
             //
         ],
-        
+
         // After a deployment has been rolled back.
         'rollback' => [
             //
@@ -95,7 +95,7 @@ return [
 
     'options' => [
         'application' => env('APP_NAME', 'Laravel'),
-        'repository' => 'git@github.com:hamcore/digiqrp.git',
+        'repository'  => 'git@github.com:hamcore/digiqrp.git',
     ],
 
     /*
@@ -112,7 +112,7 @@ return [
     'hosts' => [
         'digiqrp.com' => [
             'deploy_path' => '/var/www/digiqrp',
-            'user' => 'root',
+            'user'        => 'root',
         ],
     ],
 
@@ -136,7 +136,7 @@ return [
     | Include additional Deployer recipes
     |--------------------------------------------------------------------------
     |
-    | Here, you can add any third party recipes to provide additional tasks, 
+    | Here, you can add any third party recipes to provide additional tasks,
     | options and strategies. Therefore, it also allows you to create and
     | include your own recipes to define more complex deployment flows.
     |
