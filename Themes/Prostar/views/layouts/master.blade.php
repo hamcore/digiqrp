@@ -1,10 +1,12 @@
 <!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
-    @yield('content')
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="ltr">
+
+@include('partials.head')
+
+
+<body class="site com_content view-category layout-blog no-task itemid-101">
+
+<p>test</p>
 </body>
+
 </html>
