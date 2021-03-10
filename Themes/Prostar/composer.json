@@ -1,20 +1,13 @@
 {
-  "name": "hamcore/prostar-theme",
+  "name": "hamcore/Prostar-theme",
   "type": "asgard-theme",
-  "description": "An AsgardCMS Prostar bootstrap Joomla CLone theme",
+  "description": "",
   "keywords": [
     "asgard-cms"
   ],
   "license": "MIT",
-  "authors": [
-    {
-      "name": "Mark Gregory",
-      "email": "mark.gregory@gmx.com",
-      "role": "Developer"
-    }
-  ],
   "require": {
-    "php": ">=5.4",
+    "php": ">=5.5",
     "composer/installers": "~1.0"
   },
   "scripts": {
@@ -25,11 +18,5 @@
       "php artisan stylist:publish"
     ]
   },
-  "extra": {
-    "branch-alias": {
-      "dev-master": "4.0.x-dev"
-    }
-  },
-  "minimum-stability": "dev",
-  "prefer-stable": true
+  "minimum-stability": "dev"
 }

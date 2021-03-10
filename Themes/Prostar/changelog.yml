@@ -1,5 +1,6 @@
-url: https://github.com/hamcore/Prostar
+url: https://github.com/AsgardCms/Platform
 versions:
     "1.0.0":
         added:
-            - Added initial design
+            - basic theme layout
+
