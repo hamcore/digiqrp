@@ -1,7 +1,8 @@
 {
     "name": "Logs",
     "alias": "logs",
-    "description": "",
+    "description": "Provides support for Ham Radio logs",
+    "version": "1.0.1",
     "keywords": [],
     "priority": 0,
     "providers": [

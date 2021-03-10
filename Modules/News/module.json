@@ -1,7 +1,8 @@
 {
     "name": "News",
     "alias": "news",
-    "description": "",
+    "description": "Provides Support for news articles",
+    "version" : "1.0.0",
     "keywords": [],
     "priority": 0,
     "providers": [
