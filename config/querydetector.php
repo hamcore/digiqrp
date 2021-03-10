@@ -70,5 +70,5 @@ return [
 
     'output' => [
         \BeyondCode\QueryDetector\Outputs\Debugbar::class,
-    ]
+    ],
 ];
